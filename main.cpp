@@ -1,55 +1,166 @@
 #include <SFML/Graphics.hpp>
 //TODO audio
+#include <iostream>
+#include <string>
+
+int ground = 1080;
+
+const int H = 30;
+const int W = 40;
+
+std::string TileMap[H] = {
+    "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
+    "B                                      B",
+    "B                                      B",
+    "B        0000                          B",
+    "B                            B         B",
+    "B                            B         B",
+    "B                         BBBB         B",
+    "B BBB                        B         B",
+    "B                            B         B",
+    "B               B                      B",
+    "B               BB                     B",
+    "B                                      B",
+    "B        0000                          B",
+    "B                            B         B",
+    "B                            B         B",
+    "B                         BBBB         B",
+    "B BBB                        B         B",
+    "B                                      B",
+    "B               B                      B",
+    "B                                      B",
+    "B                                      B",
+    "B        0000                          B",
+    "B                        BBBB          B",
+    "B                                      B",
+    "B                                      B",
+    "B BBB                                  B",
+    "B                                      B",
+    "B               B                      B",
+    "B               BB                     B",
+    "BBBBBBBBBB   BBBBBBBBBBBBBBBBBBBBBBBBBBB"
+};
+
+class Player{
+    public:
+
+    float dx, dy;
+    sf::FloatRect rect;
+    bool onGround;
+    sf::Sprite sprite;
+    float currentFrame;
+
+    Player(sf::Texture &image){
+        sprite.setTexture(image);
+        rect = sf::FloatRect(0, 40, 150, 170);
+        sprite.setTextureRect(sf::IntRect(0, 40, 150, 170));
+        rect.left = 1000;
+        rect.top = 700;
+        dx = dy = 0;
+        currentFrame = 0;
+    }
+
+    void update(const float& time){
+        rect.left += dx * time;
+
+        Collision(0);
+
+        if (!onGround) {dy = dy + 0.00009*time;}
+        rect.top += dy * time;
+        onGround = false;
+
+        Collision(1);
+
+        if(rect.top > ground){
+            rect.top = ground;
+            dy = 0;
+            onGround = true;
+        }
+
+        currentFrame += 0.001*time;
+        if ( currentFrame > 6 ) currentFrame -= 6;
+
+        if (dx > 0) {sprite.setTextureRect(sf::IntRect(150*((int)currentFrame),40,150,170));}
+        if (dx < 0) {sprite.setTextureRect(sf::IntRect(150*((int)currentFrame) + 150,40, -150,170));}
+
+        sprite.setPosition(rect.left, rect.top);
+        
+        dx = 0;
+    }
+
+    void Collision(int dir){
+        for(int i = rect.top/32; i < (rect.top + rect.height)/32; ++i){
+            for(int j = rect.left/32; j < (rect.left + rect.width)/32; ++j){
+                if (TileMap[i][j] == 'B'){
+                    if((dx > 0) && (dir == 0)){rect.left = j*32 - rect.width;}
+                    if((dx < 0) && (dir == 0)){rect.left = j*32 + 32 ;}
+                    if((dy > 0) && (dir == 1)){rect.top = i*32 - rect.height; dy = 0; onGround = true;}
+                    if((dy < 0) && (dir == 1)){rect.top = i*32 + 32 ; dy = 0;}
+                }
+            }
+        }
+    }
+};
+
+
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1920, 1080), "name project"); 
-    sf::Image heroimage;
-    heroimage.loadFromFile("images/heroes/soviet_man.png");
+    sf::RenderWindow window(sf::VideoMode(1920, 1080), "two Egors and one Artem");  // TODO name of project
 
-    sf::Image mapimage;
-    mapimage.loadFromFile("images/objects/map.png");
+    sf::Texture t;
+    t.loadFromFile("images/heroes/soviet_man.png");
 
-    sf::Texture herotexture;
-    herotexture.loadFromImage(heroimage);
+    float currentFrame = 0;
 
-    sf::Texture maptexture;
-    maptexture.loadFromImage(mapimage);
+    Player p(t);
 
-    sf::Sprite herosprite;
-    herosprite.setTexture(herotexture);
-    herosprite.setTextureRect(sf::IntRect(150, 30, -150, 170)); //first way unfold the charecter - to use negative coords
-    herosprite.setPosition(0, 0);
+    sf::RectangleShape rectangle(sf::Vector2f(32,32));
 
-    sf::Sprite mapsprite;
-    mapsprite.setTexture(maptexture);
-    mapsprite.setPosition(0, 0);
+    sf::Clock clock;
 
-    while (window.isOpen())
-    {
+    while(window.isOpen()){
+        float time = clock.getElapsedTime().asMicroseconds();
+        clock.restart();
+        time = time / 500;
+
         sf::Event event;
-        while (window.pollEvent(event))
-        {
-            if (event.type == sf::Event::Closed)
-                window.close();
+        while(window.pollEvent(event)){
+            if(event.type == sf::Event::Closed){window.close();}
+        }
+        
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
+            p.dx = 0.1;
         }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left))  {herosprite.move(-1.1, 0); herosprite.setTextureRect(sf::IntRect(150, 30, -150, 170)); }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)) {herosprite.move(1.1, 0);  herosprite.setTextureRect(sf::IntRect(0, 30, 150, 170));}
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up))    {herosprite.move(0, -1.1); herosprite.setTextureRect(sf::IntRect(150, 30, -150, 170));}
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down))  {herosprite.move(0, 1.1);  herosprite.setTextureRect(sf::IntRect(0, 30, 150, 170));}
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
+            p.dx = -0.1;
+        }
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {mapsprite.move(-1.1, 0);}
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {mapsprite.move(1.1, 0);}
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {mapsprite.move(0, -1.1);}
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {mapsprite.move(0, 1.1);}
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
+            if (p.onGround) {p.dy = -0.2; p.onGround = false;}
+        }
 
+        p.update(time);
 
-        window.clear();
-        window.draw(mapsprite);
-        window.draw(herosprite);
+        window.clear(sf::Color::White);
+
+        for (int i = 0; i<H; ++i){
+            for(int j = 0; j<W; ++j){
+                if(TileMap[i][j] == 'B'){rectangle.setFillColor(sf::Color::Black);}
+                if(TileMap[i][j] == '0'){rectangle.setFillColor(sf::Color::Green);}
+                if(TileMap[i][j] == ' ') {continue;}
+
+                rectangle.setPosition(j*32, i*32);
+                window.draw(rectangle);
+            }
+
+        }
+
+        window.draw(p.sprite);
         window.display();
     }
+
 
     return 0;
 }
