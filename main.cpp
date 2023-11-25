@@ -2,6 +2,7 @@
 //TODO audio
 #include <iostream>
 #include <string>
+#include "anim.hpp"
 
 int ground = 1080;
 
@@ -25,13 +26,13 @@ std::string TileMap[H] = {
     "B                            B         B",
     "B                            B         B",
     "B                         BBBB         B",
-    "B BBB                        B         B",
+    "B BBB                                  B",
     "B                                      B",
     "B               B                      B",
     "B                                      B",
     "B                                      B",
     "B        0000                          B",
-    "B                        BBBB          B",
+    "B                            BBBB      B",
     "B                                      B",
     "B                                      B",
     "B BBB                                  B",
@@ -71,11 +72,6 @@ class Player{
 
         Collision(1);
 
-        if(rect.top > ground){
-            rect.top = ground;
-            dy = 0;
-            onGround = true;
-        }
 
         currentFrame += 0.001*time;
         if ( currentFrame > 6 ) currentFrame -= 6;
@@ -111,9 +107,10 @@ int main()
     sf::Texture t;
     t.loadFromFile("images/heroes/soviet_man.png");
 
-    float currentFrame = 0;
-
-    Player p(t);
+    AnimationManager anim;
+    anim.create("run", t, 0, 40, 150, 170, 6, 0.005, 40);
+    anim.create("jump", t, 0, 240, 150, 170, 6, 0.0045, 40);
+    anim.create("stay", t, 0, 240, 150, 170, 1, 0.005, 40);
 
     sf::RectangleShape rectangle(sf::Vector2f(32,32));
 
