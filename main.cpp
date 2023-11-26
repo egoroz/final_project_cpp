@@ -2,47 +2,79 @@
 //TODO audio
 #include <iostream>
 #include <string>
-#include "anim.hpp"
+#include "include/anim.hpp"
+#include "include/player.hpp"
 
 int ground = 1080;
 
-const int H = 30;
-const int W = 40;
+// class Player{
+// public:
+// float x, y, dx, dy, w, h;
+// bool dir;
+// AnimationManager anim;
+// bool onLadder, shoot, hit;
 
-std::string TileMap[H] = {
-    "BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB",
-    "B                                      B",
-    "B                                      B",
-    "B        0000                          B",
-    "B                            B         B",
-    "B                            B         B",
-    "B                         BBBB         B",
-    "B BBB                        B         B",
-    "B                            B         B",
-    "B               B                      B",
-    "B               BB                     B",
-    "B                                      B",
-    "B        0000                          B",
-    "B                            B         B",
-    "B                            B         B",
-    "B                         BBBB         B",
-    "B BBB                                  B",
-    "B                                      B",
-    "B               B                      B",
-    "B                                      B",
-    "B                                      B",
-    "B        0000                          B",
-    "B                            BBBB      B",
-    "B                                      B",
-    "B                                      B",
-    "B BBB                                  B",
-    "B                                      B",
-    "B               B                      B",
-    "B               BB                     B",
-    "BBBBBBBBBB   BBBBBBBBBBBBBBBBBBBBBBBBBBB"
-};
+// enum {stay, walk} STATE;
+// std::map<std::string, bool> key;
 
+// Player(AnimationManager & anim){
+//     anim = anim;
+//     STATE = stay;
+//     dir = 0;
+// }
 
+// void KeyCheck(){
+//     if (key["L"]){
+//         dir = 1;
+//         dx =  -0.1;
+//         if (STATE == stay) {STATE = walk;}
+//     }
+
+//     if (key["R"]){
+//         dir = 0;
+//         dx = 0.1;
+//         if (STATE == stay) {STATE = walk;}
+//     }
+
+//     if (key["Up"]){
+//         dy = -0.27;
+//     }
+
+// //-------------------------
+//     if(!(key["R"] || key["L"])){
+//         dx = 0;
+//         if (STATE == walk) {STATE = stay;}
+//     }
+
+// }
+
+// void update(float time){
+//     KeyCheck();
+
+//     if(STATE == stay)  {anim.set("stay"); std::cerr << "HERE0\n";}
+//     std::cerr << "HERE1\n";
+//     if(STATE == walk)  {anim.set("walk");}
+//     std::cerr << "HERE2\n";
+
+//     if(dir){anim.flip();}
+//     std::cerr << "HERE3\n";
+
+//     x += dx *time;
+//     // Collision(0);
+//     dy += 0.0005*time;
+//     y += y*time;
+//     // Collision(1);
+//     std::cerr << "HERE4\n";
+//     anim.tick(time);
+//     std::cerr << "HERE5\n";
+//     key["R"] = key["L"] = key["Up"] = false;
+// }
+
+// void draw(sf::RenderWindow& window){
+//     anim.draw(window, x, y);
+// }
+
+// };
 
 
 
@@ -52,14 +84,15 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "two Egors and one Artem");  // TODO name of project
 
     sf::Texture t;
-    t.loadFromFile("images/heroes/soviet_man.png");
+    t.loadFromFile("src/images/heroes/Brodell Walker.png");
 
     AnimationManager anim;
-    anim.create("run", t, 0, 40, 150, 170, 6, 0.005, 150);
-    anim.create("jump", t, 0, 320, 150, 170, 6, 0.0045, 150);
-    anim.create("stay", t, 0, 320, 150, 170, 1, 0.005, 150);
+    anim.create("walk", t, 10, 15, 32, 32, 4, 0.005, 32);
+    anim.create("stay", t, 10, 20+ 32*8, 32, 32, 28, 0.005, 32);
 
-    sf::RectangleShape rectangle(sf::Vector2f(32,32));
+    Player hero(anim);
+
+    // sf::RectangleShape rectangle(sf::Vector2f(32,32));
 
     sf::Clock clock;
 
@@ -73,42 +106,16 @@ int main()
             if(event.type == sf::Event::Closed){window.close();}
         }
         
-        anim.set("stay");
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
-            std::cerr << "push right\n";
-            anim.set("run");
-            std::cerr << "enter push right right\n";
-        }
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){hero.key["R"] = true;}
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){hero.key["L"] = true;}
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){hero.key["Up"] = true;}
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
-            anim.set("run");
-            anim.flip(true);
-        }
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
-            anim.set("jump");
-        }
-
-        
-
-        anim.tick(time);
+        hero.update(time);
 
         window.clear(sf::Color::White);
 
-        // for (int i = 0; i<H; ++i){
-        //     for(int j = 0; j<W; ++j){
-        //         if(TileMap[i][j] == 'B'){rectangle.setFillColor(sf::Color::Black);}
-        //         if(TileMap[i][j] == '0'){rectangle.setFillColor(sf::Color::Green);}
-        //         if(TileMap[i][j] == ' ') {continue;}
-
-        //         rectangle.setPosition(j*32, i*32);
-        //         window.draw(rectangle);
-        //     }
-
-        // }
-
-        anim.draw(window, 700, 700);
+        hero.draw(window);
         window.display();
     }
 
