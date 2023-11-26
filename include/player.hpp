@@ -1,4 +1,6 @@
-#pragma once
+#ifndef PLAYER_H
+#define PLAYER_H
+
 #include<iostream>
 #include"anim.hpp"
 #include<string>
@@ -55,3 +57,5 @@ public:
             anim.draw(window, x, y);
     }
 };
+
+#endif

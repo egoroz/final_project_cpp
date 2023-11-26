@@ -1,4 +1,5 @@
-#pragma once
+#ifndef ANIM_H
+#define ANIM_H
 
 #include <SFML/Graphics.hpp>
 
@@ -99,4 +100,8 @@ public:
 
   float getW() {return animList[currentAnim].frames[0].width;}
 
+  // void readAnimFromJson()
+
 };
+
+#endif
