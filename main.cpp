@@ -42,61 +42,8 @@ std::string TileMap[H] = {
     "BBBBBBBBBB   BBBBBBBBBBBBBBBBBBBBBBBBBBB"
 };
 
-class Player{
-    public:
-
-    float dx, dy;
-    sf::FloatRect rect;
-    bool onGround;
-    sf::Sprite sprite;
-    float currentFrame;
-
-    Player(sf::Texture &image){
-        sprite.setTexture(image);
-        rect = sf::FloatRect(0, 40, 150, 170);
-        sprite.setTextureRect(sf::IntRect(0, 40, 150, 170));
-        rect.left = 1000;
-        rect.top = 700;
-        dx = dy = 0;
-        currentFrame = 0;
-    }
-
-    void update(const float& time){
-        rect.left += dx * time;
-
-        Collision(0);
-
-        if (!onGround) {dy = dy + 0.00009*time;}
-        rect.top += dy * time;
-        onGround = false;
-
-        Collision(1);
 
 
-        currentFrame += 0.001*time;
-        if ( currentFrame > 6 ) currentFrame -= 6;
-
-        if (dx > 0) {sprite.setTextureRect(sf::IntRect(150*((int)currentFrame),40,150,170));}
-        if (dx < 0) {sprite.setTextureRect(sf::IntRect(150*((int)currentFrame) + 150,40, -150,170));}
-
-        sprite.setPosition(rect.left, rect.top);
-        
-        dx = 0;
-    }
-
-    void Collision(int dir){
-        for(int i = rect.top/32; i < (rect.top + rect.height)/32; ++i){
-            for(int j = rect.left/32; j < (rect.left + rect.width)/32; ++j){
-                if (TileMap[i][j] == 'B'){
-                    if((dx > 0) && (dir == 0)){rect.left = j*32 - rect.width;}
-                    if((dx < 0) && (dir == 0)){rect.left = j*32 + 32 ;}
-                    if((dy > 0) && (dir == 1)){rect.top = i*32 - rect.height; dy = 0; onGround = true;}
-                    if((dy < 0) && (dir == 1)){rect.top = i*32 + 32 ; dy = 0;}
-                }
-            }
-        }
-    }
-};
 
 
 
@@ -108,9 +55,9 @@ int main()
     t.loadFromFile("images/heroes/soviet_man.png");
 
     AnimationManager anim;
-    anim.create("run", t, 0, 40, 150, 170, 6, 0.005, 40);
-    anim.create("jump", t, 0, 240, 150, 170, 6, 0.0045, 40);
-    anim.create("stay", t, 0, 240, 150, 170, 1, 0.005, 40);
+    anim.create("run", t, 0, 40, 150, 170, 6, 0.005, 150);
+    anim.create("jump", t, 0, 320, 150, 170, 6, 0.0045, 150);
+    anim.create("stay", t, 0, 320, 150, 170, 1, 0.005, 150);
 
     sf::RectangleShape rectangle(sf::Vector2f(32,32));
 
@@ -126,35 +73,42 @@ int main()
             if(event.type == sf::Event::Closed){window.close();}
         }
         
+        anim.set("stay");
+
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){
-            p.dx = 0.1;
+            std::cerr << "push right\n";
+            anim.set("run");
+            std::cerr << "enter push right right\n";
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){
-            p.dx = -0.1;
+            anim.set("run");
+            anim.flip(true);
         }
 
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){
-            if (p.onGround) {p.dy = -0.2; p.onGround = false;}
+            anim.set("jump");
         }
 
-        p.update(time);
+        
+
+        anim.tick(time);
 
         window.clear(sf::Color::White);
 
-        for (int i = 0; i<H; ++i){
-            for(int j = 0; j<W; ++j){
-                if(TileMap[i][j] == 'B'){rectangle.setFillColor(sf::Color::Black);}
-                if(TileMap[i][j] == '0'){rectangle.setFillColor(sf::Color::Green);}
-                if(TileMap[i][j] == ' ') {continue;}
+        // for (int i = 0; i<H; ++i){
+        //     for(int j = 0; j<W; ++j){
+        //         if(TileMap[i][j] == 'B'){rectangle.setFillColor(sf::Color::Black);}
+        //         if(TileMap[i][j] == '0'){rectangle.setFillColor(sf::Color::Green);}
+        //         if(TileMap[i][j] == ' ') {continue;}
 
-                rectangle.setPosition(j*32, i*32);
-                window.draw(rectangle);
-            }
+        //         rectangle.setPosition(j*32, i*32);
+        //         window.draw(rectangle);
+        //     }
 
-        }
+        // }
 
-        window.draw(p.sprite);
+        anim.draw(window, 700, 700);
         window.display();
     }
 
