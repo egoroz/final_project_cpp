@@ -4,7 +4,7 @@
 #include <string>
 #include "include/anim.hpp"
 #include "include/player.hpp"
-// #include "3rdparty/level.hpp"  //TODO
+#include "3rdparty/level.hpp"
 
 int ground = 1080;
 
