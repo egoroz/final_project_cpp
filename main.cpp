@@ -4,7 +4,7 @@
 #include <string>
 #include "include/anim.hpp"
 #include "include/player.hpp"
-#include "3rdparty/level.hpp"
+#include "lib/level/TmxLevel.h"
 
 int ground = 1080;
 
@@ -22,8 +22,10 @@ int main()
 
     Player hero(anim);
 
-    // Level lvl;
-    // lvl.LoadFromFile("src/maps/test_map.tmx");
+    TmxLevel lvl;
+    std::cerr << "HHHHHHHHHHHH\n";
+    lvl.LoadFromFile("src/maps/platformer.tmx");
+    std::cerr << "HHHHHHHHHHHH\n";
 
 
     // sf::RectangleShape rectangle(sf::Vector2f(32,32));
@@ -50,6 +52,7 @@ int main()
         window.clear(sf::Color::White);
 
         hero.draw(window);
+        lvl.Draw(window);
         window.display();
     }
 

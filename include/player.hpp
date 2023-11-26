@@ -4,9 +4,12 @@
 #include<iostream>
 #include"anim.hpp"
 #include<string>
+#include<vector>
+#include "../lib/level/TmxLevel.h"
 
 class Player{
 public:
+   // std::vector<Object> obj;//вектор объектов карты
     float x, y, dx, dy, w, h;
     AnimationManager anim;
     bool life, dir;
@@ -19,7 +22,7 @@ public:
         anim = anim_;
         dir = false;
         x = 100;
-        y = 100;
+        y = 100; 
     }
 
     void KeyCheck(){
