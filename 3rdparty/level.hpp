@@ -69,35 +69,35 @@ bool Level::LoadFromFile(std::string filename)
 {
     TiXmlDocument levelFile(filename.c_str());
 
-	// Загружаем XML-карту
+	// Р—Р°РіСЂСѓР¶Р°РµРј XML-РєР°СЂС‚Сѓ
     if(!levelFile.LoadFile())
     {
         std::cout << "Loading level \"" << filename << "\" failed." << std::endl;
         return false;
     }
 
-	// Работаем с контейнером map
+	// Р Р°Р±РѕС‚Р°РµРј СЃ РєРѕРЅС‚РµР№РЅРµСЂРѕРј map
     TiXmlElement *map;
     map = levelFile.FirstChildElement("map");
 
-	// Пример карты: <map version="1.0" orientation="orthogonal"
+	// РџСЂРёРјРµСЂ РєР°СЂС‚С‹: <map version="1.0" orientation="orthogonal"
 	// width="10" height="10" tilewidth="34" tileheight="34">
     width = atoi(map->Attribute("width"));
     height = atoi(map->Attribute("height"));
     tileWidth = atoi(map->Attribute("tilewidth"));
     tileHeight = atoi(map->Attribute("tileheight"));
 
-	// Берем описание тайлсета и идентификатор первого тайла
+	// Р‘РµСЂРµРј РѕРїРёСЃР°РЅРёРµ С‚Р°Р№Р»СЃРµС‚Р° Рё РёРґРµРЅС‚РёС„РёРєР°С‚РѕСЂ РїРµСЂРІРѕРіРѕ С‚Р°Р№Р»Р°
     TiXmlElement *tilesetElement;
     tilesetElement = map->FirstChildElement("tileset");
     firstTileID = atoi(tilesetElement->Attribute("firstgid"));
 
-	// source - путь до картинки в контейнере image
+	// source - РїСѓС‚СЊ РґРѕ РєР°СЂС‚РёРЅРєРё РІ РєРѕРЅС‚РµР№РЅРµСЂРµ image
     TiXmlElement *image;
     image = tilesetElement->FirstChildElement("image");
     std::string imagepath = image->Attribute("source");
 
-	// Пытаемся загрузить тайлсет
+	// РџС‹С‚Р°РµРјСЃСЏ Р·Р°РіСЂСѓР·РёС‚СЊ С‚Р°Р№Р»СЃРµС‚
 	sf::Image img;
 
     if(!img.loadFromFile(imagepath))
@@ -111,11 +111,11 @@ bool Level::LoadFromFile(std::string filename)
 	tilesetImage.loadFromImage(img);
     tilesetImage.setSmooth(false);
 
-	// Получаем количество столбцов и строк тайлсета
+	// РџРѕР»СѓС‡Р°РµРј РєРѕР»РёС‡РµСЃС‚РІРѕ СЃС‚РѕР»Р±С†РѕРІ Рё СЃС‚СЂРѕРє С‚Р°Р№Р»СЃРµС‚Р°
 	int columns = tilesetImage.getSize().x / tileWidth;
     int rows = tilesetImage.getSize().y / tileHeight;
 
-	// Вектор из прямоугольников изображений (TextureRect)
+	// Р’РµРєС‚РѕСЂ РёР· РїСЂСЏРјРѕСѓРіРѕР»СЊРЅРёРєРѕРІ РёР·РѕР±СЂР°Р¶РµРЅРёР№ (TextureRect)
     std::vector<sf::Rect<int> > subRects;
 
 	for(int y = 0; y < rows; y++)
@@ -131,14 +131,14 @@ bool Level::LoadFromFile(std::string filename)
 		subRects.push_back(rect);
 	}
 
-	// Работа со слоями
+	// Р Р°Р±РѕС‚Р° СЃРѕ СЃР»РѕСЏРјРё
     TiXmlElement *layerElement;
     layerElement = map->FirstChildElement("layer");
     while(layerElement)
     {
         Layer layer;
 
-		// Если присутствует opacity, то задаем прозрачность слоя, иначе он полностью непрозрачен
+		// Р•СЃР»Рё РїСЂРёСЃСѓС‚СЃС‚РІСѓРµС‚ opacity, С‚Рѕ Р·Р°РґР°РµРј РїСЂРѕР·СЂР°С‡РЅРѕСЃС‚СЊ СЃР»РѕСЏ, РёРЅР°С‡Рµ РѕРЅ РїРѕР»РЅРѕСЃС‚СЊСЋ РЅРµРїСЂРѕР·СЂР°С‡РµРЅ
         if (layerElement->Attribute("opacity") != NULL)
         {
             float opacity = strtod(layerElement->Attribute("opacity"), NULL);
@@ -149,7 +149,7 @@ bool Level::LoadFromFile(std::string filename)
             layer.opacity = 255;
         }
 
-		// Контейнер <data>
+		// РљРѕРЅС‚РµР№РЅРµСЂ <data>
         TiXmlElement *layerDataElement;
         layerDataElement = layerElement->FirstChildElement("data");
 
@@ -158,7 +158,7 @@ bool Level::LoadFromFile(std::string filename)
             std::cout << "Bad map. No layer information found." << std::endl;
         }
 
-		// Контейнер <tile> - описание тайлов каждого слоя
+		// РљРѕРЅС‚РµР№РЅРµСЂ <tile> - РѕРїРёСЃР°РЅРёРµ С‚Р°Р№Р»РѕРІ РєР°Р¶РґРѕРіРѕ СЃР»РѕСЏ
         TiXmlElement *tileElement;
         tileElement = layerDataElement->FirstChildElement("tile");
 
@@ -176,7 +176,7 @@ bool Level::LoadFromFile(std::string filename)
             int tileGID = atoi(tileElement->Attribute("gid"));
             int subRectToUse = tileGID - firstTileID;
 
-			// Устанавливаем TextureRect каждого тайла
+			// РЈСЃС‚Р°РЅР°РІР»РёРІР°РµРј TextureRect РєР°Р¶РґРѕРіРѕ С‚Р°Р№Р»Р°
             if (subRectToUse >= 0)
             {
                 sf::Sprite sprite;
@@ -205,22 +205,22 @@ bool Level::LoadFromFile(std::string filename)
         layerElement = layerElement->NextSiblingElement("layer");
     }
 
-    // Работа с объектами
+    // Р Р°Р±РѕС‚Р° СЃ РѕР±СЉРµРєС‚Р°РјРё
     TiXmlElement *objectGroupElement;
 
-	// Если есть слои объектов
+	// Р•СЃР»Рё РµСЃС‚СЊ СЃР»РѕРё РѕР±СЉРµРєС‚РѕРІ
     if (map->FirstChildElement("objectgroup") != NULL)
     {
         objectGroupElement = map->FirstChildElement("objectgroup");
         while (objectGroupElement)
         {
-			// Контейнер <object>
+			// РљРѕРЅС‚РµР№РЅРµСЂ <object>
             TiXmlElement *objectElement;
             objectElement = objectGroupElement->FirstChildElement("object");
 
 			while(objectElement)
             {
-				// Получаем все данные - тип, имя, позиция, etc
+				// РџРѕР»СѓС‡Р°РµРј РІСЃРµ РґР°РЅРЅС‹Рµ - С‚РёРї, РёРјСЏ, РїРѕР·РёС†РёСЏ, etc
                 std::string objectType;
                 if (objectElement->Attribute("type") != NULL)
                 {
@@ -253,7 +253,7 @@ bool Level::LoadFromFile(std::string filename)
 					sprite.setTextureRect(subRects[atoi(objectElement->Attribute("gid")) - firstTileID]);
 				}
 
-				// Экземпляр объекта
+				// Р­РєР·РµРјРїР»СЏСЂ РѕР±СЉРµРєС‚Р°
                 Object object;
                 object.name = objectName;
                 object.type = objectType;
@@ -266,7 +266,7 @@ bool Level::LoadFromFile(std::string filename)
 				objectRect.width = width;
                 object.rect = objectRect;
 
-				// "Переменные" объекта
+				// "РџРµСЂРµРјРµРЅРЅС‹Рµ" РѕР±СЉРµРєС‚Р°
                 TiXmlElement *properties;
                 properties = objectElement->FirstChildElement("properties");
                 if (properties != NULL)
@@ -305,7 +305,7 @@ bool Level::LoadFromFile(std::string filename)
 
 Object Level::GetObject(std::string name)
 {
-	// Только первый объект с заданным именем
+	// РўРѕР»СЊРєРѕ РїРµСЂРІС‹Р№ РѕР±СЉРµРєС‚ СЃ Р·Р°РґР°РЅРЅС‹Рј РёРјРµРЅРµРј
     for (int i = 0; i < objects.size(); i++)
         if (objects[i].name == name)
             return objects[i];
@@ -313,7 +313,7 @@ Object Level::GetObject(std::string name)
 
 std::vector<Object> Level::GetObjects(std::string name)
 {
-	// Все объекты с заданным именем
+	// Р’СЃРµ РѕР±СЉРµРєС‚С‹ СЃ Р·Р°РґР°РЅРЅС‹Рј РёРјРµРЅРµРј
 	std::vector<Object> vec;
     for(int i = 0; i < objects.size(); i++)
         if(objects[i].name == name)
@@ -336,7 +336,7 @@ sf::Vector2i Level::GetTileSize()
 
 void Level::Draw(sf::RenderWindow &window)
 {
-	// Рисуем все тайлы (объекты НЕ рисуем!)
+	// Р РёСЃСѓРµРј РІСЃРµ С‚Р°Р№Р»С‹ (РѕР±СЉРµРєС‚С‹ РќР• СЂРёСЃСѓРµРј!)
 	for(int layer = 0; layer < layers.size(); layer++)
 		for(int tile = 0; tile < layers[layer].tiles.size(); tile++)
 			window.draw(layers[layer].tiles[tile]);

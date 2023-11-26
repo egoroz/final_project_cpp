@@ -4,7 +4,7 @@
 #include <string>
 #include "include/anim.hpp"
 #include "include/player.hpp"
-// #include "3rdparty/level.hpp"
+// #include "3rdparty/level.hpp"  //TODO
 
 int ground = 1080;
 
@@ -21,6 +21,10 @@ int main()
     anim.create("stay", t, 10, 20+ 32*8, 32, 32, 28, 0.005, 32);
 
     Player hero(anim);
+
+    // Level lvl;
+    // lvl.LoadFromFile("src/maps/test_map.tmx");
+
 
     // sf::RectangleShape rectangle(sf::Vector2f(32,32));
 
