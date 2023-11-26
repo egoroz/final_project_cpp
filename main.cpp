@@ -20,11 +20,11 @@ int main()
     anim.create("walk", t, 10, 15, 32, 32, 4, 0.005, 32);
     anim.create("stay", t, 10, 20+ 32*8, 32, 32, 28, 0.005, 32);
 
-    Player hero(anim);
 
     TmxLevel lvl;
-    lvl.LoadFromFile("src/maps/platformer.tmx");
+    lvl.LoadFromFile("src/maps/files/Level1.tmx");
 
+    Player hero(anim, lvl);
 
 
     // sf::RectangleShape rectangle(sf::Vector2f(32,32));
@@ -50,8 +50,8 @@ int main()
 
         window.clear(sf::Color::White);
 
-        hero.draw(window);
         lvl.Draw(window);
+        hero.draw(window);
         window.display();
     }
 
