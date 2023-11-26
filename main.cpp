@@ -23,9 +23,8 @@ int main()
     Player hero(anim);
 
     TmxLevel lvl;
-    std::cerr << "HHHHHHHHHHHH\n";
     lvl.LoadFromFile("src/maps/platformer.tmx");
-    std::cerr << "HHHHHHHHHHHH\n";
+
 
 
     // sf::RectangleShape rectangle(sf::Vector2f(32,32));

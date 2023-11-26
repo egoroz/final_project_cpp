@@ -5,8 +5,8 @@
 ## В разработке
 
 ЗАПУСК на данном этапе:( сделайте мэйкфайл пжлста:( ))\
-> clang++ -std=c++17 -c main.cpp 3rdparty/TinyXML/tinystr.cpp 3rdparty/TinyXML/tinyxml.cpp 3rdparty/TinyXML/tinyxmlerror.cpp 3rdparty/TinyXML/tinyxmlparser.cpp
-> clang++ -std=c++17 main.o tinystr.o tinyxml.o tinyxmlerror.o tinyxmlparser.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system
+> clang++ -std=c++17 -c main.cpp lib/level/TmxLevel.cpp lib/tinyxml2/tinyxml2.cpp
+> clang++ -std=c++17 main.o tinyxml2.o TmxLevel.o -o sfml-app -lsfml-graphics -lsfml-window -lsfml-system
 > ./sfml-app
 
 
