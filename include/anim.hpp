@@ -2,6 +2,7 @@
 #define ANIM_H
 
 #include <SFML/Graphics.hpp>
+#include "../lib/tinyxml2/tinyxml2.h"
 
 
 class Animation
@@ -60,7 +61,7 @@ public:
     a.speed = speed;
     a.loop = Loop;
     a.sprite.setTexture(texture);
-    a.sprite.setOrigin(0,h);
+    a.sprite.setOrigin(0,0);
 
     for (int i=0;i<count;i++)
     {
@@ -100,8 +101,42 @@ public:
 
   float getW() {return animList[currentAnim].frames[0].width;}
 
-  // void readAnimFromJson()
+  void loadFromFile(std::string fileName, sf::Texture &t){ // Приминает путь к файлу формата XML
+    using namespace tinyxml2;
+    XMLDocument animFile;
+    animFile.LoadFile(fileName.c_str());
 
+    XMLElement *head;
+    head = animFile.FirstChildElement("sprites");
+
+    XMLElement *animElement;
+    animElement = head->FirstChildElement("animation");
+    while(animElement){
+      Animation anim;
+      currentAnim = animElement->Attribute("title");
+      int delay = atoi(animElement->Attribute("delay"));
+      anim.speed = 1.0/delay; anim.sprite.setTexture(t);
+
+      XMLElement *cut;
+      cut = animElement->FirstChildElement("cut");
+      while(cut){
+        int x = atoi(cut->Attribute("x"));
+        int y = atoi(cut->Attribute("y"));
+        int w = atoi(cut->Attribute("w"));
+        int h = atoi(cut->Attribute("h"));
+
+        anim.frames.push_back(sf::IntRect(x, y, w, h));
+        anim.frames_flip.push_back(sf::IntRect(x + w, y, -w, h));
+        cut = cut->NextSiblingElement("cut");
+      }
+
+      // anim.sprite.setOrigin(0,anim.frames[0].height);
+    animList[currentAnim] = anim;
+    animElement = animElement->NextSiblingElement("animation");
+    }
+    
+
+  }
 };
 
 #endif

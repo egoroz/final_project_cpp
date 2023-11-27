@@ -32,24 +32,22 @@ public:
     void KeyCheck(){
         if(key["R"]){dx = 0.1; STATE = walk; dir = false;}
         if(key["L"]){dx = -0.1; STATE = walk; dir = true;}
-        if(key["Up"]){dy = -0.1;}
+        if(key["Up"]){if (!(STATE == stay))dy = -0.1;}
 
         if(!(key["R"] || key["L"])){dx = 0; STATE = stay; } 
-        if(!key["Up"]){dy = 0.005;}
+        if(!key["Up"]){dy = 0.05;}
     }
 
     sf::FloatRect getRect(){ return sf::FloatRect(x, y, w, h);}
 
     void Collision(int num){
         for (int i = 0; i < obj.size(); ++i){
-            std::cerr << "obj_top_i  =  " << obj[i].rect.top << "     obj_left_i  =  " << obj[i].rect.left <<"\n";
-            if (getRect().intersects(obj[i].rect)){ // пересечение игрока с любым объектом
-                std::cerr << "obj size: " << obj.size() << "\n";
+            if (getRect().intersects(obj[i].rect)){ // пересечение игрока с любым объектов
                 if(obj[i].name == "solid"){  //встретились с "твердым" препятствием
-                    if (dy > 0 && num == 1) {y = obj[i].rect.top - h; dy  = 0; STATE = stay; std::cerr << "SOLID1\n" << h << '\n' << "y = "<< y << " obj_y ="<< obj[i].rect.top << '\n'; }
-                    if (dy < 0 && num == 1) {y = obj[i].rect.top + obj[i].rect.height; dy = 0; std::cerr << "SOLID2\n";}
-                    if (dx > 0 && num == 0) {x = obj[i].rect.left - w; std::cerr << "SOLID3\n";}
-                    if (dx < 0 && num == 0) {x = obj[i].rect.left + obj[i].rect.width; std::cerr << "SOLID4\n";}
+                    if (dy > 0 && num == 1) {y = obj[i].rect.top - h; dy  = 0; STATE = stay;}
+                    if (dy < 0 && num == 1) {y = obj[i].rect.top + obj[i].rect.height; dy = 0;}
+                    if (dx > 0 && num == 0) {x = obj[i].rect.left - w;}
+                    if (dx < 0 && num == 0) {x = obj[i].rect.left + obj[i].rect.width;}
                 }
             }
         }
@@ -58,7 +56,7 @@ public:
     void update(float time){
         KeyCheck();
 
-        if(STATE == stay){anim.set("stay");}
+        if(STATE == stay){anim.set("run");}
         if(STATE == walk){anim.set("walk");}
 
         if(dir){anim.flip();}
@@ -72,8 +70,7 @@ public:
         dy += 0.00005*time;
         y += dy * time;
         Collision(1);                           // CollitionY
-        // x = 100; y = 100;
-        // std::cerr << "x = " << x << " y = " << y <<'\n';
+
 
         key["R"] = key["L"] = key["Up"] = false;
         onGround = false;

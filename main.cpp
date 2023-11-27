@@ -14,11 +14,12 @@ int main()
     sf::RenderWindow window(sf::VideoMode(1920, 1080), "two Egors and one Artem");  // TODO name of project
 
     sf::Texture t;
-    t.loadFromFile("src/heroes/images/Brodell Walker.png");
+    t.loadFromFile("src/heroes/Brodell Walker.png");
 
     AnimationManager anim;
-    anim.create("walk", t, 10, 15, 32, 32, 4, 0.005, 32);
-    anim.create("stay", t, 10, 20+ 32*8, 32, 32, 28, 0.005, 32);
+    anim.loadFromFile("src/heroes/1.xml", t);
+    // anim.create("walk", t, 10, 15, 32, 32, 4, 0.005, 32);
+    // anim.create("stay", t, 10, 20 + 32*8, 32, 32, 28, 0.005, 32);
 
 
     TmxLevel lvl;
@@ -52,6 +53,19 @@ int main()
 
         lvl.Draw(window);
         hero.draw(window);
+
+        //     sf::RectangleShape rectangle(sf::Vector2f(hero.w,hero.h));
+        //     rectangle.setPosition(hero.x, hero.y);
+        //     rectangle.setFillColor(sf::Color(0, 150, 50));
+        //     window.draw(rectangle);    //рисуем модельку перса
+
+        // for (int i = 0; i < hero.obj.size(); ++i){
+        //     sf::RectangleShape rectangle(sf::Vector2f(hero.obj[i].rect.width,hero.obj[i].rect.height));
+        //     rectangle.setPosition(hero.obj[i].rect.left, hero.obj[i].rect.top);
+        //     rectangle.setFillColor(sf::Color(150, 50, 250));
+        //     window.draw(rectangle);
+        // } //Рисуем объекты с которыми колизируем
+
         window.display();
     }
 
