@@ -27,6 +27,16 @@ int main()
 
     Player hero(anim, lvl);
 
+    sf::Image fonimage; //создаем объект Image (изображение)
+	fonimage.loadFromFile("src/maps/layers/Layer_0003_6.png");//загружаем в него файл
+ 
+	sf::Texture fontexture;//создаем объект Texture (текстура)
+	fontexture.loadFromImage(fonimage);//передаем в него объект Image (изображения)
+ 
+	sf::Sprite fonsprite;//создаем объект Sprite(спрайт)
+	fonsprite.setTexture(fontexture);//передаём в него объект Texture (текстуры)
+	fonsprite.setPosition(0, 150);//задаем начальные координаты появления спрайта
+
 
     // sf::RectangleShape rectangle(sf::Vector2f(32,32));
 
@@ -50,6 +60,9 @@ int main()
         hero.update(time);
 
         window.clear(sf::Color::White);
+
+
+        window.draw(fonsprite);
 
         lvl.Draw(window);
         hero.draw(window);
