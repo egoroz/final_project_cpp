@@ -22,7 +22,7 @@ int main()
 
 
     TmxLevel lvl;
-    lvl.LoadFromFile("src/maps/files/Level1.tmx");
+    lvl.LoadFromFile("src/maps/map.tmx");
 
     Player hero(anim, lvl);
 

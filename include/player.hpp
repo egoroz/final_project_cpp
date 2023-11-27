@@ -24,7 +24,7 @@ public:
         onGround = false;
         dir = false;
         x = 550;
-        y = 50; 
+        y = 500; 
         w = anim.getW();
         h = anim.getH();
     }
@@ -35,6 +35,7 @@ public:
         if(key["Up"]){dy = -0.1;}
 
         if(!(key["R"] || key["L"])){dx = 0; STATE = stay; } 
+        if(!key["Up"]){dy = 0.005;}
     }
 
     sf::FloatRect getRect(){ return sf::FloatRect(x, y, w, h);}
@@ -45,10 +46,10 @@ public:
             if (getRect().intersects(obj[i].rect)){ // пересечение игрока с любым объектом
                 std::cerr << "obj size: " << obj.size() << "\n";
                 if(obj[i].name == "solid"){  //встретились с "твердым" препятствием
-                    if (dy > 0 && num == 1) {y = obj[i].rect.top - h; dy  = 0; STATE = stay;std::cerr << "SOLID1\n";}
-                    if (dy < 0 && num == 1) {y = obj[i].rect.top + obj[i].rect.height; dy = 0;std::cerr << "SOLID2\n";}
-                    if (dx > 0 && num == 0) {x = obj[i].rect.left - w;std::cerr << "SOLID3\n";}
-                    if (dx < 0 && num == 0) {x = obj[i].rect.left + obj[i].rect.width;std::cerr << "SOLID4\n";}
+                    if (dy > 0 && num == 1) {y = obj[i].rect.top - h; dy  = 0; STATE = stay; std::cerr << "SOLID1\n" << h << '\n' << "y = "<< y << " obj_y ="<< obj[i].rect.top << '\n'; }
+                    if (dy < 0 && num == 1) {y = obj[i].rect.top + obj[i].rect.height; dy = 0; std::cerr << "SOLID2\n";}
+                    if (dx > 0 && num == 0) {x = obj[i].rect.left - w; std::cerr << "SOLID3\n";}
+                    if (dx < 0 && num == 0) {x = obj[i].rect.left + obj[i].rect.width; std::cerr << "SOLID4\n";}
                 }
             }
         }
