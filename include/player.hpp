@@ -75,8 +75,8 @@ public:
                 if(obj[i].name == "solid"){  //встретились с "твердым" препятствием
                     if (dy > 0 && num == 1) {y = obj[i].rect.top - h; dy  = 0; STATE = stay; canJump = true;}
                     if (dy < 0 && num == 1) {y = obj[i].rect.top + obj[i].rect.height; dy = 0; STATE = falling;}
-                    if (dx > 0 && num == 0) {x = obj[i].rect.left - w; if(STATE == jump){STATE = falling;}}
-                    if (dx < 0 && num == 0) {x = obj[i].rect.left + obj[i].rect.width; if(STATE == jump){STATE = falling;}}
+                    if (dx > 0 && num == 0) {x = obj[i].rect.left - w;}
+                    if (dx < 0 && num == 0) {x = obj[i].rect.left + obj[i].rect.width;}
                 }
             }
         }
