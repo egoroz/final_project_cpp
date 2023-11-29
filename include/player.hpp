@@ -32,23 +32,23 @@ public:
     }
 
     void KeyCheck(){
-        if(key["R"])   {dx = 0.1; if(STATE == stay){STATE = run; dir = false;} }
-        if(key["L"])   {dx = -0.1; if(STATE == stay){STATE = run; dir = true;} }
-        if(key["Up"])  {if ((STATE == stay) || (STATE == run)){if(canJump){STATE = jump; dy = -0.1; canJump = false;}}}
-        if(key["Down"]){if(STATE == stay){STATE = sit;} if (STATE == run){STATE = sneak;}}
-        if(key["G"])   {if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = legspin;}}
-        if(key["F"])   {if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = stabling;}}
+        if(key["R"])   if(!(STATE == legspin || STATE == stabling)){dx = 0.1; if(STATE == stay){STATE = run; dir = false;} }
+        if(key["L"])   if(!(STATE == legspin || STATE == stabling)){dx = -0.1; if(STATE == stay){STATE = run; dir = true;} }
+        if(key["Up"])  if(!(STATE == legspin || STATE == stabling)){if ((STATE == stay) || (STATE == run)){if(canJump){STATE = jump; dy = -0.1; canJump = false;}}}
+        if(key["Down"])if(!(STATE == legspin || STATE == stabling)){if(STATE == stay){STATE = sit;} if (STATE == run){STATE = sneak;}}
+        if(key["G"])   if(!(STATE == legspin || STATE == stabling)){if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = legspin;}}
+        if(key["F"])   if(!(STATE == legspin || STATE == stabling)){if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = stabling;}}
 
         if(!(key["R"] || key["L"])){dx = 0;} 
         if(!key["Up"])             {if(STATE == jump){dy = 0;}}
         if(!key["Down"])           {if (STATE == sit){STATE = stay;}    if(STATE == sneak){STATE = run;}}
-        if(!key["G"])              {if(STATE == legspin){STATE = run;}  if(dx == 0){STATE = stay;}}
-        if(!key["F"])              {if(STATE == stabling){STATE = run;} if(dx == 0){STATE = stay;}}
+        if(!key["G"])              if(STATE != stabling){if(STATE == legspin){STATE = run;}  if(dx == 0){if(STATE != sit){STATE = stay;}}}
+        if(!key["F"])              if(STATE != legspin){if(STATE == stabling){STATE = run;} if(dx == 0){if(STATE != sit){STATE = stay;}}}
     }
 
     void Animation(float time){
         if(STATE == stay){anim.set("стоит");} //stay, run, jump, sit, sneak, legspin, stabling
-        if(STATE == run){anim.set("бег с оружием вперед");} //пока без оружия
+        if(STATE == run){anim.set("бег с оружием вперед");} //пока без оружия TODO
         if(STATE == jump){anim.set("бег с оружием вперед");}
         if(STATE == sit){anim.set("сидит");}
         if(STATE == sneak){anim.set("крадется");}
