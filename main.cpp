@@ -17,7 +17,7 @@ int main()
     t.loadFromFile("src/heroes/Brodell Walker.png");
 
     AnimationManager anim;
-    anim.loadFromFile("src/heroes/1.xml", t);
+    anim.loadFromFile("src/heroes/Brodell Walker.xml", t);
     // anim.create("walk", t, 10, 15, 32, 32, 4, 0.005, 32);
     // anim.create("stay", t, 10, 20 + 32*8, 32, 32, 28, 0.005, 32);
 
@@ -56,6 +56,10 @@ int main()
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){hero.key["R"] = true;}
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){hero.key["L"] = true;}
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){hero.key["Up"] = true;}
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){hero.key["Down"] = true;}
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)){hero.key["F"] = true;}
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)){hero.key["G"] = true;}
+
 
         hero.update(time);
 
