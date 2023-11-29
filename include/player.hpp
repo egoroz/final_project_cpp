@@ -54,6 +54,11 @@ public:
         if(STATE == stabling){anim.set("поножовщина2");}
 
         if(dir){anim.flip();}
+
+        y -= anim.getH() - h;
+        x -= anim.getW() - w;
+
+
         w = anim.getW();
         h = anim.getH();
         anim.tick(time);
