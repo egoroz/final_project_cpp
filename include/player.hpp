@@ -40,7 +40,7 @@ public:
         if(key["F"])   if(!(STATE == legspin || STATE == stabling)){if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = stabling;}}
 
         if(!(key["R"] || key["L"])){dx = 0;} 
-        if(!key["Up"])             {if(STATE == jump){dy = 0;}}
+        if(!key["Up"])             {}
         if(!key["Down"])           {if (STATE == sit){STATE = stay;}    if(STATE == sneak){STATE = run;}}
         if(!key["G"])              if(STATE != stabling){if(STATE == legspin){STATE = run;}  if(dx == 0){if(STATE != sit){STATE = stay;}}}
         if(!key["F"])              if(STATE != legspin){if(STATE == stabling){STATE = run;} if(dx == 0){if(STATE != sit){STATE = stay;}}}
@@ -73,6 +73,7 @@ public:
         for (int i = 0; i < obj.size(); ++i){
             if (getRect().intersects(obj[i].rect)){ // пересечение игрока с любым объектов
                 if(obj[i].name == "solid"){  //встретились с "твердым" препятствием
+                    canJump = false;
                     if (dy > 0 && num == 1) {y = obj[i].rect.top - h; dy  = 0; STATE = stay; canJump = true;}
                     if (dy < 0 && num == 1) {y = obj[i].rect.top + obj[i].rect.height; dy = 0; STATE = falling;}
                     if (dx > 0 && num == 0) {x = obj[i].rect.left - w;}
@@ -86,6 +87,7 @@ public:
         KeyCheck();
         Animation(time);
 
+        if(!canJump){dy += 0.0005;}
         x += dx * time;
         Collision(0);                           // CollitionX
         dy += 0.00005*time;
