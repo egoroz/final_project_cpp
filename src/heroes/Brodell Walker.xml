@@ -25,7 +25,7 @@
  </animation>
 
  <animation title="стоит" delay="150">
-  <cut w="17" x="369" y="21" h="20" row="1" col="1"/>
+  <cut w="14" x="879" y="210" h="22" row="1" col="1"/>
  </animation>
 
  <animation title="замах" delay="150">
