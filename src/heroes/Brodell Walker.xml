@@ -143,6 +143,12 @@
   <cut w="13" x="180" y="118" h="19" row="1" col="1"/>
   <cut w="14" x="211" y="118" h="19" row="1" col="1"/>
  </animation>
+
+ <animation title="прыжок" delay="150">
+ <cut w="14" x="1012" y="55" h="18" row="1" col="1"/>
+
+ </animation>
+
  <animation title="бег с оружием назад" delay="150">
   <cut w="13" x="19" y="150" h="19" row="1" col="1"/>
   <cut w="13" x="51" y="150" h="19" row="1" col="1"/>
