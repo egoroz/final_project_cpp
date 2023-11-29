@@ -13,14 +13,16 @@ public:
     float x, y, dx, dy, w, h;
     AnimationManager anim;
     bool life, dir;
+    bool canJump;
 
-    enum {stay, run, jump, sit, sneak, legspin, stabling} STATE; //sneak - крадется legspin - вертушка stabling - поножовщина
+    enum {stay, run, jump, sit, sneak, legspin, stabling, falling} STATE; //sneak - крадется legspin - вертушка stabling - поножовщина
     std::map<std::string, bool> key;
 
     Player(const AnimationManager &anim_, TmxLevel & lvl){
         obj = lvl.GetAllObjects("solid");  //Получаем все объекты для взаимодействия с персонажем
         STATE = stay;
         anim = anim_;
+        canJump = false;
         //onGround = false;
         dir = false;
         x = 550;
@@ -32,7 +34,7 @@ public:
     void KeyCheck(){
         if(key["R"])   {dx = 0.1; if(STATE == stay){STATE = run; dir = false;} }
         if(key["L"])   {dx = -0.1; if(STATE == stay){STATE = run; dir = true;} }
-        if(key["Up"])  {if ((STATE == stay) || (STATE == run)){STATE = jump; dy = -0.15;}}
+        if(key["Up"])  {if ((STATE == stay) || (STATE == run)){if(canJump){STATE = jump; dy = -0.1; canJump = false;}}}
         if(key["Down"]){if(STATE == stay){STATE = sit;} if (STATE == run){STATE = sneak;}}
         if(key["G"])   {if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = legspin;}}
         if(key["F"])   {if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = stabling;}}
@@ -52,6 +54,7 @@ public:
         if(STATE == sneak){anim.set("крадется");}
         if(STATE == legspin){anim.set("вертушка1");}
         if(STATE == stabling){anim.set("поножовщина2");}
+        if(STATE == falling){anim.set("неконтролируемое падение");}
 
         if(dir){anim.flip();}
 
@@ -70,10 +73,10 @@ public:
         for (int i = 0; i < obj.size(); ++i){
             if (getRect().intersects(obj[i].rect)){ // пересечение игрока с любым объектов
                 if(obj[i].name == "solid"){  //встретились с "твердым" препятствием
-                    if (dy > 0 && num == 1) {y = obj[i].rect.top - h; dy  = 0; STATE = stay;}
-                    if (dy < 0 && num == 1) {y = obj[i].rect.top + obj[i].rect.height; dy = 0;}
-                    if (dx > 0 && num == 0) {x = obj[i].rect.left - w;}
-                    if (dx < 0 && num == 0) {x = obj[i].rect.left + obj[i].rect.width;}
+                    if (dy > 0 && num == 1) {y = obj[i].rect.top - h; dy  = 0; STATE = stay; canJump = true;}
+                    if (dy < 0 && num == 1) {y = obj[i].rect.top + obj[i].rect.height; dy = 0; STATE = falling;}
+                    if (dx > 0 && num == 0) {x = obj[i].rect.left - w; if(STATE == jump){STATE = falling;}}
+                    if (dx < 0 && num == 0) {x = obj[i].rect.left + obj[i].rect.width; if(STATE == jump){STATE = falling;}}
                 }
             }
         }
