@@ -15,6 +15,7 @@ int ground = 1080;
 int main()
 {
     sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "two Egors and one Artem");  // TODO name of project
+    window.setFramerateLimit(120);
 
     sf::Texture t;
     t.loadFromFile("src/heroes/Brodell Walker.png");
@@ -91,7 +92,7 @@ std::vector<std::string> texturePaths = {
 
         hero.update(time);
         background.update(time);
-        camera.update(sf::Vector2f(hero.x, hero.y));
+        camera.update(sf::Vector2f(hero.x, hero.y + hero.h));
 
         window.clear(sf::Color::White);
         background.draw(window);
