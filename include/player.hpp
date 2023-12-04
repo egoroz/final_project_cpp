@@ -87,7 +87,7 @@ public:
         KeyCheck();
         Animation(time);
 
-        if(!canJump){dy += 0.0005;}
+        if(!canJump){dy += 0.005;}
         x += dx * time;
         Collision(0);                           // CollitionX
         dy += 0.00005*time;

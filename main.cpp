@@ -6,8 +6,6 @@
 #include "include/player.hpp"
 #include "lib/level/TmxLevel.h"
 
-int ground = 1080;
-
 
 int main()
 {

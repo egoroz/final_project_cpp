@@ -44,7 +44,7 @@ class AnimationManager
 {
 
 public:
-    std::string currentAnim;
+  std::string currentAnim;
   std::map<std::string, Animation> animList;
 
   AnimationManager()
