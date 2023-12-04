@@ -6,6 +6,7 @@
 #include "include/player.hpp"
 #include "lib/level/TmxLevel.h"
 #include "include/background.hpp"
+#include "include/view.hpp"
 
 int ground = 1080;
 
@@ -56,6 +57,7 @@ std::vector<std::string> texturePaths = {
     };
 
     ParallaxBackground background(texturePaths);
+    Camera camera(200, 300);
 
     // sf::RectangleShape rectangle(sf::Vector2f(32,32));
 
@@ -85,6 +87,7 @@ std::vector<std::string> texturePaths = {
 
         hero.update(time);
         background.update(time);
+        camera.update(sf::Vector2f(hero.x, hero.y));
 
         window.clear(sf::Color::White);
         background.draw(window);
@@ -93,6 +96,7 @@ std::vector<std::string> texturePaths = {
 
         lvl.Draw(window);
         hero.draw(window);
+        camera.applyTo(window);
 
         //     sf::RectangleShape rectangle(sf::Vector2f(hero.w,hero.h));
         //     rectangle.setPosition(hero.x, hero.y);
