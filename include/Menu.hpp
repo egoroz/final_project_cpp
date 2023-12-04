@@ -20,3 +20,10 @@ public:
         stat = st_;
     }
 };
+
+class Menu{
+    sf::RenderWindow window;
+    window.create(sf::VideoMode::getDesktopMode(), "Menu screen", Style::Fullscreen);
+    window.setMouseCursorVisible(false);
+    void execute();
+};
