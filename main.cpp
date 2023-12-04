@@ -5,6 +5,7 @@
 #include "include/anim.hpp"
 #include "include/player.hpp"
 #include "lib/level/TmxLevel.h"
+#include "include/background.hpp"
 
 int ground = 1080;
 
@@ -27,24 +28,43 @@ int main()
 
     Player hero(anim, lvl);
 
-    sf::Image fonimage; //создаем объект Image (изображение)
-	fonimage.loadFromFile("src/maps/layers/Layer_0003_6.png");//загружаем в него файл
+    // sf::Image fonimage; //создаем объект Image (изображение)
+	// fonimage.loadFromFile("src/maps/layers/Layer_0003_6.png");//загружаем в него файл
  
-	sf::Texture fontexture;//создаем объект Texture (текстура)
-	fontexture.loadFromImage(fonimage);//передаем в него объект Image (изображения)
+	// sf::Texture fontexture;//создаем объект Texture (текстура)
+	// fontexture.loadFromImage(fonimage);//передаем в него объект Image (изображения)
  
-	sf::Sprite fonsprite;//создаем объект Sprite(спрайт)
-	fonsprite.setTexture(fontexture);//передаём в него объект Texture (текстуры)
-	fonsprite.setPosition(0, 150);//задаем начальные координаты появления спрайта
+	// sf::Sprite fonsprite;//создаем объект Sprite(спрайт)
+	// fonsprite.setTexture(fontexture);//передаём в него объект Texture (текстуры)
+	// fonsprite.setPosition(0, 150);//задаем начальные координаты появления спрайта
 
+
+std::vector<std::string> texturePaths = {
+        "src/maps/layers/12.png"
+        "src/maps/layers/11.png",
+        "src/maps/layers/10.png",
+        "src/maps/layers/9.png",
+        "src/maps/layers/8.png",
+        "src/maps/layers/7.png",
+        "src/maps/layers/6.png",
+        "src/maps/layers/4.png",
+        "src/maps/layers/3.png",
+        "src/maps/layers/5.png",
+        "src/maps/layers/2.png",
+        "src/maps/layers/1.png",
+        // Добавьте остальные пути к текстурам здесь
+    };
+
+    ParallaxBackground background(texturePaths);
 
     // sf::RectangleShape rectangle(sf::Vector2f(32,32));
 
     sf::Clock clock;
 
     while(window.isOpen()){
-        std::cout << "lox\n";
-        std::cout << "lox\n";
+        // std::cout << "lox\n";
+        // std::cout << "lox\n";
+        // std::cout << "lox\n";
         float time = clock.getElapsedTime().asMicroseconds();
         clock.restart();
         time = time / 500;
@@ -64,11 +84,12 @@ int main()
 
 
         hero.update(time);
+        background.update(time);
 
         window.clear(sf::Color::White);
+        background.draw(window);
 
-
-        window.draw(fonsprite);
+        // window.draw(fonsprite);
 
         lvl.Draw(window);
         hero.draw(window);
