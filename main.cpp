@@ -40,7 +40,7 @@ int main()
 
 
 std::vector<std::string> texturePaths = {
-        "src/maps/layers/12.png"
+        "src/maps/layers/12.png",
         "src/maps/layers/11.png",
         "src/maps/layers/10.png",
         "src/maps/layers/9.png",
@@ -51,7 +51,7 @@ std::vector<std::string> texturePaths = {
         "src/maps/layers/3.png",
         "src/maps/layers/5.png",
         "src/maps/layers/2.png",
-        "src/maps/layers/1.png",
+        "src/maps/layers/1.png"
         // Добавьте остальные пути к текстурам здесь
     };
 
