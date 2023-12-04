@@ -4,7 +4,7 @@
 
 enum status {Menu, Play, Results};
 
-void InitText(sf::Text& mtext, float xpos, float ypos, const sf::String, int size_font, sf::Color menu_text_color = sf::Color::White, int bord = 0, sf::Color menu_border_color = sf::Color::Black);
+void InitText(sf::Text& mtext, float xpos, float ypos, const sf::String str, int size_font, sf::Color menu_text_color = sf::Color::White, int bord = 0, sf::Color menu_border_color = sf::Color::Black);
 
 class GameStatus{
 private:
@@ -23,23 +23,51 @@ public:
     }
 };
 
-class Menu{
+class GMenu{
+private:
+    sf::RenderWindow window_;
+    sf::Texture texture_window;
+    sf::Font menu_font;
+    sf::Text Titul;
+    sf::RectangleShape* bck_ptr;
 public:
-    Menu(){
-        sf::RenderWindow window_;
+    GMenu(){
+        
         window_.create(sf::VideoMode::getDesktopMode(), "Menu screen", sf::Style::Fullscreen);
         window_.setMouseCursorVisible(false);
         auto width = static_cast<float>(sf::VideoMode::getDesktopMode().width);
         auto height = static_cast<float>(sf::VideoMode::getDesktopMode().height);
         sf::RectangleShape background (sf::Vector2f(width, height));
-        sf::Texture texture_window;
-        texture_window.loadFromFile("../src/menu/black-brick-wall-textured-background.jpg");
+        bck_ptr = &background;
+        if(!texture_window.loadFromFile("1.jpg")) std::terminate();
         background.setTexture(&texture_window);
-        sf::Font menu_font;
-        menu_font.loadFromFile("../src/menu/Karma Future.otf");
-        sf::Text Titul;
+        
+        
+        if(!menu_font.loadFromFile("menu/2.otf"))std::terminate();
+        
         Titul.setFont(menu_font);
         InitText(Titul, 480, 50, L"CheloFight", 150, sf::Color::White, 3);
     }
-    void execute();
+    void execute(){
+        while(window_.isOpen()){
+            sf::Event event;
+            while(window_.pollEvent(event)){
+                if(event.type == sf::Event::Closed || event.key.code == sf::Keyboard::Escape) window_.close();
+            }
+            window_.clear();
+            window_.draw(*(bck_ptr));
+            std::cout << "ahahah\n";
+            window_.draw(Titul);
+            window_.display();
+        }
+    }
 };
+
+void InitText(sf::Text& mtext, float xpos, float ypos, const sf::String str, int size_font, sf::Color menu_text_color, int bord , sf::Color menu_border_color){
+    mtext.setCharacterSize(size_font);
+    mtext.setPosition(xpos, ypos);
+    mtext.setString(str);
+    mtext.setFillColor(menu_text_color);
+    mtext.setOutlineThickness(bord);
+    mtext.setOutlineColor(menu_border_color);
+}
