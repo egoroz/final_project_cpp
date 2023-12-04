@@ -57,7 +57,7 @@ std::vector<std::string> texturePaths = {
     };
 
     ParallaxBackground background(texturePaths);
-    Camera camera(200, 300);
+    Camera camera(500, 500);
 
     // sf::RectangleShape rectangle(sf::Vector2f(32,32));
 
@@ -93,7 +93,7 @@ std::vector<std::string> texturePaths = {
         background.draw(window);
 
         // window.draw(fonsprite);
-
+        std::cerr << time << "\n";
         lvl.Draw(window);
         hero.draw(window);
         camera.applyTo(window);
