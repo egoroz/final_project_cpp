@@ -41,6 +41,9 @@ int main()
     sf::Clock clock;
 
     while(window.isOpen()){
+        std::cout << "lox\n";
+        std::cout << "lox\n";
+        std::cout << "lox\n";
         float time = clock.getElapsedTime().asMicroseconds();
         clock.restart();
         time = time / 500;
