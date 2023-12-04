@@ -1,4 +1,4 @@
-#include "Camera.hpp"
+#include "view.hpp"
 
 Camera::Camera(float width, float height) {
     view.setSize(width, height);
