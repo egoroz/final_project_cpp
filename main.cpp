@@ -6,10 +6,12 @@
 #include "include/player.hpp"
 #include "lib/level/TmxLevel.h"
 
+int ground = 1080;
+
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1920, 1080), "two Egors and one Artem");  // TODO name of project
+    sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "two Egors and one Artem");  // TODO name of project
 
     sf::Texture t;
     t.loadFromFile("src/heroes/Brodell Walker.png");
@@ -41,7 +43,6 @@ int main()
     sf::Clock clock;
 
     while(window.isOpen()){
-        std::cout << "lox\n";
         std::cout << "lox\n";
         std::cout << "lox\n";
         float time = clock.getElapsedTime().asMicroseconds();
