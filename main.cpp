@@ -7,10 +7,12 @@
 #include "lib/level/TmxLevel.h"
 #include "include/background.hpp"
 
+int ground = 1080;
+
 
 int main()
 {
-    sf::RenderWindow window(sf::VideoMode(1920, 1080), "two Egors and one Artem");  // TODO name of project
+    sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "two Egors and one Artem");  // TODO name of project
 
     sf::Texture t;
     t.loadFromFile("src/heroes/Brodell Walker.png");
