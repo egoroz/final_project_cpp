@@ -11,9 +11,10 @@ int main()
     unsigned short port = 12345;
 
     // Привязка сокета к порту
-    if (listener.listen(port) != sf::Socket::Done)
+    if (listener.listen(port) != sf::Socket::Done) {
+        std::cout<<"ERROR"<<std::endl;
         return -1;
-
+    }
     std::cout << "Server is listening to port " << port << ", waiting for connections..." << std::endl;
 
     // Ожидание клиентов

@@ -7,15 +7,16 @@ int main()
     sf::TcpSocket socket;
 
     // Получение имени хоста
-    sf::IpAddress host = sf::IpAddress::getLocalAddress();
-
+    sf::IpAddress host = "10.55.129.117";
+    std::cout<<host<<std::endl;
     // Определение порта
     unsigned short port = 12345;
-
+    std::cout<<"ping"<<std::endl;
     // Подключение к серверу
-    if (socket.connect(host, port) != sf::Socket::Done)
+    if (socket.connect(host, port) != sf::Socket::Done) {
+        std::cout<< "ERROR"<<std::endl;
         return -1;
-
+    }
     std::cout << "Connected to server " << host << std::endl;
 
     // Отправка сообщения серверу
