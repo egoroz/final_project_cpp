@@ -1,3 +1,0 @@
-/home/egor/repoes/final_project_cpp/build/CMakeFiles/MyProject.dir
-/home/egor/repoes/final_project_cpp/build/CMakeFiles/edit_cache.dir
-/home/egor/repoes/final_project_cpp/build/CMakeFiles/rebuild_cache.dir
