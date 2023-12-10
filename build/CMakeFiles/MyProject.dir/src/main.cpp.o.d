@@ -240,6 +240,7 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: \
  /home/egor/repoes/final_project_cpp/src/../include/player.hpp \
  /home/egor/repoes/final_project_cpp/src/../include/anim.hpp \
  /home/egor/repoes/final_project_cpp/src/../include/../lib/level/TmxLevel.h \
+ /home/egor/repoes/final_project_cpp/src/../include/entity.hpp \
  /home/egor/repoes/final_project_cpp/src/../include/Menu.hpp \
  /home/egor/repoes/final_project_cpp/src/../include/background.hpp \
  /home/egor/repoes/final_project_cpp/src/../include/view.hpp
