@@ -1,70 +1,76 @@
 #include <SFML/Network.hpp>
 #include <iostream>
-#include <vector>
+
+class Client
+{
+public:
+    Client(sf::IpAddress address, unsigned short port) : address(address), port(port) {}
+
+    sf::IpAddress address;
+    unsigned short port;
+};
 
 int main()
 {
-    // Создание сокета
-    sf::TcpListener listener;
+    // Создаем UDP сокет на сервере
+    sf::UdpSocket serverSocket;
+    unsigned short serverPort = 55001;
+    serverSocket.bind(serverPort);
 
-    // Определение порта
-    unsigned short port = 12345;
+    // Создаем список клиентов
+    std::vector<Client> clients;
 
-    // Привязка сокета к порту
-    if (listener.listen(port) != sf::Socket::Done) {
-        std::cout<<"ERROR"<<std::endl;
-        return -1;
-    }
-    std::cout << "Server is listening to port " << port << ", waiting for connections..." << std::endl;
-
-    // Ожидание клиентов
-    std::vector<sf::TcpSocket*> clients;
     while (true)
     {
-        // Создание нового сокета для клиента
-        sf::TcpSocket* socket = new sf::TcpSocket;
+        // Получаем сообщение от клиента
+        char buffer[1024];
+        std::size_t received;
+        sf::IpAddress clientAddress;
+        unsigned short clientPort;
+        serverSocket.receive(buffer, sizeof(buffer), received, clientAddress, clientPort);
+        std::cout << "Message received from client: " << buffer << std::endl;
 
-        // Ожидание подключения клиента
-        if (listener.accept(*socket) == sf::Socket::Done)
+        // Определяем код клавиши
+        int keyCode = 0;
+        if (buffer[0] == 'D')
         {
-            std::cout << "Client connected: " << socket->getRemoteAddress() << std::endl;
-
-            // Добавление нового клиента в список клиентов
-            clients.push_back(socket);
+            keyCode = 1;
         }
-        else
+        else if (buffer[0] == 'A')
         {
-            // Ошибка при подключении клиента
-            delete socket;
+            keyCode = -1;
+        }
+        else if (buffer[0] != '\0')
+        {
+            keyCode = 2;
         }
 
-        // Обработка сообщений от клиентов
+        // Отправляем код клавиши клиенту
+        char reply[2];
+        reply[0] = keyCode;
+        reply[1] = '\0';
+        serverSocket.send(reply, sizeof(reply), clientAddress, clientPort);
+
+        // Добавляем клиента в список, если его там нет
+        auto client = clients.end();
         for (auto it = clients.begin(); it != clients.end(); ++it)
         {
-            sf::TcpSocket& socket = **it;
-
-            // Проверка, есть ли сообщение от клиента
-            char buffer[1024];
-            std::size_t received;
-            if (socket.receive(buffer, sizeof(buffer), received) == sf::Socket::Done)
+            if (it->address == clientAddress && it->port == clientPort)
             {
-                std::cout << "Message received from client " << socket.getRemoteAddress() << ": \"" << buffer << "\"" << std::endl;
-
-                // Отправка сообщения обратно клиенту
-                if (socket.send(buffer, received) != sf::Socket::Done)
-                {
-                    std::cout << "Error sending message to client " << socket.getRemoteAddress() << std::endl;
-                }
+                client = it;
+                break;
             }
         }
-    }
 
-    // Закрытие соединений с клиентами
-    for (auto it = clients.begin(); it != clients.end(); ++it)
-    {
-        sf::TcpSocket& socket = **it;
-        socket.disconnect();
-        delete &socket;
+        if (client == clients.end())
+        {
+            clients.emplace_back(clientAddress, clientPort);
+        }
+
+        if (client == clients.end())
+        {
+            clients.emplace_back(clientAddress, clientPort);
+        }
     }
 
     return 0;
