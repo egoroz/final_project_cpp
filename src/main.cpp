@@ -64,11 +64,14 @@ std::vector<std::string> texturePaths = {
 
     sf::Clock clock;
 
+    GMenu menu;
+
     while(window.isOpen()){
+        menu.execute();
         // std::cout << "lox\n";
         // std::cout << "lox\n";
         // std::cout << "lox\n";
-        float time = clock.getElapsedTime().asMicroseconds();
+        /*float time = clock.getElapsedTime().asMicroseconds();
         clock.restart();
         time = time / 500;
 
@@ -111,7 +114,7 @@ std::vector<std::string> texturePaths = {
         //     window.draw(rectangle);
         // } //Рисуем объекты с которыми колизируем
 
-        window.display();
+        window.display();*/
     }
 
 
