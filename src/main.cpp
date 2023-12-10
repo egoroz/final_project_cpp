@@ -59,7 +59,7 @@ std::vector<std::string> texturePaths = {
     };
 
     ParallaxBackground background(texturePaths);
-    Camera camera(500,500);
+    Camera camera(1920,1080);
 
     // sf::RectangleShape rectangle(sf::Vector2f(32,32));
 

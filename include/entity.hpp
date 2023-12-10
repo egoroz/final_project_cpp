@@ -13,12 +13,16 @@ public:
     float x, y, dx, dy, w, h;
     AnimationManager anim;
     bool life, dir;
+    
+    bool canJump;
 
+    enum {stay, run, jump, sit, sneak, legspin, stabling, falling} STATE; //sneak - крадется legspin - вертушка stabling - поножовщина
+    std::map<std::string, bool> key;
 	float timer, timer_end;
 	std::string name;
 	int health;
 
-	Entity(AnimationManager &anim, TmxLevel & lvl, int x=550, int y=800): anim(anim), x(x), y(y)
+	Entity(const AnimationManager &anim, TmxLevel & lvl, int x=550, int y=800): anim(anim), x(x), y(y)
 	{
         obj = lvl.GetAllObjects("solid");
 		dir = 0;

@@ -8,27 +8,19 @@
 #include "../lib/level/TmxLevel.h"
 #include "entity.hpp"
 
-class Player{
+class Player: public Entity{
 public:
-    std::vector<TmxObject> obj;//вектор объектов карты
-    float x, y, dx, dy, w, h;
-    AnimationManager anim;
-    bool life, dir;
     
-    bool canJump;
 
-    enum {stay, run, jump, sit, sneak, legspin, stabling, falling} STATE; //sneak - крадется legspin - вертушка stabling - поножовщина
-    std::map<std::string, bool> key;
-
-    Player(const AnimationManager &anim_, TmxLevel & lvl, int x=550, int y=800):anim(anim_), x(x), y(y){
-        obj = lvl.GetAllObjects("solid");  //Получаем все объекты для взаимодействия с персонажем
+    Player(const AnimationManager &anim_, TmxLevel & lvl, int x=550, int y=800):Entity(anim_, lvl, x, y){
+        /*obj = lvl.GetAllObjects("solid");  //Получаем все объекты для взаимодействия с персонажем
         STATE = stay;
         canJump = false;
         //onGround = false;
         dir = false;
 
         w = anim.getW();
-        h = anim.getH();
+        h = anim.getH();*/
     }
 
     void KeyCheck(){
