@@ -34,7 +34,8 @@ private:
     int max_menu;                                     
     int size_font;                                    
     int mainMenuSelected;                             
-    std::vector<sf::Text> mainMenu;                   
+    std::vector<sf::Text> mainMenu;
+    std::vector<sf::Text> arrows;                   
     sf::RenderWindow* window_;
     sf::Color menu_text_color = sf::Color::White;      
     sf::Color chose_text_color = sf::Color::Yellow;    
@@ -47,7 +48,7 @@ private:
     sf::Text Titul;
     sf::RectangleShape* bck_ptr;
 public:
-    GMenu(float menux, float menuy, int sizeFont, int step, std::vector<sf::String>& name, sf::RenderWindow* win):menu_X(menux), menu_Y(menuy), menu_Step(step), max_menu(static_cast<int>(name.size())), size_font(sizeFont), mainMenu(name.size()), window_(win)
+    GMenu(float menux, float menuy, int sizeFont, int step, std::vector<sf::String>& name, sf::RenderWindow* win, sf::String arr):menu_X(menux), menu_Y(menuy), menu_Step(step), max_menu(static_cast<int>(name.size())), size_font(sizeFont), mainMenu(name.size()), window_(win), arrows(name.size())
     {
         
         window_->create(sf::VideoMode::getDesktopMode(), "Menu screen", sf::Style::Fullscreen);
@@ -62,12 +63,16 @@ public:
         if(!menu_font.loadFromFile("../src/menu/2.otf"))std::terminate();
         
         Titul.setFont(menu_font);
-        InitText(Titul, 480, 50, L"CheloFight", 150, sf::Color::White, 3);
+        InitText(Titul, 380, 50, L"CheloFight", 150, sf::Color::White, 3);
 
         for (int i = 0, ypos = static_cast<int>(menu_Y); i < max_menu; i++, ypos += menu_Step)
 		setInitText(mainMenu[i], name[i], menu_X, static_cast<float>(ypos));
         mainMenuSelected = 0;
         mainMenu[mainMenuSelected].setFillColor(chose_text_color);
+        
+        for (int i = 0, ypos = static_cast<int>(menu_Y); i < max_menu; i++, ypos += menu_Step)
+        setInitText(arrows[i], arr, menu_X-60, static_cast<float>(ypos));
+        arrows[mainMenuSelected].setFillColor(sf::Color::White);
     }
     ~GMenu(){
         delete bck_ptr;
@@ -84,7 +89,8 @@ public:
 
     
     void setColorTextMenu(sf::Color menColor, sf::Color ChoColor, sf::Color BordColor);
-
+    
+    void setColorArrowMenu();
     
     int getSelectedMenuNumber() const     
     {
@@ -146,12 +152,16 @@ void GMenu::MoveUp()
 	if (mainMenuSelected >= 0) {
 		mainMenu[mainMenuSelected].setFillColor(chose_text_color);
 		mainMenu[mainMenuSelected + 1].setFillColor(menu_text_color);
+        arrows[mainMenuSelected].setFillColor(sf::Color::White);
+        arrows[mainMenuSelected+1].setFillColor(sf::Color(255, 255, 255, 0));
 	}
 	else
 	{
 		mainMenu[0].setFillColor(menu_text_color);
 		mainMenuSelected = max_menu - 1;
 		mainMenu[mainMenuSelected].setFillColor(chose_text_color);
+        arrows[0].setFillColor(sf::Color(255, 255, 255, 0));
+        arrows[mainMenuSelected].setFillColor(sf::Color::White);
 	}
 }
 
@@ -162,12 +172,16 @@ void GMenu::MoveDown()
 	if (mainMenuSelected < max_menu) {
 		mainMenu[mainMenuSelected - 1].setFillColor(menu_text_color);
 		mainMenu[mainMenuSelected].setFillColor(chose_text_color);
+        arrows[mainMenuSelected].setFillColor(sf::Color::White);
+        arrows[mainMenuSelected-1].setFillColor(sf::Color(255, 255, 255, 0));
 	}
 	else
 	{
 		mainMenu[max_menu - 1].setFillColor(menu_text_color);
 		mainMenuSelected = 0;
 		mainMenu[mainMenuSelected].setFillColor(chose_text_color);
+        arrows[max_menu-1].setFillColor(sf::Color(255, 255, 255, 0));
+        arrows[mainMenuSelected].setFillColor(sf::Color::White);
 	}
 
 }
@@ -175,6 +189,7 @@ void GMenu::MoveDown()
 void GMenu::draw()
 {
 	for (int i = 0; i < max_menu; i++) window_->draw(mainMenu[i]);
+    for (int i = 0; i < max_menu; i++) window_->draw(arrows[i]);
 }
 
 void GMenu::setColorTextMenu(sf::Color menColor, sf::Color ChoColor, sf::Color BordColor)
@@ -189,6 +204,15 @@ void GMenu::setColorTextMenu(sf::Color menColor, sf::Color ChoColor, sf::Color B
 	}
 
 	mainMenu[mainMenuSelected].setFillColor(chose_text_color);
+}
+
+void GMenu::setColorArrowMenu(){
+    for (int i = 0; i < max_menu; i++) {
+		arrows[i].setFillColor(sf::Color(255, 255, 255, 0));
+		arrows[i].setOutlineColor(sf::Color::Black);
+	}
+
+	arrows[mainMenuSelected].setFillColor(sf::Color::White);
 }
 
 void GameStart(GameStatus* stat){

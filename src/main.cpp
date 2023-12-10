@@ -68,9 +68,11 @@ std::vector<std::string> texturePaths = {
     sf::String start = L"Start";
     sf::String exit = L"EXIT";
     std::vector<sf::String> name_menu = {start, exit};
-    GMenu menu(800.f,420.f,80,120, name_menu, &window);
+    sf::String arrow_ = L">";
+    GMenu menu(600.f,420.f,80,120, name_menu, &window, arrow_);
     menu.setColorTextMenu(sf::Color::White, sf::Color::Red, sf::Color::Black);
-    menu.AlignMenu(2);
+    menu.setColorArrowMenu();
+    menu.AlignMenu(0);
 
     while(window.isOpen()){
         switch (GlobalStatus.GetGameStatus()){
