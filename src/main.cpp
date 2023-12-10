@@ -59,7 +59,7 @@ std::vector<std::string> texturePaths = {
     };
 
     ParallaxBackground background(texturePaths);
-    Camera camera(1920,1080);
+    Camera camera(500,500);
 
     // sf::RectangleShape rectangle(sf::Vector2f(32,32));
 
@@ -68,10 +68,12 @@ std::vector<std::string> texturePaths = {
     sf::String start = L"Start";
     sf::String exit = L"EXIT";
     std::vector<sf::String> name_menu = {start, exit};
-    GMenu menu(800.f,420.f,80,120, name_menu, &window);
+    sf::String arrow_ = L">";
+    GMenu menu(600.f,420.f,80,120, name_menu, &window, arrow_);
     menu.setColorTextMenu(sf::Color::White, sf::Color::Red, sf::Color::Black);
-    menu.AlignMenu(2);
-
+    menu.setColorArrowMenu();
+    menu.AlignMenu(0);
+    window.setFramerateLimit(60);
     while(window.isOpen()){
 switch (GlobalStatus.GetGameStatus()){
         case Play:
@@ -91,7 +93,7 @@ switch (GlobalStatus.GetGameStatus()){
 }
 
 void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, ParallaxBackground* background, Camera* camera, TmxLevel* lvl){
-    
+        //window->setFramerateLimit(60);
         // menu.execute();
         // std::cout << "lox\n";
         // std::cout << "lox\n";
