@@ -17,7 +17,7 @@ int main()
 {
     GameStatus GlobalStatus;
     sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "two Egors and one Artem");  // TODO name of project
-    // window.setFramerateLimit(120);
+    //window.setFramerateLimit(2);
 
     sf::Texture t;
     t.loadFromFile("../src/heroes/Brodell Walker.png");
@@ -59,7 +59,7 @@ std::vector<std::string> texturePaths = {
     };
 
     ParallaxBackground background(texturePaths);
-    Camera camera(1920,1080);
+    Camera camera(500,500);
 
     // sf::RectangleShape rectangle(sf::Vector2f(32,32));
 
@@ -73,7 +73,7 @@ std::vector<std::string> texturePaths = {
     menu.setColorTextMenu(sf::Color::White, sf::Color::Red, sf::Color::Black);
     menu.setColorArrowMenu();
     menu.AlignMenu(0);
-
+    window.setFramerateLimit(60);
     while(window.isOpen()){
 switch (GlobalStatus.GetGameStatus()){
         case Play:
@@ -93,7 +93,7 @@ switch (GlobalStatus.GetGameStatus()){
 }
 
 void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, ParallaxBackground* background, Camera* camera, TmxLevel* lvl){
-    
+        //window->setFramerateLimit(60);
         // menu.execute();
         // std::cout << "lox\n";
         // std::cout << "lox\n";
