@@ -1,7 +1,7 @@
 #pragma once
 
 #include <SFML/Graphics.hpp>
-#include<iostream>
+#include <iostream>
 
 enum status {Menu, Play, Results};
 
@@ -54,10 +54,10 @@ public:
         auto height = static_cast<float>(sf::VideoMode::getDesktopMode().height);
         bck_ptr = new sf::RectangleShape {sf::Vector2f(width, height)};
         
-        if(!texture_window.loadFromFile("src/menu/1.jpg")) std::terminate();
+        if(!texture_window.loadFromFile("../src/menu/1.jpg")) std::terminate();
         (*bck_ptr).setTexture(&texture_window);
         
-        if(!menu_font.loadFromFile("src/menu/2.otf"))std::terminate();
+        if(!menu_font.loadFromFile("../src/menu/2.otf"))std::terminate();
         
         Titul.setFont(menu_font);
         InitText(Titul, 480, 50, L"CheloFight", 150, sf::Color::White, 3);

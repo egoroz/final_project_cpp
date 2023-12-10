@@ -156,6 +156,7 @@ MyProject: CMakeFiles/MyProject.dir/src/background.cpp.o
 MyProject: CMakeFiles/MyProject.dir/src/main.cpp.o
 MyProject: CMakeFiles/MyProject.dir/src/view.cpp.o
 MyProject: CMakeFiles/MyProject.dir/build.make
+MyProject: /usr/lib/libsfml-network.so.2.6.1
 MyProject: /usr/lib/libsfml-graphics.so.2.6.1
 MyProject: /usr/lib/libsfml-audio.so.2.6.1
 MyProject: /usr/lib/libsfml-window.so.2.6.1

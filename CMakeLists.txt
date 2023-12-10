@@ -4,7 +4,7 @@ project(MyProject)
 
 # Установка пути к библиотекам SFML
 set(SFML_DIR "path/to/SFML/cmake/modules")
-find_package(SFML 2.5 COMPONENTS system window graphics audio REQUIRED)
+find_package(SFML 2.5 COMPONENTS network system window graphics audio REQUIRED)
 
 # Добавление пути к заголовочным файлам
 include_directories(include)
@@ -13,7 +13,8 @@ include_directories(include)
 file(GLOB SOURCES "src/*.cpp")
 
 # Add all .cpp files recursively
-file(GLOB_RECURSE SOURCES "src/*.cpp" "lib/*/*.cpp")
+# "src/server/*.cpp"
+file(GLOB_RECURSE SOURCES "src/background.cpp" "src/main.cpp" "src/view.cpp" "lib/*/*.cpp")
 
 # Add all .hpp files recursively
 file(GLOB_RECURSE HEADERS "include/*.hpp" "include/*.h" "lib/*/*.hpp" "lib/*/*.h")
@@ -22,5 +23,5 @@ file(GLOB_RECURSE HEADERS "include/*.hpp" "include/*.h" "lib/*/*.hpp" "lib/*/*.h
 add_executable(MyProject ${SOURCES})
 
 # Линковка с библиотеками SFML
-target_link_libraries(MyProject sfml-system sfml-window sfml-graphics sfml-audio)
+target_link_libraries(MyProject sfml-network sfml-system sfml-window sfml-graphics sfml-audio)
 
