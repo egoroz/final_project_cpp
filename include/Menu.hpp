@@ -52,7 +52,7 @@ public:
         window_.setMouseCursorVisible(false);
         auto width = static_cast<float>(sf::VideoMode::getDesktopMode().width);
         auto height = static_cast<float>(sf::VideoMode::getDesktopMode().height);
-        bck_ptr = new sf::RectangleShape {sf::Vector2f(width, height)};
+        bck_ptr = new sf::RectangleShape (sf::Vector2f(width, height));
         
         if(!texture_window.loadFromFile("../src/menu/1.jpg")) std::terminate();
         (*bck_ptr).setTexture(&texture_window);
