@@ -8,7 +8,7 @@
 >cd build\
 >cmake ..\
 >make\
->./MyProject\
+>./MyProject
 
 
 >Разработчики:\
