@@ -704,7 +704,6 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: /home/egor/repoes/final_project_cpp/src
   /home/egor/repoes/final_project_cpp/include/Menu.hpp \
   /home/egor/repoes/final_project_cpp/include/anim.hpp \
   /home/egor/repoes/final_project_cpp/include/background.hpp \
-  /home/egor/repoes/final_project_cpp/include/entity.hpp \
   /home/egor/repoes/final_project_cpp/include/player.hpp \
   /home/egor/repoes/final_project_cpp/include/view.hpp \
   /usr/include/SFML/Config.hpp \
@@ -1493,8 +1492,6 @@ CMakeFiles/MyProject.dir/src/view.cpp.o: /home/egor/repoes/final_project_cpp/src
 /usr/include/wchar.h:
 
 /usr/include/bits/posix1_lim.h:
-
-/home/egor/repoes/final_project_cpp/include/entity.hpp:
 
 /usr/include/SFML/Window/Joystick.hpp:
 
