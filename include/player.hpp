@@ -66,10 +66,10 @@ public:
             if (getRect().intersects(obj[i].rect)){ // пересечение игрока с любым объектов
                 if(obj[i].name == "solid"){  //встретились с "твердым" препятствием
                     canJump = false;
-                    if (dy > 0 && num == 1) {y = obj[i].rect.top - h - 0.01; dy  = 0; STATE = stay; canJump = true;}
-                    if (dy < 0 && num == 1) {y = obj[i].rect.top + obj[i].rect.height  + 0.01; dy = 0; STATE = falling;}
-                    if (dx > 0 && num == 0) {x = obj[i].rect.left - w - 0.01;}
-                    if (dx < 0 && num == 0) {x = obj[i].rect.left + obj[i].rect.width + 0.01;}
+                    if (dy > 0 && num == 1) {y = obj[i].rect.top - h; dy  = 0; STATE = stay; canJump = true;}
+                    if (dy < 0 && num == 1) {y = obj[i].rect.top + obj[i].rect.height; dy = 0; STATE = falling;}
+                    if (dx > 0 && num == 0) {x = obj[i].rect.left - w;}
+                    if (dx < 0 && num == 0) {x = obj[i].rect.left + obj[i].rect.width;}
                 }
             }
         }

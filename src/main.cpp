@@ -17,7 +17,7 @@ int main()
 {
     GameStatus GlobalStatus;
     sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "two Egors and one Artem");  // TODO name of project
-    //window.setFramerateLimit(2);
+    window.setFramerateLimit(30);
 
     sf::Texture t;
     t.loadFromFile("../src/heroes/Brodell Walker.png");
