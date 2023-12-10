@@ -73,12 +73,13 @@ std::vector<std::string> texturePaths = {
     menu.AlignMenu(2);
 
     while(window.isOpen()){
-        switch (GlobalStatus.GetGameStatus()){
+switch (GlobalStatus.GetGameStatus()){
         case Play:
             GamePlay(&window, &clock, &hero, &background, &camera, &lvl);
             break;
         case Menu:
             menu.execute(&GlobalStatus);
+            clock.restart();
             break;
         
         case Results:
@@ -96,9 +97,8 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, Parallax
         // std::cout << "lox\n";
         // std::cout << "lox\n";
         float time = clock->getElapsedTime().asMicroseconds();
-        clock->restart();
         time = time / 500;
-
+        clock->restart();
         sf::Event event;
         while(window->pollEvent(event)){
             if(event.type == sf::Event::Closed || event.key.code == sf::Keyboard::Escape){window->close();}
