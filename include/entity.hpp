@@ -9,34 +9,36 @@
 class Entity
 {
 public:
-	float x,y,dx,dy,w,h;
-	AnimationManager anim;
-	std::vector<TmxObject> obj;
-	bool life, dir;
+    std::vector<TmxObject> obj;//вектор объектов карты
+    float x, y, dx, dy, w, h;
+    AnimationManager anim;
+    bool life, dir;
+
 	float timer, timer_end;
 	std::string name;
 	int health;
 
-	Entity(AnimationManager &anim,int x, int y): anim(anim), x(x), y(y)
+	Entity(AnimationManager &anim, TmxLevel & lvl, int x=550, int y=800): anim(anim), x(x), y(y)
 	{
+        obj = lvl.GetAllObjects("solid");
 		dir = 0;
 
-		life=true;
-		timer=0;
-		timer_end=0;
-		dx=dy=0;
+		life = true;
+		timer = 0;
+		timer_end = 0;
+		dx = dy = 0;
 	}
 
 	virtual void update(float time) = 0;
 
-	void draw(RenderWindow &window)
+	void draw(sf::RenderWindow &window)
 	{
-		anim.draw(window,x,y+h);
+		anim.draw(window,x,y);
 	}
 
-	FloatRect getRect()
+	sf::FloatRect getRect()
 	{
-		return FloatRect(x,y,w,h);
+		return sf::FloatRect(x,y,w,h);
 	}
 
 	void option(std::string name_, float speed=0, int health_=1, std::string first_anim="")
