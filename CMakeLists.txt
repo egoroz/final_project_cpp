@@ -2,6 +2,8 @@ cmake_minimum_required(VERSION 3.5)
 
 project(MyProject)
 
+set(CMAKE_CXX_STANDARD 17)
+
 # Установка пути к библиотекам SFML
 set(SFML_DIR "path/to/SFML/cmake/modules")
 find_package(SFML 2.5 COMPONENTS network system window graphics audio REQUIRED)
