@@ -26,14 +26,14 @@ public:
         //onGround = false;
         dir = false;
         x = 550;
-        y = 500; 
+        y = 800; 
         w = anim.getW();
         h = anim.getH();
     }
 
     void KeyCheck(){
-        if(key["R"])   if(!(STATE == legspin || STATE == stabling)){dx = 0.1; dir = false; if(STATE == stay){STATE = run; } }
-        if(key["L"])   if(!(STATE == legspin || STATE == stabling)){dx = -0.1; dir = true; if(STATE == stay){STATE = run; } }
+        if(key["R"])   if(!(STATE == legspin || STATE == stabling)){dx = 0.09; dir = false; if(STATE == stay){STATE = run; } }
+        if(key["L"])   if(!(STATE == legspin || STATE == stabling)){dx = -0.09; dir = true; if(STATE == stay){STATE = run; } }
         if(key["Up"])  if(!(STATE == legspin || STATE == stabling)){if ((STATE == stay) || (STATE == run)){if(canJump){STATE = jump; dy = -0.15; canJump = false;}}}
         if(key["Down"])if(!(STATE == legspin || STATE == stabling)){if(STATE == stay){STATE = sit;} if (STATE == run){STATE = sneak;}}
         if(key["G"])   if(!(STATE == legspin || STATE == stabling)){if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = legspin;}}
@@ -74,10 +74,10 @@ public:
             if (getRect().intersects(obj[i].rect)){ // пересечение игрока с любым объектов
                 if(obj[i].name == "solid"){  //встретились с "твердым" препятствием
                     canJump = false;
-                    if (dy > 0 && num == 1) {y = obj[i].rect.top - h; dy  = 0; STATE = stay; canJump = true;}
-                    if (dy < 0 && num == 1) {y = obj[i].rect.top + obj[i].rect.height; dy = 0; STATE = falling;}
-                    if (dx > 0 && num == 0) {x = obj[i].rect.left - w;}
-                    if (dx < 0 && num == 0) {x = obj[i].rect.left + obj[i].rect.width;}
+                    if (dy > 0 && num == 1) {y = obj[i].rect.top - h - 0.01; dy  = 0; STATE = stay; canJump = true;}
+                    if (dy < 0 && num == 1) {y = obj[i].rect.top + obj[i].rect.height  + 0.01; dy = 0; STATE = falling;}
+                    if (dx > 0 && num == 0) {x = obj[i].rect.left - w - 0.01;}
+                    if (dx < 0 && num == 0) {x = obj[i].rect.left + obj[i].rect.width + 0.01;}
                 }
             }
         }
@@ -87,7 +87,7 @@ public:
         KeyCheck();
         Animation(time);
 
-        if(!canJump){dy += 0.005;}
+        if(!canJump){dy += 0.002;}
         x += dx * time;
         Collision(0);                           // CollitionX
         dy += 0.00005*time;
