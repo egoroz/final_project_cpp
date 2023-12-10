@@ -6,27 +6,27 @@
 #include<string>
 #include<vector>
 #include "../lib/level/TmxLevel.h"
+#include "entity.hpp"
 
 class Player{
 public:
-   std::vector<TmxObject> obj;//вектор объектов карты
+    std::vector<TmxObject> obj;//вектор объектов карты
     float x, y, dx, dy, w, h;
     AnimationManager anim;
     bool life, dir;
+    
     bool canJump;
 
     enum {stay, run, jump, sit, sneak, legspin, stabling, falling} STATE; //sneak - крадется legspin - вертушка stabling - поножовщина
     std::map<std::string, bool> key;
 
-    Player(const AnimationManager &anim_, TmxLevel & lvl){
+    Player(const AnimationManager &anim_, TmxLevel & lvl, int x=550, int y=800):anim(anim_), x(x), y(y){
         obj = lvl.GetAllObjects("solid");  //Получаем все объекты для взаимодействия с персонажем
         STATE = stay;
-        anim = anim_;
         canJump = false;
         //onGround = false;
         dir = false;
-        x = 550;
-        y = 800; 
+
         w = anim.getW();
         h = anim.getH();
     }
