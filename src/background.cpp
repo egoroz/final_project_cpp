@@ -1,4 +1,4 @@
-#include "background.hpp"
+#include "../include/background.hpp"
 
 ParallaxBackground::ParallaxBackground(const std::vector<std::string>& texturePaths) {
     int i = 0;

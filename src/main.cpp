@@ -2,12 +2,12 @@
 //TODO audio
 #include <iostream>
 #include <string>
-#include "include/anim.hpp"
-#include "include/player.hpp"
-#include "include/Menu.hpp"
-#include "lib/level/TmxLevel.h"
-#include "include/background.hpp"
-#include "include/view.hpp"
+#include "../include/anim.hpp"
+#include "../include/player.hpp"
+#include "../include/Menu.hpp"
+#include "../lib/level/TmxLevel.h"
+#include "../include/background.hpp"
+#include "../include/view.hpp"
 
 int ground = 1080;
 
@@ -15,24 +15,24 @@ int ground = 1080;
 int main()
 {
     sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "two Egors and one Artem");  // TODO name of project
-    window.setFramerateLimit(120);
+    // window.setFramerateLimit(120);
 
     sf::Texture t;
-    t.loadFromFile("src/heroes/Brodell Walker.png");
+    t.loadFromFile("../src/heroes/Brodell Walker.png");
 
     AnimationManager anim;
-    anim.loadFromFile("src/heroes/Brodell Walker.xml", t);
+    anim.loadFromFile("../src/heroes/Brodell Walker.xml", t);
     // anim.create("walk", t, 10, 15, 32, 32, 4, 0.005, 32);
     // anim.create("stay", t, 10, 20 + 32*8, 32, 32, 28, 0.005, 32);
 
 
     TmxLevel lvl;
-    lvl.LoadFromFile("src/maps/map.tmx");
+    lvl.LoadFromFile("../src/maps/map.tmx");
 
     Player hero(anim, lvl);
 
     // sf::Image fonimage; //создаем объект Image (изображение)
-	// fonimage.loadFromFile("src/maps/layers/Layer_0003_6.png");//загружаем в него файл
+	// fonimage.loadFromFile("../src/maps/layers/Layer_0003_6.png");//загружаем в него файл
  
 	// sf::Texture fontexture;//создаем объект Texture (текстура)
 	// fontexture.loadFromImage(fonimage);//передаем в него объект Image (изображения)
@@ -43,23 +43,22 @@ int main()
 
 
 std::vector<std::string> texturePaths = {
-        "src/maps/layers/12.png",
-        "src/maps/layers/11.png",
-        "src/maps/layers/10.png",
-        "src/maps/layers/9.png",
-        "src/maps/layers/8.png",
-        "src/maps/layers/7.png",
-        "src/maps/layers/6.png",
-        "src/maps/layers/4.png",
-        "src/maps/layers/3.png",
-        "src/maps/layers/5.png",
-        "src/maps/layers/2.png",
-        "src/maps/layers/1.png"
-        // Добавьте остальные пути к текстурам здесь
+        "../src/maps/layers/12.png",
+        "../src/maps/layers/11.png",
+        "../src/maps/layers/10.png",
+        "../src/maps/layers/9.png",
+        "../src/maps/layers/8.png",
+        "../src/maps/layers/7.png",
+        "../src/maps/layers/6.png",
+        "../src/maps/layers/4.png",
+        "../src/maps/layers/3.png",
+        "../src/maps/layers/5.png",
+        "../src/maps/layers/2.png",
+        "../src/maps/layers/1.png"
     };
 
     ParallaxBackground background(texturePaths);
-    Camera camera(500, 500);
+    Camera camera(800, 800);
 
     // sf::RectangleShape rectangle(sf::Vector2f(32,32));
 
