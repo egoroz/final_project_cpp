@@ -79,7 +79,7 @@ public:
     animList[currentAnim].flip=0;
   }
 
-  void draw(sf::RenderWindow &window,int x=0, int y=0)
+  void draw(sf::RenderWindow& window,int x=0, int y=0)
   {
     animList[currentAnim].sprite.setPosition(x,y);
     window.draw( animList[currentAnim].sprite );

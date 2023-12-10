@@ -99,7 +99,7 @@ public:
         // onGround = false;
     }
 
-    void draw(sf::RenderWindow & window){
+    void draw(sf::RenderWindow& window){
             anim.draw(window, x, y);
     }
 };

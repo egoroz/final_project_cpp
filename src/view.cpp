@@ -12,6 +12,6 @@ void Camera::update(const sf::Vector2f& target) {
     view.setCenter(newPosition);
 }
 
-void Camera::applyTo(sf::RenderWindow& window) {
+void Camera::applyTo(sf::RenderWindow&window) {
     window.setView(view);
 }
