@@ -43,18 +43,17 @@ int main()
 
 
 std::vector<std::string> texturePaths = {
-        "../src/maps/layers/12.png",
-        "../src/maps/layers/11.png",
-        "../src/maps/layers/10.png",
-        "../src/maps/layers/9.png",
-        "../src/maps/layers/8.png",
-        "../src/maps/layers/7.png",
-        "../src/maps/layers/6.png",
-        "../src/maps/layers/4.png",
-        "../src/maps/layers/3.png",
-        "../src/maps/layers/5.png",
-        "../src/maps/layers/2.png",
-        "../src/maps/layers/1.png"
+        // "../src/maps/layers/9.png",
+        // "../src/maps/layers/8.png",
+        // "../src/maps/layers/7.png",
+        // "../src/maps/layers/6.png",
+        // "../src/maps/layers/5.png",
+        // "../src/maps/layers/4.png",
+        // "../src/maps/layers/2.png",
+        // "../src/maps/layers/1.png",
+        // "../src/maps/layers/3.png",
+        // "../src/maps/layers/11.png",
+        // "../src/maps/layers/12.png",
     };
 
     ParallaxBackground background(texturePaths);
@@ -93,7 +92,7 @@ std::vector<std::string> texturePaths = {
         background.update(time);
         camera.update(sf::Vector2f(hero.x, hero.y + hero.h));
 
-        window.clear(sf::Color::White);
+        window.clear(sf::Color::Black);
         background.draw(window);
 
         // window.draw(fonsprite);
