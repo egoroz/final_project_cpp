@@ -15,7 +15,7 @@ int ground = 1080;
 int main()
 {
     GameStatus GlobalStatus;
-    sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "two Egors and one Artem");  // TODO name of project
+    sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "two Egors and one Artem", sf::Style::Fullscreen);  // TODO name of project
     window.setFramerateLimit(30);
 
     sf::Texture t;
