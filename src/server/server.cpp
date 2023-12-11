@@ -97,24 +97,24 @@ int main()
 
         // Добавляем клиента в список, если его там нет
         auto client = clients.end();
-        for (auto it = clients.begin(); it != clients.end(); ++it)
-        {
-            if (it->address == clientAddress && it->port == clientPort)
-            {
-                client = it;
-                break;
-            }
-        }
+    //     for (auto it = clients.begin(); it != clients.end(); ++it)
+    //     {
+    //         if (it->address == clientAddress && it->port == clientPort)
+    //         {
+    //             client = it;
+    //             break;
+    //         }
+    //     }
 
-        if (client == clients.end())
-        {
-            clients.emplace_back(clientAddress, clientPort);
-        }
+    //     if (client == clients.end())
+    //     {
+    //         clients.emplace_back(clientAddress, clientPort);
+    //     }
 
-        if (client == clients.end())
-        {
-            clients.emplace_back(clientAddress, clientPort);
-        }
+    //     if (client == clients.end())
+    //     {
+    //         clients.emplace_back(clientAddress, clientPort);
+    //     }
     }
 
     return 0;

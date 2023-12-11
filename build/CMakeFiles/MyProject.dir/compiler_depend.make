@@ -1575,6 +1575,18 @@ CMakeFiles/MyProject.dir/src/gameplay.cpp.o: /Users/egorpatesman/Visual_Studio/T
   /Library/Frameworks/SFML.framework/Headers/Graphics/VertexArray.hpp \
   /Library/Frameworks/SFML.framework/Headers/Graphics/VertexBuffer.hpp \
   /Library/Frameworks/SFML.framework/Headers/Graphics/View.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/Export.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/Ftp.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/Http.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/IpAddress.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/Packet.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/Socket.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/SocketHandle.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/SocketSelector.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/TcpListener.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/TcpSocket.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/UdpSocket.hpp \
   /Library/Frameworks/SFML.framework/Headers/System.hpp \
   /Library/Frameworks/SFML.framework/Headers/System/Clock.hpp \
   /Library/Frameworks/SFML.framework/Headers/System/Err.hpp \
@@ -2085,6 +2097,18 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: /Users/egorpatesman/Visual_Studio/Third
   /Library/Frameworks/SFML.framework/Headers/Graphics/VertexArray.hpp \
   /Library/Frameworks/SFML.framework/Headers/Graphics/VertexBuffer.hpp \
   /Library/Frameworks/SFML.framework/Headers/Graphics/View.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/Export.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/Ftp.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/Http.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/IpAddress.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/Packet.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/Socket.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/SocketHandle.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/SocketSelector.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/TcpListener.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/TcpSocket.hpp \
+  /Library/Frameworks/SFML.framework/Headers/Network/UdpSocket.hpp \
   /Library/Frameworks/SFML.framework/Headers/System.hpp \
   /Library/Frameworks/SFML.framework/Headers/System/Clock.hpp \
   /Library/Frameworks/SFML.framework/Headers/System/Err.hpp \
@@ -2656,6 +2680,22 @@ CMakeFiles/MyProject.dir/src/view.cpp.o: /Users/egorpatesman/Visual_Studio/Third
 
 /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/player.hpp:
 
+/Library/Frameworks/SFML.framework/Headers/Network/UdpSocket.hpp:
+
+/Library/Frameworks/SFML.framework/Headers/Network/TcpSocket.hpp:
+
+/Library/Frameworks/SFML.framework/Headers/Network/SocketHandle.hpp:
+
+/Library/Frameworks/SFML.framework/Headers/Network/Packet.hpp:
+
+/Library/Frameworks/SFML.framework/Headers/Network/IpAddress.hpp:
+
+/Library/Frameworks/SFML.framework/Headers/Network/Http.hpp:
+
+/Library/Frameworks/SFML.framework/Headers/Network/Ftp.hpp:
+
+/Library/Frameworks/SFML.framework/Headers/Network.hpp:
+
 /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/gameplay.cpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/cstdarg:
@@ -2773,6 +2813,8 @@ CMakeFiles/MyProject.dir/src/view.cpp.o: /Users/egorpatesman/Visual_Studio/Third
 /Library/Frameworks/SFML.framework/Headers/System/Err.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/xlocale/__wctype.h:
+
+/Library/Frameworks/SFML.framework/Headers/Network/SocketSelector.hpp:
 
 /Library/Frameworks/SFML.framework/Headers/System/FileInputStream.hpp:
 
@@ -3290,6 +3332,8 @@ CMakeFiles/MyProject.dir/src/view.cpp.o: /Users/egorpatesman/Visual_Studio/Third
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__functional/bind_front.h:
 
+/Library/Frameworks/SFML.framework/Headers/Network/Socket.hpp:
+
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__functional/binary_negate.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/sys/resource.h:
@@ -3357,6 +3401,8 @@ CMakeFiles/MyProject.dir/src/view.cpp.o: /Users/egorpatesman/Visual_Studio/Third
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__algorithm/shift_left.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__iterator/next.h:
+
+/Library/Frameworks/SFML.framework/Headers/Network/Export.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__algorithm/set_symmetric_difference.h:
 
@@ -3555,6 +3601,8 @@ CMakeFiles/MyProject.dir/src/view.cpp.o: /Users/egorpatesman/Visual_Studio/Third
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__iterator/size.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__algorithm/fill_n.h:
+
+/Library/Frameworks/SFML.framework/Headers/Network/TcpListener.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/stdlib.h:
 

@@ -4,7 +4,7 @@
 #include <string>
 #include "anim.cpp"
 #include "../include/player.hpp"
-#include "../include/Menu.hpp"
+#include "Menu.cpp"
 #include "../lib/level/TmxLevel.h"
 #include "../include/background.hpp"
 #include "../include/view.hpp"

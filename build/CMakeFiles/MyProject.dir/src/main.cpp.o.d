@@ -505,12 +505,25 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/anim.hpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/../lib/level/TmxLevel.h \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/entity.hpp \
+  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/Menu.cpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/../include/Menu.hpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/gamestatus.hpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/../lib/level/TmxLevel.h \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/../include/background.hpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/../include/view.hpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/../include/gameplay.hpp \
+  /Library/Frameworks/./SFML.framework/Headers/Network.hpp \
+  /Library/Frameworks/./SFML.framework/Headers/Network/Ftp.hpp \
+  /Library/Frameworks/./SFML.framework/Headers/Network/Export.hpp \
+  /Library/Frameworks/./SFML.framework/Headers/Network/TcpSocket.hpp \
+  /Library/Frameworks/./SFML.framework/Headers/Network/Socket.hpp \
+  /Library/Frameworks/./SFML.framework/Headers/Network/SocketHandle.hpp \
+  /Library/Frameworks/./SFML.framework/Headers/Network/Http.hpp \
+  /Library/Frameworks/./SFML.framework/Headers/Network/IpAddress.hpp \
+  /Library/Frameworks/./SFML.framework/Headers/Network/Packet.hpp \
+  /Library/Frameworks/./SFML.framework/Headers/Network/SocketSelector.hpp \
+  /Library/Frameworks/./SFML.framework/Headers/Network/TcpListener.hpp \
+  /Library/Frameworks/./SFML.framework/Headers/Network/UdpSocket.hpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/../include/anim.hpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/../include/player.hpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/../include/background.hpp \
