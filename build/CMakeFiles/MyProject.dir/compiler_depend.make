@@ -3164,6 +3164,9 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: /Users/egorpatesman/Visual_Studio/Third
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/lib/tinyxml2/tinyxml2.h \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/anim.hpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/entity.hpp \
+  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/gamestatus.hpp \
+  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/Menu.hpp \
+  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/anim.hpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/background.hpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/gameplay.hpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/player.hpp \

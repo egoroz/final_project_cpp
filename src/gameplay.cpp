@@ -1,7 +1,7 @@
 #include "../include/gameplay.hpp"
 
 
-void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock, sf::UdpSocket* clientSocket, sf::IpAddress* serverAddress,unsigned short* serverPortNumber)
+void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock)
 {
 
     // Определяем код клавиши
@@ -40,7 +40,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, Parallax
     char message[2];
     message[0] = keyCode;
     message[1] = '\0';
-    clientSocket->send(message, sizeof(message), *serverAddress, *serverPortNumber);
+    
 
 
 
