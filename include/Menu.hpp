@@ -84,7 +84,7 @@ public:
 
 
 
-    virtual void execute(GameStatus* status, sf::Clock* GlobalClock);
+    virtual void execute(GameStatus* status, sf::Clock* GlobalClock, Player* hero);
 };
 
 class GResults: public GMenu{
@@ -96,7 +96,7 @@ public:
         InitText(Titul, 380, 50, L"GoodGame!", 150, sf::Color::White, 3);
     }
 
-    void execute(GameStatus* status, sf::Clock* GlobalClock) override;
+    void execute(GameStatus* status, sf::Clock* GlobalClock, Player* hero) override;
 };
 
 void InitText(sf::Text& mtext, float xpos, float ypos, const sf::String str, int size_font, sf::Color menu_text_color, int bord , sf::Color menu_border_color){
@@ -212,13 +212,15 @@ void GMenu::setColorArrowMenu(){
 	arrows[mainMenuSelected].setFillColor(sf::Color::White);
 }
 
-void GameStart(GameStatus* stat, sf::Clock* GlobalClock){
+void GameStart(GameStatus* stat, sf::Clock* GlobalClock, Player* hero){
     stat->ChangeGameStatus(Play);
     GlobalClock->restart();
+	hero->x = 550;
+	hero->y = 800;
 }
 
 
-void GMenu::execute(GameStatus* status, sf::Clock* GlobalClock){
+void GMenu::execute(GameStatus* status, sf::Clock* GlobalClock, Player* hero){
         
             sf::Event event;
             while(window_->pollEvent(event)){
@@ -234,7 +236,7 @@ void GMenu::execute(GameStatus* status, sf::Clock* GlobalClock){
                         
                         switch (getSelectedMenuNumber())
                         {
-                        case 0:GameStart(status, GlobalClock);  break;
+                        case 0:GameStart(status, GlobalClock, hero);  break;
                         case 1:window_->close(); break;
                         default:break;
                         }
@@ -250,7 +252,7 @@ void GMenu::execute(GameStatus* status, sf::Clock* GlobalClock){
         }
     }
 
-void GResults::execute(GameStatus* status, sf::Clock* GlobalClock){
+void GResults::execute(GameStatus* status, sf::Clock* GlobalClock, Player* hero){
         
             sf::Event event;
             while(window_->pollEvent(event)){

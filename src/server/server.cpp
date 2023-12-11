@@ -33,7 +33,7 @@ int main()
     std::vector<TmxObject> obj;
     obj = lvl.GetAllObjects("solid");
     Player hero(anim);
-
+    sf::Clock gclock;
 
     // Создаем UDP сокет на сервере
     sf::UdpSocket serverSocket;
@@ -52,9 +52,7 @@ int main()
         unsigned short clientPort;
         serverSocket.receive(buffer, sizeof(buffer), received, clientAddress, clientPort);
         std::cout << "Message received from client: " << buffer << std::endl;
-        float time = clock.getElapsedTime().asMicroseconds();
-        time = time / 500;
-        clock.restart();
+
 
         // Определяем код клавиши
         char keyCode = '0';
@@ -86,13 +84,21 @@ int main()
         {
             keyCode = 'Z';
         }
-
+        float time = clock.getElapsedTime().asMicroseconds();
+        time = time / 500;
+        clock.restart();
+        if (gclock.getElapsedTime().asSeconds()<10){
+hero.x= 550;
+hero.y = 800;
+}
         hero.update(time, obj);
+        std::cout<<hero.x<< ' '<< hero.y<<" "<<gclock.getElapsedTime().asSeconds() <<std::endl;
         // Отправляем обновленный hero клиенту
 
+        sf::Packet packet;
+        packet << hero;
 
-        /*sf::Packet packet;
-        packet << hero;*/
+        serverSocket.send(packet.getData(), packet.getDataSize(), clientAddress, clientPort);
 
 
         // Добавляем клиента в список, если его там нет

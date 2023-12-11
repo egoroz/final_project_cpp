@@ -1,7 +1,7 @@
 #include "../include/gameplay.hpp"
 
 
-void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock, sf::UdpSocket* clientSocket, sf::IpAddress* serverAddress,unsigned short* serverPortNumber)
+void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock, sf::UdpSocket* clientSocket, sf::IpAddress* serverAddress,unsigned short* serverPort)
 {
 
     // Определяем код клавиши
@@ -40,7 +40,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, Parallax
     char message[2];
     message[0] = keyCode;
     message[1] = '\0';
-    clientSocket->send(message, sizeof(message), *serverAddress, *serverPortNumber);
+    clientSocket->send(message, sizeof(message), *serverAddress, *serverPort);
 
 
 
@@ -57,16 +57,21 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, Parallax
         if(event.type == sf::Event::Closed || event.key.code == sf::Keyboard::Escape){window->close();}
     }
 
+    //
+    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){hero->key["R"] = true;}
+    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)){hero->key["L"] = true;}
+    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)){hero->key["Up"] = true;}
+    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)){hero->key["Down"] = true;}
+    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)){hero->key["F"] = true;}
+    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)){hero->key["G"] = true;}
 
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){hero->key["R"] = true;}
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)){hero->key["L"] = true;}
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)){hero->key["Up"] = true;}
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)){hero->key["Down"] = true;}
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)){hero->key["F"] = true;}
-    if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)){hero->key["G"] = true;}
+
+    sf::Packet packet;
+    clientSocket->receive(packet, *serverAddress, *serverPort);
+    packet >> *hero;
 
 
-    hero->update(time, *obj);
+    //hero->update(time, *obj);
     background->update(time);
     camera->update(sf::Vector2f(hero->x, hero->y + hero->h));
 
@@ -74,7 +79,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, Parallax
     background->draw(*window);
 
     // window.draw(fonsprite);
-    std::cerr << time << "\n";
+    //std::cerr << time << "\n";
     lvl->Draw(*window);
     hero->draw(*window);
     camera->applyTo(*window);
@@ -92,7 +97,8 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, Parallax
     // } //Рисуем объекты с которыми колизируем
 
     window->display();
-    std::cout << gclock->getElapsedTime().asSeconds() << "\n";
+    //std::cout << gclock->getElapsedTime().asSeconds() << "\n";
+
     if(gclock->getElapsedTime().asSeconds()>30.f){
         gs->ChangeGameStatus(status::Results);
     }

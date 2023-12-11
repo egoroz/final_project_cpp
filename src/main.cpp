@@ -1,4 +1,6 @@
 #include <SFML/Graphics.hpp>
+#include <SFML/Network.hpp>
+
 //TODO audio
 #include <iostream>
 #include <string>
@@ -21,7 +23,7 @@ int main()
 
     // Определяем IP-адрес и порт сервера
     sf::IpAddress serverAddress = "192.168.1.105";
-    unsigned short serverPortNumber = 55001;
+    unsigned short serverPort = 55001;
 
     GameStatus GlobalStatus;
     sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "two Egors and one Artem", sf::Style::Fullscreen);  // TODO name of project
@@ -95,15 +97,15 @@ std::vector<std::string> texturePaths = {
     while(window.isOpen()){
 switch (GlobalStatus.GetGameStatus()){
         case Play:
-            GamePlay(&window, &clock, &hero, &background, &camera, &lvl, &obj, &GlobalStatus, &GlobClock, &clientSocket, &serverAddress,&serverPortNumber );
+            GamePlay(&window, &clock, &hero, &background, &camera, &lvl, &obj, &GlobalStatus, &GlobClock, &clientSocket, &serverAddress,&serverPort );
             break;
         case Menu:
-            menu.execute(&GlobalStatus, &GlobClock);
+            menu.execute(&GlobalStatus, &GlobClock, &hero);
             clock.restart();
             break;
         
         case Results:
-            result.execute(&GlobalStatus, &GlobClock);
+            result.execute(&GlobalStatus, &GlobClock, &hero);
             break;
         }
     }

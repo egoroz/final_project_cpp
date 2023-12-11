@@ -16,11 +16,25 @@ public:
     
     
 
-    enum {stay, run, jump, sit, sneak, legspin, stabling, falling} STATE; //sneak - крадется legspin - вертушка stabling - поножовщина
+    enum State {stay, run, jump, sit, sneak, legspin, stabling, falling} STATE; //sneak - крадется legspin - вертушка stabling - поножовщина
     std::map<std::string, bool> key;
 	float timer, timer_end;
 	std::string name;
 	int health;
+
+
+	friend sf::Packet& operator<<(sf::Packet& packet, const Entity& ent)
+	{
+		return packet << ent.x << ent.y << ent.w << ent.h << ent.life << ent.dir << static_cast<int>(ent.STATE);;
+	}
+
+	friend sf::Packet& operator>>(sf::Packet& packet, Entity& ent)
+	{
+		int state;
+		return packet >> ent.x >> ent.y >> ent.w >> ent.h >> ent.life >> ent.dir >> state;
+		ent.STATE = static_cast<Entity::State>(state);
+	}
+
 
 	Entity(const AnimationManager &anim, int x=550, int y=800): anim(anim), x(x), y(y)
 	{
@@ -51,7 +65,7 @@ public:
 		if (first_anim!="") anim.set(first_anim);
 		w = anim.getW();
 		h = anim.getH();
-		dx = speed;
+		//dx = speed;
 		health = health;
 	}
 

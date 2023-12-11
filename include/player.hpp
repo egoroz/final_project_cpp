@@ -1,6 +1,6 @@
 #ifndef PLAYER_H
 #define PLAYER_H
-
+#include <SFML/Network.hpp>
 #include<iostream>
 #include"anim.hpp"
 #include<string>
@@ -26,16 +26,18 @@ public:
     void KeyCheck(){
         if(key["R"])   if(!(STATE == legspin || STATE == stabling)){dx = 0.09; dir = false; if(STATE == stay){STATE = run; } }
         if(key["L"])   if(!(STATE == legspin || STATE == stabling)){dx = -0.09; dir = true; if(STATE == stay){STATE = run; } }
-        if(key["Up"])  if(!(STATE == legspin || STATE == stabling)){if ((STATE == stay) || (STATE == run)){if(canJump){STATE = jump; dy = -0.15; canJump = false;}}}
+        if(key["Up"])  if(!(STATE == legspin || STATE == stabling)){if ((STATE == stay) || (STATE == run)){if(canJump){STATE = jump; dy = -0.15; canJump = false;}}} //TODO dy = -0.15
         if(key["Down"])if(!(STATE == legspin || STATE == stabling)){if(STATE == stay){STATE = sit;} if (STATE == run){STATE = sneak;}}
         if(key["G"])   if(!(STATE == legspin || STATE == stabling)){if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = legspin;}}
         if(key["F"])   if(!(STATE == legspin || STATE == stabling)){if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = stabling;}}
 
-        if(!(key["R"] || key["L"])){dx = 0;} 
+        if(!(key["R"] || key["L"])){dx = 0;}
         if(!key["Up"])             {}
         if(!key["Down"])           {if (STATE == sit){STATE = stay;}    if(STATE == sneak){STATE = run;}}
         if(!key["G"])              if(STATE != stabling){if(STATE == legspin){STATE = run;} }
         if(!key["F"])              if(STATE != legspin){if(STATE == stabling){STATE = run;} }
+        std::cout<<"keychecked"<<std::endl;
+
     }
 
     void Animation(float time){
@@ -76,6 +78,7 @@ public:
     }
 
     void update(float time, std::vector<TmxObject>& obj){
+
         KeyCheck();
         Animation(time);
 
@@ -84,7 +87,10 @@ public:
         Collision(0, obj);                           // CollitionX
         dy += 0.00005*time;
         y += dy * time;
-        Collision(1, obj);                           // CollitionY
+        Collision(1, obj);
+
+
+
 
 
         key["R"] = key["L"] = key["Up"] = key["Down"] = key["F"] = key["G"] = false;
@@ -94,6 +100,8 @@ public:
     void draw(sf::RenderWindow& window){
             anim.draw(window, x, y);
     }
+
+
 };
 
 #endif
