@@ -2145,7 +2145,8 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: /Users/egorpatesman/Visual_Studio/Third
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/gameplay.hpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/player.hpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/view.hpp \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/lib/level/TmxLevel.h
+  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/lib/level/TmxLevel.h \
+  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/anim.cpp
 
 CMakeFiles/MyProject.dir/src/view.cpp.o: /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/view.cpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/Availability.h \
@@ -3388,6 +3389,8 @@ CMakeFiles/MyProject.dir/src/view.cpp.o: /Users/egorpatesman/Visual_Studio/Third
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/ctype.h:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/ios:
+
+/Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/anim.cpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/__algorithm/replace_copy_if.h:
 

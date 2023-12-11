@@ -498,6 +498,7 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: \
   /Library/Frameworks/./SFML.framework/Headers/Graphics/VertexBuffer.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/istream \
+  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/anim.cpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/../include/anim.hpp \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/../lib/tinyxml2/tinyxml2.h \
   /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/../include/player.hpp \
