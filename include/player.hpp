@@ -36,8 +36,6 @@ public:
         if(!key["Down"])           {if (STATE == sit){STATE = stay;}    if(STATE == sneak){STATE = run;}}
         if(!key["G"])              if(STATE != stabling){if(STATE == legspin){STATE = run;} }
         if(!key["F"])              if(STATE != legspin){if(STATE == stabling){STATE = run;} }
-        std::cout<<"keychecked"<<std::endl;
-
     }
 
     void Animation(float time){

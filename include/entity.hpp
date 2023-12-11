@@ -25,14 +25,52 @@ public:
 
 	friend sf::Packet& operator<<(sf::Packet& packet, const Entity& ent)
 	{
-		return packet << ent.x << ent.y << ent.w << ent.h << ent.life << ent.dir << static_cast<int>(ent.STATE);;
+		std::string state;
+		if (ent.STATE == stay) {
+			state = "stay";
+		} else if (ent.STATE == run) {
+			state = "run";
+		} else if (ent.STATE == jump) {
+			state = "jump";
+		} else if (ent.STATE == sit) {
+			state = "sit";
+		} else if (ent.STATE == sneak) {
+			state = "sneak";
+		} else if (ent.STATE == legspin) {
+			state = "legspin";
+		} else if (ent.STATE == stabling) {
+			state = "stabling";
+		} else if (ent.STATE == falling) {
+			state = "falling";
+		}
+		std::cout<<"send: "<<ent.STATE<<std::endl;
+		return packet << ent.x << ent.y << ent.w << ent.h << ent.life << ent.dir << state;
 	}
 
 	friend sf::Packet& operator>>(sf::Packet& packet, Entity& ent)
 	{
-		int state;
-		return packet >> ent.x >> ent.y >> ent.w >> ent.h >> ent.life >> ent.dir >> state;
-		ent.STATE = static_cast<Entity::State>(state);
+		std::string state;
+		packet >> ent.x >> ent.y >> ent.w >> ent.h >> ent.life >> ent.dir >> state;
+		std::cout<<state<<std::endl;
+		if (state == "stay") {
+			ent.STATE = stay;
+		} else if (state == "run") {
+			ent.STATE = run;
+		} else if (state == "jump") {
+			ent.STATE = jump;
+		} else if (state == "sit") {
+			ent.STATE = sit;
+		} else if (state == "sneak") {
+			ent.STATE = sneak;
+		} else if (state == "legspin") {
+			ent.STATE = legspin;
+		} else if (state == "stabling") {
+			ent.STATE = stabling;
+		} else if (state == "falling") {
+			ent.STATE = falling;
+		}
+		std::cout<<"received: "<<ent.STATE<<' '<<state<<std::endl;
+		return packet;
 	}
 
 

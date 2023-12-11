@@ -65,17 +65,18 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, Parallax
     // if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)){hero->key["F"] = true;}
     // if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)){hero->key["G"] = true;}
 
+    window->clear(sf::Color::Black);
 
     sf::Packet packet;
     clientSocket->receive(packet, *serverAddress, *serverPort);
     packet >> *hero;
-
-
+    std::cout<< "gameplay received: "<<hero->STATE<<std::endl;
+    hero->Animation(time);
+    //std::cout<<hero->STATE<<std::endl;
     //hero->update(time, *obj);
     background->update(time);
     camera->update(sf::Vector2f(hero->x, hero->y + hero->h));
 
-    window->clear(sf::Color::Black);
     background->draw(*window);
 
     // window.draw(fonsprite);

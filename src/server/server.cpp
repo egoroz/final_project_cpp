@@ -88,11 +88,11 @@ int main()
         time = time / 500;
         clock.restart();
         if (gclock.getElapsedTime().asSeconds()<10){
-hero.x= 550;
-hero.y = 800;
-}
+            hero.x= 550;
+            hero.y = 800;
+           }
         hero.update(time, obj);
-        std::cout<<hero.x<< ' '<< hero.y<<" "<<gclock.getElapsedTime().asSeconds() <<std::endl;
+        std::cout<<hero.x<< ' '<< hero.y<<" "<<gclock.getElapsedTime().asSeconds()<<' '<< hero.STATE <<std::endl;
         // Отправляем обновленный hero клиенту
 
         sf::Packet packet;
