@@ -48,19 +48,19 @@ cmake_force:
 SHELL = /bin/sh
 
 # The CMake executable.
-CMAKE_COMMAND = /opt/homebrew/Cellar/cmake/3.27.8/bin/cmake
+CMAKE_COMMAND = /usr/bin/cmake
 
 # The command to remove a file.
-RM = /opt/homebrew/Cellar/cmake/3.27.8/bin/cmake -E rm -f
+RM = /usr/bin/cmake -E rm -f
 
 # Escaping for special characters.
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp
+CMAKE_SOURCE_DIR = /home/egor/repoes/final_project_cpp
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/build
+CMAKE_BINARY_DIR = /home/egor/repoes/final_project_cpp/build
 
 #=============================================================================
 # Targets provided globally by CMake.
@@ -68,7 +68,7 @@ CMAKE_BINARY_DIR = /Users/egorpatesman/Visual_Studio/Third_Semester/project/fina
 # Special rule for the target edit_cache
 edit_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake cache editor..."
-	/opt/homebrew/Cellar/cmake/3.27.8/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/ccmake -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : edit_cache
 
 # Special rule for the target edit_cache
@@ -78,7 +78,7 @@ edit_cache/fast: edit_cache
 # Special rule for the target rebuild_cache
 rebuild_cache:
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --cyan "Running CMake to regenerate build system..."
-	/opt/homebrew/Cellar/cmake/3.27.8/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
+	/usr/bin/cmake --regenerate-during-build -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR)
 .PHONY : rebuild_cache
 
 # Special rule for the target rebuild_cache
@@ -87,9 +87,9 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/build/CMakeFiles /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/build//CMakeFiles/progress.marks
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/egor/repoes/final_project_cpp/build/CMakeFiles /home/egor/repoes/final_project_cpp/build//CMakeFiles/progress.marks
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
-	$(CMAKE_COMMAND) -E cmake_progress_start /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/build/CMakeFiles 0
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/egor/repoes/final_project_cpp/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
@@ -176,6 +176,54 @@ lib/tinyxml2/tinyxml2.s: lib/tinyxml2/tinyxml2.cpp.s
 lib/tinyxml2/tinyxml2.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/lib/tinyxml2/tinyxml2.cpp.s
 .PHONY : lib/tinyxml2/tinyxml2.cpp.s
+
+src/Menu.o: src/Menu.cpp.o
+.PHONY : src/Menu.o
+
+# target to build an object file
+src/Menu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/src/Menu.cpp.o
+.PHONY : src/Menu.cpp.o
+
+src/Menu.i: src/Menu.cpp.i
+.PHONY : src/Menu.i
+
+# target to preprocess a source file
+src/Menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/src/Menu.cpp.i
+.PHONY : src/Menu.cpp.i
+
+src/Menu.s: src/Menu.cpp.s
+.PHONY : src/Menu.s
+
+# target to generate assembly for a file
+src/Menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/src/Menu.cpp.s
+.PHONY : src/Menu.cpp.s
+
+src/anim.o: src/anim.cpp.o
+.PHONY : src/anim.o
+
+# target to build an object file
+src/anim.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/src/anim.cpp.o
+.PHONY : src/anim.cpp.o
+
+src/anim.i: src/anim.cpp.i
+.PHONY : src/anim.i
+
+# target to preprocess a source file
+src/anim.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/src/anim.cpp.i
+.PHONY : src/anim.cpp.i
+
+src/anim.s: src/anim.cpp.s
+.PHONY : src/anim.s
+
+# target to generate assembly for a file
+src/anim.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/src/anim.cpp.s
+.PHONY : src/anim.cpp.s
 
 src/background.o: src/background.cpp.o
 .PHONY : src/background.o
@@ -288,6 +336,12 @@ help:
 	@echo "... lib/tinyxml2/tinyxml2.o"
 	@echo "... lib/tinyxml2/tinyxml2.i"
 	@echo "... lib/tinyxml2/tinyxml2.s"
+	@echo "... src/Menu.o"
+	@echo "... src/Menu.i"
+	@echo "... src/Menu.s"
+	@echo "... src/anim.o"
+	@echo "... src/anim.i"
+	@echo "... src/anim.s"
 	@echo "... src/background.o"
 	@echo "... src/background.i"
 	@echo "... src/background.s"

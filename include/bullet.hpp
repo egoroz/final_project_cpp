@@ -1,34 +1,28 @@
 #ifndef BULLET_H
 #define BULLET_H
 
-#include "Entity.hpp"
+#include "entity.hpp"
 
 
 class Bullet: public Entity
 {
 public:
 
-	Bullet(AnimationManager &anim_, Level &lvl,int x,int y,bool dir):Entity(anim_, lvl, x, y)
-	{
-		option("Bullet", 0.3, 10, "move");
-		if (dir) dx=-0.3;
+	Bullet(AnimationManager &anim_, int x, int y, bool dir_):Entity(anim_, x, y)
+	{	
+		dir = dir_;
+		std::cerr << "ctor\n";
+		option("Bullet", 0.3, 10, "Bullet");
+		std::cerr << "ctor\n";
+		// if (dir) dx=-0.3;
 	}
-
-	void update(float time)
+	
+ 
+	void update(float time, std::vector<TmxObject>& obj)
 	{
-		x+=dx*time;
-
-		for (int i=0;i<obj.size();i++)
-			if (getRect().intersects(obj[i].rect))
-		        {Health=0;}
-
-		if (Health<=0) {anim.set("explode");dx=0;
-		                if (anim.isPlaying()==false) life=false;
-		                }
-
-		anim.tick(time);
+		//TODO
 	}
 
 };
 
-#ifndef //BULLET_H
+#endif //BULLET_H

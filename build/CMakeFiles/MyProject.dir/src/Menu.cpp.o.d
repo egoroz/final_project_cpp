@@ -1,7 +1,7 @@
-CMakeFiles/MyProject.dir/src/background.cpp.o: \
- /home/egor/repoes/final_project_cpp/src/background.cpp \
+CMakeFiles/MyProject.dir/src/Menu.cpp.o: \
+ /home/egor/repoes/final_project_cpp/src/Menu.cpp \
  /usr/include/stdc-predef.h \
- /home/egor/repoes/final_project_cpp/src/../include/background.hpp \
+ /home/egor/repoes/final_project_cpp/src/../include/Menu.hpp \
  /usr/include/SFML/Graphics.hpp /usr/include/SFML/Window.hpp \
  /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp \
  /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp \
@@ -226,4 +226,7 @@ CMakeFiles/MyProject.dir/src/background.cpp.o: \
  /usr/include/SFML/Graphics/Glsl.hpp /usr/include/SFML/Graphics/Glsl.inl \
  /usr/include/SFML/Graphics/Sprite.hpp \
  /usr/include/SFML/Graphics/Text.hpp \
- /usr/include/SFML/Graphics/VertexBuffer.hpp
+ /usr/include/SFML/Graphics/VertexBuffer.hpp \
+ /usr/include/c++/13.2.1/iostream /usr/include/c++/13.2.1/istream \
+ /usr/include/c++/13.2.1/bits/istream.tcc \
+ /home/egor/repoes/final_project_cpp/src/../include/gamestatus.hpp

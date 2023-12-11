@@ -1,7 +1,7 @@
-CMakeFiles/MyProject.dir/src/background.cpp.o: \
- /home/egor/repoes/final_project_cpp/src/background.cpp \
+CMakeFiles/MyProject.dir/src/anim.cpp.o: \
+ /home/egor/repoes/final_project_cpp/src/anim.cpp \
  /usr/include/stdc-predef.h \
- /home/egor/repoes/final_project_cpp/src/../include/background.hpp \
+ /home/egor/repoes/final_project_cpp/src/../include/anim.hpp \
  /usr/include/SFML/Graphics.hpp /usr/include/SFML/Window.hpp \
  /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp \
  /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp \
@@ -226,4 +226,13 @@ CMakeFiles/MyProject.dir/src/background.cpp.o: \
  /usr/include/SFML/Graphics/Glsl.hpp /usr/include/SFML/Graphics/Glsl.inl \
  /usr/include/SFML/Graphics/Sprite.hpp \
  /usr/include/SFML/Graphics/Text.hpp \
- /usr/include/SFML/Graphics/VertexBuffer.hpp
+ /usr/include/SFML/Graphics/VertexBuffer.hpp \
+ /home/egor/repoes/final_project_cpp/src/../include/../lib/tinyxml2/tinyxml2.h \
+ /usr/include/c++/13.2.1/climits \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/limits.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/syslimits.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
+ /usr/include/bits/uio_lim.h /usr/include/c++/13.2.1/cstring \
+ /usr/include/string.h /usr/include/strings.h
