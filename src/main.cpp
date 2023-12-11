@@ -16,15 +16,7 @@ int ground = 1080;
 
 int main()
 {
-    // Создаем UDP сокет на клиенте
-    sf::UdpSocket clientSocket;
-    unsigned short clientPort = 55005;
-    clientSocket.bind(clientPort);
-
-    // Определяем IP-адрес и порт сервера
-    sf::IpAddress serverAddress = "192.168.1.105";
-    unsigned short serverPortNumber = 55001;
-
+    
     GameStatus GlobalStatus;
     sf::RenderWindow window(sf::VideoMode::getDesktopMode(), "two Egors and one Artem", sf::Style::Fullscreen);  // TODO name of project
     window.setFramerateLimit(30);
