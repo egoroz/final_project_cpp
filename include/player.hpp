@@ -10,17 +10,17 @@
 
 class Player: public Entity{
 public:
-    
+    bool canJump;
 
-    Player(const AnimationManager &anim_, TmxLevel & lvl, int x=550, int y=800):Entity(anim_, lvl, x, y){
-        /*obj = lvl.GetAllObjects("solid");  //Получаем все объекты для взаимодействия с персонажем
-        STATE = stay;
+    Player(const AnimationManager &anim_, int x=550, int y=800):Entity(anim_, x, y){
+        // obj = lvl.GetAllObjects("solid");  //Получаем все объекты для взаимодействия с персонажем
+        // STATE = stay;
         canJump = false;
         //onGround = false;
-        dir = false;
+        // dir = false;
 
-        w = anim.getW();
-        h = anim.getH();*/
+        // w = anim.getW();
+        // h = anim.getH();
     }
 
     void KeyCheck(){
@@ -61,7 +61,7 @@ public:
 
     sf::FloatRect getRect(){ return sf::FloatRect(x, y, w, h);}
 
-    void Collision(int num){
+    void Collision(int num, std::vector<TmxObject>& obj){
         for (int i = 0; i < obj.size(); ++i){
             if (getRect().intersects(obj[i].rect)){ // пересечение игрока с любым объектов
                 if(obj[i].name == "solid"){  //встретились с "твердым" препятствием
@@ -75,16 +75,16 @@ public:
         }
     }
 
-    void update(float time){
+    void update(float time, std::vector<TmxObject>& obj){
         KeyCheck();
         Animation(time);
 
         if(!canJump){dy += 0.002;}
         x += dx * time;
-        Collision(0);                           // CollitionX
+        Collision(0, obj);                           // CollitionX
         dy += 0.00005*time;
         y += dy * time;
-        Collision(1);                           // CollitionY
+        Collision(1, obj);                           // CollitionY
 
 
         key["R"] = key["L"] = key["Up"] = key["Down"] = key["F"] = key["G"] = false;

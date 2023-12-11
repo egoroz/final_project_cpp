@@ -249,4 +249,5 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: \
  /home/egor/repoes/final_project_cpp/src/../include/../include/anim.hpp \
  /home/egor/repoes/final_project_cpp/src/../include/../include/player.hpp \
  /home/egor/repoes/final_project_cpp/src/../include/../include/background.hpp \
- /home/egor/repoes/final_project_cpp/src/../include/../include/view.hpp
+ /home/egor/repoes/final_project_cpp/src/../include/../include/view.hpp \
+ /home/egor/repoes/final_project_cpp/src/../include/../include/gamestatus.hpp

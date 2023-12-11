@@ -9,12 +9,12 @@
 class Entity
 {
 public:
-    std::vector<TmxObject> obj;//вектор объектов карты
+    //std::vector<TmxObject> obj;//вектор объектов карты
     float x, y, dx, dy, w, h;
     AnimationManager anim;
     bool life, dir;
     
-    bool canJump;
+    
 
     enum {stay, run, jump, sit, sneak, legspin, stabling, falling} STATE; //sneak - крадется legspin - вертушка stabling - поножовщина
     std::map<std::string, bool> key;
@@ -22,9 +22,9 @@ public:
 	std::string name;
 	int health;
 
-	Entity(const AnimationManager &anim, TmxLevel & lvl, int x=550, int y=800): anim(anim), x(x), y(y)
+	Entity(const AnimationManager &anim, int x=550, int y=800): anim(anim), x(x), y(y)
 	{
-        obj = lvl.GetAllObjects("solid");
+        //obj = lvl.GetAllObjects("solid");
 		dir = 0;
 
 		life = true;
@@ -33,7 +33,7 @@ public:
 		dx = dy = 0;
 	}
 
-	virtual void update(float time) = 0;
+	virtual void update(float time, std::vector<TmxObject>& obj) = 0;
 
 	void draw(sf::RenderWindow &window)
 	{

@@ -1,7 +1,7 @@
 #include "../include/gameplay.hpp"
 
 
-void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, GameStatus* gs, sf::Clock* gclock)
+void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock)
 {
         //window->setFramerateLimit(60);
         // menu.execute();
@@ -25,7 +25,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, Parallax
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)){hero->key["G"] = true;}
 
 
-        hero->update(time);
+        hero->update(time, *obj);
         background->update(time);
         camera->update(sf::Vector2f(hero->x, hero->y + hero->h));
 

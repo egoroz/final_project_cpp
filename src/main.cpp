@@ -29,8 +29,11 @@ int main()
 
     TmxLevel lvl;
     lvl.LoadFromFile("../src/maps/map.tmx");
+    std::vector<TmxObject> obj;
+    obj = lvl.GetAllObjects("solid");
 
-    Player hero(anim, lvl);
+
+    Player hero(anim);
 
     // sf::Image fonimage; //создаем объект Image (изображение)
 	// fonimage.loadFromFile("../src/maps/layers/Layer_0003_6.png");//загружаем в него файл
@@ -83,7 +86,7 @@ std::vector<std::string> texturePaths = {
     while(window.isOpen()){
 switch (GlobalStatus.GetGameStatus()){
         case Play:
-            GamePlay(&window, &clock, &hero, &background, &camera, &lvl, &GlobalStatus, &GlobClock);
+            GamePlay(&window, &clock, &hero, &background, &camera, &lvl, &obj, &GlobalStatus, &GlobClock);
             break;
         case Menu:
             menu.execute(&GlobalStatus, &GlobClock);

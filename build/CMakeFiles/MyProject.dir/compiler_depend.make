@@ -1020,6 +1020,7 @@ CMakeFiles/MyProject.dir/src/gameplay.cpp.o: /home/egor/repoes/final_project_cpp
 CMakeFiles/MyProject.dir/src/main.cpp.o: /home/egor/repoes/final_project_cpp/src/main.cpp \
   /home/egor/repoes/final_project_cpp/include/anim.hpp \
   /home/egor/repoes/final_project_cpp/include/background.hpp \
+  /home/egor/repoes/final_project_cpp/include/gamestatus.hpp \
   /home/egor/repoes/final_project_cpp/include/player.hpp \
   /home/egor/repoes/final_project_cpp/include/view.hpp \
   /home/egor/repoes/final_project_cpp/lib/level/TmxLevel.h \
