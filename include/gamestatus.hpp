@@ -1,4 +1,6 @@
-#pragma once
+#ifndef GAMESTATUS_H
+#define GAMESTATUS_H
+
 enum status {Menu, Play, Results};
 
 class GameStatus{
@@ -17,3 +19,5 @@ public:
         stat = st_;
     }
 };
+
+#endif //GAMESTATUS_H
