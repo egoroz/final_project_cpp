@@ -12,11 +12,11 @@ find_package(SFML 2.5 COMPONENTS network system window graphics audio REQUIRED)
 include_directories(include)
 
 # Добавление исходных файлов
-file(GLOB SOURCES "src/*.cpp")
+#file(GLOB SOURCES "src/*.cpp")
 
 # Add all .cpp files recursively
 # "src/server/*.cpp"
-file(GLOB_RECURSE SOURCES "src/background.cpp" "src/main.cpp" "src/view.cpp" "lib/*/*.cpp")
+file(GLOB_RECURSE SOURCES "src/background.cpp" "src/main.cpp" "src/view.cpp" "src/gameplay.cpp" "lib/*/*.cpp")
 
 # Add all .hpp files recursively
 file(GLOB_RECURSE HEADERS "include/*.hpp" "include/*.h" "lib/*/*.hpp" "lib/*/*.h")

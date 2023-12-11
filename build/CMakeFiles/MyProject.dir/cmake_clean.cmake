@@ -5,6 +5,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/MyProject.dir/lib/tinyxml2/tinyxml2.cpp.o.d"
   "CMakeFiles/MyProject.dir/src/background.cpp.o"
   "CMakeFiles/MyProject.dir/src/background.cpp.o.d"
+  "CMakeFiles/MyProject.dir/src/gameplay.cpp.o"
+  "CMakeFiles/MyProject.dir/src/gameplay.cpp.o.d"
   "CMakeFiles/MyProject.dir/src/main.cpp.o"
   "CMakeFiles/MyProject.dir/src/main.cpp.o.d"
   "CMakeFiles/MyProject.dir/src/view.cpp.o"

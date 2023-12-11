@@ -2,27 +2,9 @@
 
 #include <SFML/Graphics.hpp>
 #include<iostream>
-
-enum status {Menu, Play, Results};
+#include "gamestatus.hpp"
 
 void InitText(sf::Text& mtext, float xpos, float ypos, const sf::String str, int size_font, sf::Color menu_text_color = sf::Color::White, int bord = 0, sf::Color menu_border_color = sf::Color::Black);
-
-class GameStatus{
-private:
-    status stat;
-public:
-    GameStatus(){
-        stat = Menu;
-    }
-
-    status GetGameStatus(){
-        return stat;
-    }
-
-    void ChangeGameStatus(status st_){
-        stat = st_;
-    }
-};
 
 
 

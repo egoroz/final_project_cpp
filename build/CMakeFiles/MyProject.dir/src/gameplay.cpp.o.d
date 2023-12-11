@@ -1,12 +1,8 @@
-CMakeFiles/MyProject.dir/src/background.cpp.o: \
- /home/egor/repoes/final_project_cpp/src/background.cpp \
+CMakeFiles/MyProject.dir/src/gameplay.cpp.o: \
+ /home/egor/repoes/final_project_cpp/src/gameplay.cpp \
  /usr/include/stdc-predef.h \
- /home/egor/repoes/final_project_cpp/src/../include/background.hpp \
- /usr/include/SFML/Graphics.hpp /usr/include/SFML/Window.hpp \
- /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp \
- /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp \
- /usr/include/SFML/System/Time.hpp /usr/include/SFML/System/Err.hpp \
- /usr/include/c++/13.2.1/ostream \
+ /home/egor/repoes/final_project_cpp/src/../include/gameplay.hpp \
+ /usr/include/c++/13.2.1/iostream \
  /usr/include/c++/13.2.1/bits/requires_hosted.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
@@ -15,7 +11,8 @@ CMakeFiles/MyProject.dir/src/background.cpp.o: \
  /usr/include/sys/cdefs.h /usr/include/bits/long-double.h \
  /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/cpu_defines.h \
- /usr/include/c++/13.2.1/pstl/pstl_config.h /usr/include/c++/13.2.1/ios \
+ /usr/include/c++/13.2.1/pstl/pstl_config.h \
+ /usr/include/c++/13.2.1/ostream /usr/include/c++/13.2.1/ios \
  /usr/include/c++/13.2.1/iosfwd /usr/include/c++/13.2.1/bits/stringfwd.h \
  /usr/include/c++/13.2.1/bits/memoryfwd.h \
  /usr/include/c++/13.2.1/bits/postypes.h /usr/include/c++/13.2.1/cwchar \
@@ -139,7 +136,13 @@ CMakeFiles/MyProject.dir/src/background.cpp.o: \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/ctype_inline.h \
  /usr/include/c++/13.2.1/bits/locale_facets.tcc \
  /usr/include/c++/13.2.1/bits/basic_ios.tcc \
- /usr/include/c++/13.2.1/bits/ostream.tcc \
+ /usr/include/c++/13.2.1/bits/ostream.tcc /usr/include/c++/13.2.1/istream \
+ /usr/include/c++/13.2.1/bits/istream.tcc \
+ /home/egor/repoes/final_project_cpp/src/../include/../include/anim.hpp \
+ /usr/include/SFML/Graphics.hpp /usr/include/SFML/Window.hpp \
+ /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp \
+ /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp \
+ /usr/include/SFML/System/Time.hpp /usr/include/SFML/System/Err.hpp \
  /usr/include/SFML/System/FileInputStream.hpp \
  /usr/include/SFML/System/InputStream.hpp \
  /usr/include/SFML/System/NonCopyable.hpp \
@@ -226,4 +229,20 @@ CMakeFiles/MyProject.dir/src/background.cpp.o: \
  /usr/include/SFML/Graphics/Glsl.hpp /usr/include/SFML/Graphics/Glsl.inl \
  /usr/include/SFML/Graphics/Sprite.hpp \
  /usr/include/SFML/Graphics/Text.hpp \
- /usr/include/SFML/Graphics/VertexBuffer.hpp
+ /usr/include/SFML/Graphics/VertexBuffer.hpp \
+ /home/egor/repoes/final_project_cpp/src/../include/../include/../lib/tinyxml2/tinyxml2.h \
+ /usr/include/c++/13.2.1/climits \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/limits.h \
+ /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/syslimits.h \
+ /usr/include/limits.h /usr/include/bits/posix1_lim.h \
+ /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
+ /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
+ /usr/include/bits/uio_lim.h /usr/include/c++/13.2.1/cstring \
+ /usr/include/string.h /usr/include/strings.h \
+ /home/egor/repoes/final_project_cpp/src/../include/../include/player.hpp \
+ /home/egor/repoes/final_project_cpp/src/../include/../include/anim.hpp \
+ /home/egor/repoes/final_project_cpp/src/../include/../include/../lib/level/TmxLevel.h \
+ /home/egor/repoes/final_project_cpp/src/../include/../include/entity.hpp \
+ /home/egor/repoes/final_project_cpp/src/../include/../include/background.hpp \
+ /home/egor/repoes/final_project_cpp/src/../include/../include/view.hpp \
+ /home/egor/repoes/final_project_cpp/src/../include/../include/gamestatus.hpp
