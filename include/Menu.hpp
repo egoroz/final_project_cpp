@@ -226,8 +226,8 @@ void GMenu::execute(GameStatus* status, sf::Clock* GlobalClock){
                 if (event.type == sf::Event::KeyReleased)
                 {
                     
-                    if (event.key.code == sf::Keyboard::Up) { MoveUp(); }       
-                    if (event.key.code == sf::Keyboard::Down) { MoveDown(); }  
+                    if (event.key.code == sf::Keyboard::W) { MoveUp(); }       
+                    if (event.key.code == sf::Keyboard::S) { MoveDown(); }  
                     if (event.key.code == sf::Keyboard::Return)                                     
                     {
                         
