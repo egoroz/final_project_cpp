@@ -68,11 +68,17 @@ std::vector<std::string> texturePaths = {
 
     sf::String start = L"Start";
     sf::String exit = L"EXIT";
+    
     std::vector<sf::String> name_menu = {start, exit};
+    std::vector<sf::String> name_results = {L"EXIT", L"EXIT"};
     sf::String arrow_ = L">";
+    int winner = 0;
     GMenu menu(600.f,420.f,80,120, name_menu, &window, arrow_);
+    GResults result (600.f, 420.f, 80, 120, name_results, &window, arrow_, &winner);
     menu.setColorTextMenu(sf::Color::White, sf::Color::Red, sf::Color::Black);
     menu.setColorArrowMenu();
+    result.setColorTextMenu(sf::Color::White, sf::Color::Red, sf::Color::Black);
+    result.setColorArrowMenu();
     menu.AlignMenu(0);
     window.setFramerateLimit(60);
     while(window.isOpen()){
@@ -86,6 +92,7 @@ switch (GlobalStatus.GetGameStatus()){
             break;
         
         case Results:
+            result.execute(&GlobalStatus, &GlobClock);
             break;
         }
     }
@@ -144,6 +151,6 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, Parallax
         window->display();
         std::cout << gclock->getElapsedTime().asSeconds() << "\n";
         if(gclock->getElapsedTime().asSeconds()>30.f){
-            gs->ChangeGameStatus(status::Menu);
+            gs->ChangeGameStatus(status::Results);
         }
     }

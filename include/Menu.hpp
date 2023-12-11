@@ -36,7 +36,6 @@ private:
     int mainMenuSelected;                             
     std::vector<sf::Text> mainMenu;
     std::vector<sf::Text> arrows;                   
-    sf::RenderWindow* window_;
     sf::Color menu_text_color = sf::Color::White;      
     sf::Color chose_text_color = sf::Color::Yellow;    
     sf::Color border_color = sf::Color::Black;         
@@ -45,9 +44,13 @@ private:
 
     sf::Texture texture_window;
     sf::Font menu_font;
+    
+protected:
     sf::Text Titul;
+    sf::RenderWindow* window_;
     sf::RectangleShape* bck_ptr;
 public:
+    
     GMenu(float menux, float menuy, int sizeFont, int step, std::vector<sf::String>& name, sf::RenderWindow* win, sf::String arr):menu_X(menux), menu_Y(menuy), menu_Step(step), max_menu(static_cast<int>(name.size())), size_font(sizeFont), mainMenu(name.size()), window_(win), arrows(name.size())
     {
         
@@ -99,7 +102,19 @@ public:
 
 
 
-    void execute(GameStatus* status, sf::Clock* GlobalClock);
+    virtual void execute(GameStatus* status, sf::Clock* GlobalClock);
+};
+
+class GResults: public GMenu{
+private:
+    int* winner;
+public:
+    GResults(float menux, float menuy, int sizeFont, int step, std::vector<sf::String>& name, sf::RenderWindow* win, sf::String arr, int*win_): GMenu(menux, menuy, sizeFont, step, name, win, arr), winner(win_)
+    {
+        InitText(Titul, 380, 50, L"GoodGame!", 150, sf::Color::White, 3);
+    }
+
+    void execute(GameStatus* status, sf::Clock* GlobalClock) override;
 };
 
 void InitText(sf::Text& mtext, float xpos, float ypos, const sf::String str, int size_font, sf::Color menu_text_color, int bord , sf::Color menu_border_color){
@@ -238,6 +253,38 @@ void GMenu::execute(GameStatus* status, sf::Clock* GlobalClock){
                         switch (getSelectedMenuNumber())
                         {
                         case 0:GameStart(status, GlobalClock);  break;
+                        case 1:window_->close(); break;
+                        default:break;
+                        }
+                        
+                    }
+                }
+            
+            window_->clear();
+            window_->draw(*(bck_ptr));
+            window_->draw(Titul);
+            draw();
+            window_->display();
+        }
+    }
+
+void GResults::execute(GameStatus* status, sf::Clock* GlobalClock){
+        
+            sf::Event event;
+            while(window_->pollEvent(event)){
+                if(event.type == sf::Event::Closed || event.key.code == sf::Keyboard::Escape) window_->close();
+                if (event.type == sf::Event::KeyReleased)
+                {
+                    
+                    if (event.key.code == sf::Keyboard::Up) { MoveUp(); }       
+                    if (event.key.code == sf::Keyboard::Down) { MoveDown(); }  
+                    if (event.key.code == sf::Keyboard::Return)                                     
+                    {
+                        
+                        
+                        switch (getSelectedMenuNumber())
+                        {
+                        case 0:window_->close(); break;
                         case 1:window_->close(); break;
                         default:break;
                         }
