@@ -2,9 +2,10 @@
 //TODO audio
 #include <iostream>
 #include <string>
-#include "anim.cpp"
+
 #include "../include/player.hpp"
-#include "Menu.cpp"
+#include "../include/Menu.hpp"
+#include "../include/anim.hpp"
 #include "../lib/level/TmxLevel.h"
 #include "../include/background.hpp"
 #include "../include/view.hpp"

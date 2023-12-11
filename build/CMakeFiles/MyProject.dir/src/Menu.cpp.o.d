@@ -1,5 +1,6 @@
-CMakeFiles/MyProject.dir/src/main.cpp.o: \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/main.cpp \
+CMakeFiles/MyProject.dir/src/Menu.cpp.o: \
+  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/Menu.cpp \
+  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/../include/Menu.hpp \
   /Library/Frameworks/./SFML.framework/Headers/Graphics.hpp \
   /Library/Frameworks/./SFML.framework/Headers/Window.hpp \
   /Library/Frameworks/./SFML.framework/Headers/System.hpp \
@@ -498,32 +499,4 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: \
   /Library/Frameworks/./SFML.framework/Headers/Graphics/VertexBuffer.hpp \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/iostream \
   /Library/Developer/CommandLineTools/SDKs/MacOSX12.3.sdk/usr/include/c++/v1/istream \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/../include/player.hpp \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/anim.hpp \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/../lib/tinyxml2/tinyxml2.h \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/../lib/level/TmxLevel.h \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/entity.hpp \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/../include/Menu.hpp \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/gamestatus.hpp \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/../include/anim.hpp \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/../lib/level/TmxLevel.h \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/../include/background.hpp \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/../include/view.hpp \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/src/../include/gameplay.hpp \
-  /Library/Frameworks/./SFML.framework/Headers/Network.hpp \
-  /Library/Frameworks/./SFML.framework/Headers/Network/Ftp.hpp \
-  /Library/Frameworks/./SFML.framework/Headers/Network/Export.hpp \
-  /Library/Frameworks/./SFML.framework/Headers/Network/TcpSocket.hpp \
-  /Library/Frameworks/./SFML.framework/Headers/Network/Socket.hpp \
-  /Library/Frameworks/./SFML.framework/Headers/Network/SocketHandle.hpp \
-  /Library/Frameworks/./SFML.framework/Headers/Network/Http.hpp \
-  /Library/Frameworks/./SFML.framework/Headers/Network/IpAddress.hpp \
-  /Library/Frameworks/./SFML.framework/Headers/Network/Packet.hpp \
-  /Library/Frameworks/./SFML.framework/Headers/Network/SocketSelector.hpp \
-  /Library/Frameworks/./SFML.framework/Headers/Network/TcpListener.hpp \
-  /Library/Frameworks/./SFML.framework/Headers/Network/UdpSocket.hpp \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/../include/anim.hpp \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/../include/player.hpp \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/../include/background.hpp \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/../include/view.hpp \
-  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/../include/gamestatus.hpp
+  /Users/egorpatesman/Visual_Studio/Third_Semester/project/final_project_cpp/include/gamestatus.hpp
