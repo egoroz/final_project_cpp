@@ -17,10 +17,10 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, Parallax
         }
         
 
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Right)){hero->key["R"] = true;}
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Left)){hero->key["L"] = true;}
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Up)){hero->key["Up"] = true;}
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::Down)){hero->key["Down"] = true;}
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){hero->key["R"] = true;}
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)){hero->key["L"] = true;}
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)){hero->key["Up"] = true;}
+        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)){hero->key["Down"] = true;}
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)){hero->key["F"] = true;}
         if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)){hero->key["G"] = true;}
 
