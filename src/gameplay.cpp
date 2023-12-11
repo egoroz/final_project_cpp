@@ -40,7 +40,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, std::vec
     char message[2];
     message[0] = keyCode;
     message[1] = '\0';
-    clientSocket->send(message, sizeof(message), *serverAddress, *serverPortNumber);
+    // clientSocket->send(message, sizeof(message), *serverAddress, *serverPortNumber);
 
 
 
