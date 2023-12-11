@@ -177,6 +177,54 @@ lib/tinyxml2/tinyxml2.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/lib/tinyxml2/tinyxml2.cpp.s
 .PHONY : lib/tinyxml2/tinyxml2.cpp.s
 
+src/Menu.o: src/Menu.cpp.o
+.PHONY : src/Menu.o
+
+# target to build an object file
+src/Menu.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/src/Menu.cpp.o
+.PHONY : src/Menu.cpp.o
+
+src/Menu.i: src/Menu.cpp.i
+.PHONY : src/Menu.i
+
+# target to preprocess a source file
+src/Menu.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/src/Menu.cpp.i
+.PHONY : src/Menu.cpp.i
+
+src/Menu.s: src/Menu.cpp.s
+.PHONY : src/Menu.s
+
+# target to generate assembly for a file
+src/Menu.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/src/Menu.cpp.s
+.PHONY : src/Menu.cpp.s
+
+src/anim.o: src/anim.cpp.o
+.PHONY : src/anim.o
+
+# target to build an object file
+src/anim.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/src/anim.cpp.o
+.PHONY : src/anim.cpp.o
+
+src/anim.i: src/anim.cpp.i
+.PHONY : src/anim.i
+
+# target to preprocess a source file
+src/anim.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/src/anim.cpp.i
+.PHONY : src/anim.cpp.i
+
+src/anim.s: src/anim.cpp.s
+.PHONY : src/anim.s
+
+# target to generate assembly for a file
+src/anim.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/MyProject.dir/build.make CMakeFiles/MyProject.dir/src/anim.cpp.s
+.PHONY : src/anim.cpp.s
+
 src/background.o: src/background.cpp.o
 .PHONY : src/background.o
 
@@ -288,6 +336,12 @@ help:
 	@echo "... lib/tinyxml2/tinyxml2.o"
 	@echo "... lib/tinyxml2/tinyxml2.i"
 	@echo "... lib/tinyxml2/tinyxml2.s"
+	@echo "... src/Menu.o"
+	@echo "... src/Menu.i"
+	@echo "... src/Menu.s"
+	@echo "... src/anim.o"
+	@echo "... src/anim.i"
+	@echo "... src/anim.s"
 	@echo "... src/background.o"
 	@echo "... src/background.i"
 	@echo "... src/background.s"

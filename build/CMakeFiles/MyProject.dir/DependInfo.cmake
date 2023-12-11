@@ -10,6 +10,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "/home/egor/repoes/final_project_cpp/lib/level/TmxLevel.cpp" "CMakeFiles/MyProject.dir/lib/level/TmxLevel.cpp.o" "gcc" "CMakeFiles/MyProject.dir/lib/level/TmxLevel.cpp.o.d"
   "/home/egor/repoes/final_project_cpp/lib/tinyxml2/tinyxml2.cpp" "CMakeFiles/MyProject.dir/lib/tinyxml2/tinyxml2.cpp.o" "gcc" "CMakeFiles/MyProject.dir/lib/tinyxml2/tinyxml2.cpp.o.d"
+  "/home/egor/repoes/final_project_cpp/src/Menu.cpp" "CMakeFiles/MyProject.dir/src/Menu.cpp.o" "gcc" "CMakeFiles/MyProject.dir/src/Menu.cpp.o.d"
+  "/home/egor/repoes/final_project_cpp/src/anim.cpp" "CMakeFiles/MyProject.dir/src/anim.cpp.o" "gcc" "CMakeFiles/MyProject.dir/src/anim.cpp.o.d"
   "/home/egor/repoes/final_project_cpp/src/background.cpp" "CMakeFiles/MyProject.dir/src/background.cpp.o" "gcc" "CMakeFiles/MyProject.dir/src/background.cpp.o.d"
   "/home/egor/repoes/final_project_cpp/src/gameplay.cpp" "CMakeFiles/MyProject.dir/src/gameplay.cpp.o" "gcc" "CMakeFiles/MyProject.dir/src/gameplay.cpp.o.d"
   "/home/egor/repoes/final_project_cpp/src/main.cpp" "CMakeFiles/MyProject.dir/src/main.cpp.o" "gcc" "CMakeFiles/MyProject.dir/src/main.cpp.o.d"

@@ -97,10 +97,38 @@ CMakeFiles/MyProject.dir/lib/tinyxml2/tinyxml2.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MyProject.dir/lib/tinyxml2/tinyxml2.cpp.s"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/egor/repoes/final_project_cpp/lib/tinyxml2/tinyxml2.cpp -o CMakeFiles/MyProject.dir/lib/tinyxml2/tinyxml2.cpp.s
 
+CMakeFiles/MyProject.dir/src/Menu.cpp.o: CMakeFiles/MyProject.dir/flags.make
+CMakeFiles/MyProject.dir/src/Menu.cpp.o: /home/egor/repoes/final_project_cpp/src/Menu.cpp
+CMakeFiles/MyProject.dir/src/Menu.cpp.o: CMakeFiles/MyProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/repoes/final_project_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MyProject.dir/src/Menu.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyProject.dir/src/Menu.cpp.o -MF CMakeFiles/MyProject.dir/src/Menu.cpp.o.d -o CMakeFiles/MyProject.dir/src/Menu.cpp.o -c /home/egor/repoes/final_project_cpp/src/Menu.cpp
+
+CMakeFiles/MyProject.dir/src/Menu.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MyProject.dir/src/Menu.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/egor/repoes/final_project_cpp/src/Menu.cpp > CMakeFiles/MyProject.dir/src/Menu.cpp.i
+
+CMakeFiles/MyProject.dir/src/Menu.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MyProject.dir/src/Menu.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/egor/repoes/final_project_cpp/src/Menu.cpp -o CMakeFiles/MyProject.dir/src/Menu.cpp.s
+
+CMakeFiles/MyProject.dir/src/anim.cpp.o: CMakeFiles/MyProject.dir/flags.make
+CMakeFiles/MyProject.dir/src/anim.cpp.o: /home/egor/repoes/final_project_cpp/src/anim.cpp
+CMakeFiles/MyProject.dir/src/anim.cpp.o: CMakeFiles/MyProject.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/repoes/final_project_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MyProject.dir/src/anim.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyProject.dir/src/anim.cpp.o -MF CMakeFiles/MyProject.dir/src/anim.cpp.o.d -o CMakeFiles/MyProject.dir/src/anim.cpp.o -c /home/egor/repoes/final_project_cpp/src/anim.cpp
+
+CMakeFiles/MyProject.dir/src/anim.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/MyProject.dir/src/anim.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/egor/repoes/final_project_cpp/src/anim.cpp > CMakeFiles/MyProject.dir/src/anim.cpp.i
+
+CMakeFiles/MyProject.dir/src/anim.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/MyProject.dir/src/anim.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/egor/repoes/final_project_cpp/src/anim.cpp -o CMakeFiles/MyProject.dir/src/anim.cpp.s
+
 CMakeFiles/MyProject.dir/src/background.cpp.o: CMakeFiles/MyProject.dir/flags.make
 CMakeFiles/MyProject.dir/src/background.cpp.o: /home/egor/repoes/final_project_cpp/src/background.cpp
 CMakeFiles/MyProject.dir/src/background.cpp.o: CMakeFiles/MyProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/repoes/final_project_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object CMakeFiles/MyProject.dir/src/background.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/repoes/final_project_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MyProject.dir/src/background.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyProject.dir/src/background.cpp.o -MF CMakeFiles/MyProject.dir/src/background.cpp.o.d -o CMakeFiles/MyProject.dir/src/background.cpp.o -c /home/egor/repoes/final_project_cpp/src/background.cpp
 
 CMakeFiles/MyProject.dir/src/background.cpp.i: cmake_force
@@ -114,7 +142,7 @@ CMakeFiles/MyProject.dir/src/background.cpp.s: cmake_force
 CMakeFiles/MyProject.dir/src/gameplay.cpp.o: CMakeFiles/MyProject.dir/flags.make
 CMakeFiles/MyProject.dir/src/gameplay.cpp.o: /home/egor/repoes/final_project_cpp/src/gameplay.cpp
 CMakeFiles/MyProject.dir/src/gameplay.cpp.o: CMakeFiles/MyProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/repoes/final_project_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/MyProject.dir/src/gameplay.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/repoes/final_project_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/MyProject.dir/src/gameplay.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyProject.dir/src/gameplay.cpp.o -MF CMakeFiles/MyProject.dir/src/gameplay.cpp.o.d -o CMakeFiles/MyProject.dir/src/gameplay.cpp.o -c /home/egor/repoes/final_project_cpp/src/gameplay.cpp
 
 CMakeFiles/MyProject.dir/src/gameplay.cpp.i: cmake_force
@@ -128,7 +156,7 @@ CMakeFiles/MyProject.dir/src/gameplay.cpp.s: cmake_force
 CMakeFiles/MyProject.dir/src/main.cpp.o: CMakeFiles/MyProject.dir/flags.make
 CMakeFiles/MyProject.dir/src/main.cpp.o: /home/egor/repoes/final_project_cpp/src/main.cpp
 CMakeFiles/MyProject.dir/src/main.cpp.o: CMakeFiles/MyProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/repoes/final_project_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/MyProject.dir/src/main.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/repoes/final_project_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/MyProject.dir/src/main.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyProject.dir/src/main.cpp.o -MF CMakeFiles/MyProject.dir/src/main.cpp.o.d -o CMakeFiles/MyProject.dir/src/main.cpp.o -c /home/egor/repoes/final_project_cpp/src/main.cpp
 
 CMakeFiles/MyProject.dir/src/main.cpp.i: cmake_force
@@ -142,7 +170,7 @@ CMakeFiles/MyProject.dir/src/main.cpp.s: cmake_force
 CMakeFiles/MyProject.dir/src/view.cpp.o: CMakeFiles/MyProject.dir/flags.make
 CMakeFiles/MyProject.dir/src/view.cpp.o: /home/egor/repoes/final_project_cpp/src/view.cpp
 CMakeFiles/MyProject.dir/src/view.cpp.o: CMakeFiles/MyProject.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/repoes/final_project_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/MyProject.dir/src/view.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/egor/repoes/final_project_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Building CXX object CMakeFiles/MyProject.dir/src/view.cpp.o"
 	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/MyProject.dir/src/view.cpp.o -MF CMakeFiles/MyProject.dir/src/view.cpp.o.d -o CMakeFiles/MyProject.dir/src/view.cpp.o -c /home/egor/repoes/final_project_cpp/src/view.cpp
 
 CMakeFiles/MyProject.dir/src/view.cpp.i: cmake_force
@@ -157,6 +185,8 @@ CMakeFiles/MyProject.dir/src/view.cpp.s: cmake_force
 MyProject_OBJECTS = \
 "CMakeFiles/MyProject.dir/lib/level/TmxLevel.cpp.o" \
 "CMakeFiles/MyProject.dir/lib/tinyxml2/tinyxml2.cpp.o" \
+"CMakeFiles/MyProject.dir/src/Menu.cpp.o" \
+"CMakeFiles/MyProject.dir/src/anim.cpp.o" \
 "CMakeFiles/MyProject.dir/src/background.cpp.o" \
 "CMakeFiles/MyProject.dir/src/gameplay.cpp.o" \
 "CMakeFiles/MyProject.dir/src/main.cpp.o" \
@@ -167,6 +197,8 @@ MyProject_EXTERNAL_OBJECTS =
 
 MyProject: CMakeFiles/MyProject.dir/lib/level/TmxLevel.cpp.o
 MyProject: CMakeFiles/MyProject.dir/lib/tinyxml2/tinyxml2.cpp.o
+MyProject: CMakeFiles/MyProject.dir/src/Menu.cpp.o
+MyProject: CMakeFiles/MyProject.dir/src/anim.cpp.o
 MyProject: CMakeFiles/MyProject.dir/src/background.cpp.o
 MyProject: CMakeFiles/MyProject.dir/src/gameplay.cpp.o
 MyProject: CMakeFiles/MyProject.dir/src/main.cpp.o
@@ -178,7 +210,7 @@ MyProject: /usr/lib/libsfml-audio.so.2.6.1
 MyProject: /usr/lib/libsfml-window.so.2.6.1
 MyProject: /usr/lib/libsfml-system.so.2.6.1
 MyProject: CMakeFiles/MyProject.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/egor/repoes/final_project_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Linking CXX executable MyProject"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/egor/repoes/final_project_cpp/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_9) "Linking CXX executable MyProject"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/MyProject.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

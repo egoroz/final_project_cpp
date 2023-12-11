@@ -1,10 +1,12 @@
-CMakeFiles/MyProject.dir/src/main.cpp.o: \
- /home/egor/repoes/final_project_cpp/src/main.cpp \
- /usr/include/stdc-predef.h /usr/include/SFML/Graphics.hpp \
- /usr/include/SFML/Window.hpp /usr/include/SFML/System.hpp \
- /usr/include/SFML/Config.hpp /usr/include/SFML/System/Clock.hpp \
- /usr/include/SFML/System/Export.hpp /usr/include/SFML/System/Time.hpp \
- /usr/include/SFML/System/Err.hpp /usr/include/c++/13.2.1/ostream \
+CMakeFiles/MyProject.dir/src/Menu.cpp.o: \
+ /home/egor/repoes/final_project_cpp/src/Menu.cpp \
+ /usr/include/stdc-predef.h \
+ /home/egor/repoes/final_project_cpp/src/../include/Menu.hpp \
+ /usr/include/SFML/Graphics.hpp /usr/include/SFML/Window.hpp \
+ /usr/include/SFML/System.hpp /usr/include/SFML/Config.hpp \
+ /usr/include/SFML/System/Clock.hpp /usr/include/SFML/System/Export.hpp \
+ /usr/include/SFML/System/Time.hpp /usr/include/SFML/System/Err.hpp \
+ /usr/include/c++/13.2.1/ostream \
  /usr/include/c++/13.2.1/bits/requires_hosted.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/c++config.h \
  /usr/include/c++/13.2.1/x86_64-pc-linux-gnu/bits/os_defines.h \
@@ -227,40 +229,4 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: \
  /usr/include/SFML/Graphics/VertexBuffer.hpp \
  /usr/include/c++/13.2.1/iostream /usr/include/c++/13.2.1/istream \
  /usr/include/c++/13.2.1/bits/istream.tcc \
- /home/egor/repoes/final_project_cpp/src/../include/player.hpp \
- /home/egor/repoes/final_project_cpp/src/../include/anim.hpp \
- /home/egor/repoes/final_project_cpp/src/../include/../lib/tinyxml2/tinyxml2.h \
- /usr/include/c++/13.2.1/climits \
- /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/limits.h \
- /usr/lib/gcc/x86_64-pc-linux-gnu/13.2.1/include/syslimits.h \
- /usr/include/limits.h /usr/include/bits/posix1_lim.h \
- /usr/include/bits/local_lim.h /usr/include/linux/limits.h \
- /usr/include/bits/posix2_lim.h /usr/include/bits/xopen_lim.h \
- /usr/include/bits/uio_lim.h /usr/include/c++/13.2.1/cstring \
- /usr/include/string.h /usr/include/strings.h \
- /home/egor/repoes/final_project_cpp/src/../include/../lib/level/TmxLevel.h \
- /home/egor/repoes/final_project_cpp/src/../include/entity.hpp \
- /home/egor/repoes/final_project_cpp/src/../include/bullet.hpp \
- /home/egor/repoes/final_project_cpp/src/../include/Menu.hpp \
- /home/egor/repoes/final_project_cpp/src/../include/gamestatus.hpp \
- /home/egor/repoes/final_project_cpp/src/../include/anim.hpp \
- /home/egor/repoes/final_project_cpp/src/../include/background.hpp \
- /home/egor/repoes/final_project_cpp/src/../include/view.hpp \
- /home/egor/repoes/final_project_cpp/src/../include/gameplay.hpp \
- /usr/include/SFML/Network.hpp /usr/include/SFML/Network/Ftp.hpp \
- /usr/include/SFML/Network/Export.hpp \
- /usr/include/SFML/Network/TcpSocket.hpp \
- /usr/include/SFML/Network/Socket.hpp \
- /usr/include/SFML/Network/SocketHandle.hpp \
- /usr/include/SFML/Network/Http.hpp \
- /usr/include/SFML/Network/IpAddress.hpp \
- /usr/include/SFML/Network/Packet.hpp \
- /usr/include/SFML/Network/SocketSelector.hpp \
- /usr/include/SFML/Network/TcpListener.hpp \
- /usr/include/SFML/Network/UdpSocket.hpp \
- /home/egor/repoes/final_project_cpp/src/../include/../include/anim.hpp \
- /home/egor/repoes/final_project_cpp/src/../include/../include/player.hpp \
- /home/egor/repoes/final_project_cpp/src/../include/../include/background.hpp \
- /home/egor/repoes/final_project_cpp/src/../include/../include/view.hpp \
- /home/egor/repoes/final_project_cpp/src/../include/../include/gamestatus.hpp \
- /home/egor/repoes/final_project_cpp/src/../include/../include/bullet.hpp
+ /home/egor/repoes/final_project_cpp/src/../include/gamestatus.hpp
