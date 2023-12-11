@@ -247,6 +247,17 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: \
  /home/egor/repoes/final_project_cpp/src/../include/background.hpp \
  /home/egor/repoes/final_project_cpp/src/../include/view.hpp \
  /home/egor/repoes/final_project_cpp/src/../include/gameplay.hpp \
+ /usr/include/SFML/Network.hpp /usr/include/SFML/Network/Ftp.hpp \
+ /usr/include/SFML/Network/Export.hpp \
+ /usr/include/SFML/Network/TcpSocket.hpp \
+ /usr/include/SFML/Network/Socket.hpp \
+ /usr/include/SFML/Network/SocketHandle.hpp \
+ /usr/include/SFML/Network/Http.hpp \
+ /usr/include/SFML/Network/IpAddress.hpp \
+ /usr/include/SFML/Network/Packet.hpp \
+ /usr/include/SFML/Network/SocketSelector.hpp \
+ /usr/include/SFML/Network/TcpListener.hpp \
+ /usr/include/SFML/Network/UdpSocket.hpp \
  /home/egor/repoes/final_project_cpp/src/../include/../include/anim.hpp \
  /home/egor/repoes/final_project_cpp/src/../include/../include/player.hpp \
  /home/egor/repoes/final_project_cpp/src/../include/../include/background.hpp \

@@ -1,6 +1,6 @@
 #ifndef GAMEPLAY_H
 #define GAMEPLAY_H
-
+#include <SFML/Network.hpp>
 #include <iostream>
 #include <string>
 #include "../include/anim.hpp"
