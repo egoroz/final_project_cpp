@@ -9,8 +9,9 @@
 #include "../include/background.hpp"
 #include "../include/view.hpp"
 #include "../include/gamestatus.hpp"
+#include "../include/bullet.hpp"
 
-void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock);
+void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, std::vector<Bullet*> bullets, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock);
 
 
 #endif //GAMEPLAY_H

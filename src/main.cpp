@@ -4,6 +4,7 @@
 #include <string>
 #include "../include/anim.hpp"
 #include "../include/player.hpp"
+#include "../include/bullet.hpp"
 #include "../include/Menu.hpp"
 #include "../lib/level/TmxLevel.h"
 #include "../include/background.hpp"
@@ -20,11 +21,15 @@ int main()
 
     sf::Texture t;
     t.loadFromFile("../src/heroes/Brodell Walker.png");
-
     AnimationManager anim;
     anim.loadFromFile("../src/heroes/Brodell Walker.xml", t);
     // anim.create("walk", t, 10, 15, 32, 32, 4, 0.005, 32);
     // anim.create("stay", t, 10, 20 + 32*8, 32, 32, 28, 0.005, 32);
+
+    sf::Texture b;
+    b.loadFromFile("../src/heroes/bullet.png");
+    AnimationManager anim_bullet;
+    anim_bullet.loadFromFile("../src/heroes/Bullet.xml", b);
 
 
     TmxLevel lvl;
@@ -34,6 +39,14 @@ int main()
 
 
     Player hero(anim);
+    std::cerr << "HERE\n";
+    Bullet* bullet = new Bullet(anim_bullet, hero.x, hero.y);
+    std::cerr << "HERE\n";
+    std::vector<Bullet*> bullets;
+    std::cerr << "HERE\n";
+
+    bullets.push_back(bullet);
+    std::cerr << "HERE\n";
 
     // sf::Image fonimage; //создаем объект Image (изображение)
 	// fonimage.loadFromFile("../src/maps/layers/Layer_0003_6.png");//загружаем в него файл
@@ -86,7 +99,7 @@ std::vector<std::string> texturePaths = {
     while(window.isOpen()){
 switch (GlobalStatus.GetGameStatus()){
         case Play:
-            GamePlay(&window, &clock, &hero, &background, &camera, &lvl, &obj, &GlobalStatus, &GlobClock);
+            GamePlay(&window, &clock, &hero, bullets, &background, &camera, &lvl, &obj, &GlobalStatus, &GlobClock);
             break;
         case Menu:
             menu.execute(&GlobalStatus, &GlobClock);

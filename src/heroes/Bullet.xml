@@ -1,0 +1,6 @@
+<!DOCTYPE SpriteDecomposer>
+<sprites image="bullet.png" transparentColor="">
+ <animation title="Bullet" delay="150">
+  <cut w="6" x="8" y="10" h="6" row="1" col="1"/>
+ </animation>
+</sprites>

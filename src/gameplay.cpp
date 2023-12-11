@@ -1,7 +1,7 @@
 #include "../include/gameplay.hpp"
 
 
-void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock)
+void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, std::vector<Bullet*> bullets, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock)
 {
         //window->setFramerateLimit(60);
         // menu.execute();
@@ -34,6 +34,9 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, Parallax
 
         // window.draw(fonsprite);
         std::cerr << time << "\n";
+        for (unsigned i = 0; i< bullets.size(); ++i){
+            bullets[i]->draw(*window);
+        }
         lvl->Draw(*window);
         hero->draw(*window);
         camera->applyTo(*window);

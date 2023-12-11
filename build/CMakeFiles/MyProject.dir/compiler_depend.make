@@ -703,6 +703,7 @@ CMakeFiles/MyProject.dir/src/gameplay.cpp.o: /home/egor/repoes/final_project_cpp
   /home/egor/repoes/final_project_cpp/lib/tinyxml2/tinyxml2.h \
   /home/egor/repoes/final_project_cpp/include/anim.hpp \
   /home/egor/repoes/final_project_cpp/include/background.hpp \
+  /home/egor/repoes/final_project_cpp/include/bullet.hpp \
   /home/egor/repoes/final_project_cpp/include/entity.hpp \
   /home/egor/repoes/final_project_cpp/include/gamestatus.hpp \
   /home/egor/repoes/final_project_cpp/include/player.hpp \
@@ -1020,6 +1021,7 @@ CMakeFiles/MyProject.dir/src/gameplay.cpp.o: /home/egor/repoes/final_project_cpp
 CMakeFiles/MyProject.dir/src/main.cpp.o: /home/egor/repoes/final_project_cpp/src/main.cpp \
   /home/egor/repoes/final_project_cpp/include/anim.hpp \
   /home/egor/repoes/final_project_cpp/include/background.hpp \
+  /home/egor/repoes/final_project_cpp/include/bullet.hpp \
   /home/egor/repoes/final_project_cpp/include/gamestatus.hpp \
   /home/egor/repoes/final_project_cpp/include/player.hpp \
   /home/egor/repoes/final_project_cpp/include/view.hpp \
@@ -1028,6 +1030,7 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: /home/egor/repoes/final_project_cpp/src
   /home/egor/repoes/final_project_cpp/include/Menu.hpp \
   /home/egor/repoes/final_project_cpp/include/anim.hpp \
   /home/egor/repoes/final_project_cpp/include/background.hpp \
+  /home/egor/repoes/final_project_cpp/include/bullet.hpp \
   /home/egor/repoes/final_project_cpp/include/entity.hpp \
   /home/egor/repoes/final_project_cpp/include/gameplay.hpp \
   /home/egor/repoes/final_project_cpp/include/gamestatus.hpp \
@@ -2033,6 +2036,8 @@ CMakeFiles/MyProject.dir/src/view.cpp.o: /home/egor/repoes/final_project_cpp/src
 /usr/include/SFML/System/Thread.inl:
 
 /usr/include/c++/13.2.1/bits/locale_facets_nonio.tcc:
+
+/home/egor/repoes/final_project_cpp/include/bullet.hpp:
 
 /usr/include/SFML/Graphics/Image.hpp:
 

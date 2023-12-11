@@ -75,7 +75,8 @@ public:
         }
     }
 
-    void update(float time, std::vector<TmxObject>& obj){
+    void update(float time, std::vector<TmxObject>& obj)
+    {
         KeyCheck();
         Animation(time);
 
