@@ -11,7 +11,7 @@
 
 int ground = 1080;
 
-void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, ParallaxBackground* background, Camera* camera, TmxLevel* lvl);
+void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, GameStatus* gs, sf::Clock* gclock);
 
 int main()
 {
@@ -64,6 +64,7 @@ std::vector<std::string> texturePaths = {
     // sf::RectangleShape rectangle(sf::Vector2f(32,32));
 
     sf::Clock clock;
+    sf::Clock GlobClock;
 
     sf::String start = L"Start";
     sf::String exit = L"EXIT";
@@ -77,10 +78,10 @@ std::vector<std::string> texturePaths = {
     while(window.isOpen()){
 switch (GlobalStatus.GetGameStatus()){
         case Play:
-            GamePlay(&window, &clock, &hero, &background, &camera, &lvl);
+            GamePlay(&window, &clock, &hero, &background, &camera, &lvl, &GlobalStatus, &GlobClock);
             break;
         case Menu:
-            menu.execute(&GlobalStatus);
+            menu.execute(&GlobalStatus, &GlobClock);
             clock.restart();
             break;
         
@@ -92,7 +93,7 @@ switch (GlobalStatus.GetGameStatus()){
     return 0;
 }
 
-void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, ParallaxBackground* background, Camera* camera, TmxLevel* lvl){
+void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, GameStatus* gs, sf::Clock* gclock){
         //window->setFramerateLimit(60);
         // menu.execute();
         // std::cout << "lox\n";
@@ -141,4 +142,8 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, Parallax
         // } //Рисуем объекты с которыми колизируем
 
         window->display();
+        std::cout << gclock->getElapsedTime().asSeconds() << "\n";
+        if(gclock->getElapsedTime().asSeconds()>30.f){
+            gs->ChangeGameStatus(status::Menu);
+        }
     }

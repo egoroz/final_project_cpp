@@ -99,7 +99,7 @@ public:
 
 
 
-    void execute(GameStatus* status);
+    void execute(GameStatus* status, sf::Clock* GlobalClock);
 };
 
 void InitText(sf::Text& mtext, float xpos, float ypos, const sf::String str, int size_font, sf::Color menu_text_color, int bord , sf::Color menu_border_color){
@@ -215,12 +215,13 @@ void GMenu::setColorArrowMenu(){
 	arrows[mainMenuSelected].setFillColor(sf::Color::White);
 }
 
-void GameStart(GameStatus* stat){
+void GameStart(GameStatus* stat, sf::Clock* GlobalClock){
     stat->ChangeGameStatus(Play);
+    GlobalClock->restart();
 }
 
 
-void GMenu::execute(GameStatus* status){
+void GMenu::execute(GameStatus* status, sf::Clock* GlobalClock){
         
             sf::Event event;
             while(window_->pollEvent(event)){
@@ -236,7 +237,7 @@ void GMenu::execute(GameStatus* status){
                         
                         switch (getSelectedMenuNumber())
                         {
-                        case 0:GameStart(status);  break;
+                        case 0:GameStart(status, GlobalClock);  break;
                         case 1:window_->close(); break;
                         default:break;
                         }
