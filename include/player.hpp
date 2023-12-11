@@ -7,11 +7,13 @@
 #include<vector>
 #include "../lib/level/TmxLevel.h"
 #include "entity.hpp"
+#include "bullet.hpp"
 
 class Player: public Entity{
 public:
     bool canJump;
 
+    enum State{stay, run, jump, sit, sneak, legspin, stabling, falling} STATE; //sneak - крадется legspin - вертушка stabling - нож
     Player(const AnimationManager &anim_, int x=550, int y=800):Entity(anim_, x, y){
         // obj = lvl.GetAllObjects("solid");  //Получаем все объекты для взаимодействия с персонажем
         // STATE = stay;
@@ -23,13 +25,23 @@ public:
         // h = anim.getH();
     }
 
-    void KeyCheck(){
+    void KeyCheck(std::vector<Bullet*>& bullets){
         if(key["R"])   if(!(STATE == legspin || STATE == stabling)){dx = 0.09; dir = false; if(STATE == stay){STATE = run; } }
         if(key["L"])   if(!(STATE == legspin || STATE == stabling)){dx = -0.09; dir = true; if(STATE == stay){STATE = run; } }
         if(key["Up"])  if(!(STATE == legspin || STATE == stabling)){if ((STATE == stay) || (STATE == run)){if(canJump){STATE = jump; dy = -0.15; canJump = false;}}}
         if(key["Down"])if(!(STATE == legspin || STATE == stabling)){if(STATE == stay){STATE = sit;} if (STATE == run){STATE = sneak;}}
-        if(key["G"])   if(!(STATE == legspin || STATE == stabling)){if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = legspin;}}
-        if(key["F"])   if(!(STATE == legspin || STATE == stabling)){if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = stabling;}}
+        if(key["G"])   if(!(STATE == legspin || STATE == stabling)){if ((STATE == run) || (STATE == jump) || (STATE == stay)){
+            STATE = legspin;
+            std::cerr << "before new bullet number " << bullets.size() << "\n";
+            sf::Texture b;
+            b.loadFromFile("../src/heroes/bullet.png");
+            AnimationManager anim_bullet;
+            anim_bullet.loadFromFile("../src/heroes/Bullet.xml", b);
+            Bullet* bullet = new Bullet(anim_bullet, x, y, dir);
+            bullets.push_back(bullet);
+            std::cerr << "new bullet number " << bullets.size() << "\n";
+            }}
+        if(key["F"])   if(!(STATE == legspin || STATE == stabling)){if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = stabling; }}
 
         if(!(key["R"] || key["L"])){dx = 0;} 
         if(!key["Up"])             {}
@@ -75,9 +87,9 @@ public:
         }
     }
 
-    void update(float time, std::vector<TmxObject>& obj)
+    void update(float time, std::vector<TmxObject>& obj, std::vector<Bullet*>& bullets)
     {
-        KeyCheck();
+        KeyCheck(bullets);
         Animation(time);
 
         if(!canJump){dy += 0.002;}

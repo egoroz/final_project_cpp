@@ -41,14 +41,12 @@ int main()
 
 
     Player hero(anim);
-    std::cerr << "HERE\n";
-    Bullet* bullet = new Bullet(anim_bullet, hero.x, hero.y);
-    std::cerr << "HERE\n";
+    Bullet* bullet = new Bullet(anim_bullet, hero.x, hero.y, hero.dir);
     std::vector<Bullet*> bullets;
-    std::cerr << "HERE\n";
+
 
     bullets.push_back(bullet);
-    std::cerr << "HERE\n";
+
 
     // sf::Image fonimage; //создаем объект Image (изображение)
 	// fonimage.loadFromFile("../src/maps/layers/Layer_0003_6.png");//загружаем в него файл

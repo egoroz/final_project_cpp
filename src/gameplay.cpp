@@ -1,7 +1,7 @@
 #include "../include/gameplay.hpp"
 
 
-void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, std::vector<Bullet*> bullets, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock)
+void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, std::vector<Bullet*>& bullets, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock)
 {
 
     // Определяем код клавиши
@@ -66,7 +66,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, std::vec
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)){hero->key["G"] = true;}
 
 
-    hero->update(time, *obj);
+    hero->update(time, *obj, bullets);
     background->update(time);
     camera->update(sf::Vector2f(hero->x, hero->y + hero->h));
 
@@ -75,7 +75,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, std::vec
 
         // window.draw(fonsprite);
         std::cerr << time << "\n";
-        for (unsigned i = 0; i< bullets.size(); ++i){
+        for (unsigned i = 0; i < bullets.size(); ++i){
             bullets[i]->draw(*window);
         }
         lvl->Draw(*window);

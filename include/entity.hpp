@@ -15,8 +15,6 @@ public:
     bool life, dir;
     
     
-
-    enum {stay, run, jump, sit, sneak, legspin, stabling, falling} STATE; //sneak - крадется legspin - вертушка stabling - поножовщина
     std::map<std::string, bool> key;
 	float timer, timer_end;
 	std::string name;
@@ -33,7 +31,7 @@ public:
 		dx = dy = 0;
 	}
 
-	virtual void update(float time, std::vector<TmxObject>& obj) = 0;
+	//virtual void update(float time, std::vector<TmxObject>& obj) = 0;
 
 	void draw(sf::RenderWindow &window)
 	{
@@ -49,10 +47,12 @@ public:
 	{
 		name = name_;
 		if (first_anim!="") anim.set(first_anim);
+		std::cerr << "HERE\n";
 		w = anim.getW();
 		h = anim.getH();
+		std::cerr << w << "   " << h << "\n";
 		dx = speed;
-		health = health;
+		health = health_;
 	}
 
 };

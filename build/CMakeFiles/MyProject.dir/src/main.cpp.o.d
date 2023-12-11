@@ -241,6 +241,7 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: \
  /home/egor/repoes/final_project_cpp/src/../include/../lib/level/TmxLevel.h \
  /home/egor/repoes/final_project_cpp/src/../include/entity.hpp \
  /home/egor/repoes/final_project_cpp/src/../include/bullet.hpp \
+ /home/egor/repoes/final_project_cpp/src/../include/bullet.hpp \
  /home/egor/repoes/final_project_cpp/src/../include/Menu.hpp \
  /home/egor/repoes/final_project_cpp/src/../include/gamestatus.hpp \
  /home/egor/repoes/final_project_cpp/src/../include/anim.hpp \
