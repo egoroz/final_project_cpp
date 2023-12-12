@@ -18,11 +18,11 @@ int main()
 {
     // Создаем UDP сокет на клиенте
     sf::UdpSocket clientSocket;
-    unsigned short clientPort = 55002;
+    unsigned short clientPort = 55005;
     clientSocket.bind(clientPort);
 
     // Определяем IP-адрес и порт сервера
-    sf::IpAddress serverAddress = "10.55.135.35dasdwdsawadas";
+    sf::IpAddress serverAddress = "192.168.122.33";
     unsigned short serverPort = 55001;
 
     GameStatus GlobalStatus;
@@ -45,6 +45,7 @@ int main()
 
 
     Player hero(anim);
+
     // sf::Image fonimage; //создаем объект Image (изображение)
 	// fonimage.loadFromFile("../src/maps/layers/Layer_0003_6.png");//загружаем в него файл
  
@@ -96,13 +97,12 @@ std::vector<std::string> texturePaths = {
     while(window.isOpen()){
 switch (GlobalStatus.GetGameStatus()){
         case Play:
-            GamePlay(&window, &clock, &hero, &anim,  &background, &camera, &lvl, &obj, &GlobalStatus, &GlobClock, &clientSocket, &serverAddress,&serverPort );
-            break;
+        GamePlay(&window, &clock, &hero, &anim,  &background, &camera, &lvl, &obj, &GlobalStatus, &GlobClock, &clientSocket, &serverAddress,&serverPort );            break;
         case Menu:
             menu.execute(&GlobalStatus, &GlobClock, &hero);
             clock.restart();
             break;
-        
+
         case Results:
             result.execute(&GlobalStatus, &GlobClock, &hero);
             break;

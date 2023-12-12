@@ -121,11 +121,11 @@ int main()
         float time = clock.getElapsedTime().asMicroseconds();
         time = time / 500;
         clock.restart();
-        if (gclock.getElapsedTime().asSeconds()<10){
+        if (gclock.getElapsedTime().asSeconds()<6){
             Player1.x= 550;
-            Player1.y = 800;
+            Player1.y = 840;
             Player2.x= 550;
-            Player2.y = 800;
+            Player2.y = 840;
         }
         Player1.update(time, obj);
         std::cout<<Player1.x<< ' '<< Player1.y<<" "<<gclock.getElapsedTime().asSeconds()<<' '<< Player1.STATE <<std::endl;

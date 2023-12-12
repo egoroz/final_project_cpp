@@ -12,7 +12,7 @@ class Player: public Entity{
 public:
     bool canJump;
 
-    Player(const AnimationManager &anim_, int x=550, int y=800):Entity(anim_, x, y){
+    Player(const AnimationManager &anim_, int x=550, int y=840):Entity(anim_, x, y){
         // obj = lvl.GetAllObjects("solid");  //Получаем все объекты для взаимодействия с персонажем
         // STATE = stay;
         canJump = false;

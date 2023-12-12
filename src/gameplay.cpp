@@ -57,13 +57,6 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
         if(event.type == sf::Event::Closed || event.key.code == sf::Keyboard::Escape){window->close();}
     }
 
-    //
-    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)){hero->key["R"] = true;}
-    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)){hero->key["L"] = true;}
-    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)){hero->key["Up"] = true;}
-    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)){hero->key["Down"] = true;}
-    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::F)){hero->key["F"] = true;}
-    // if (sf::Keyboard::isKeyPressed(sf::Keyboard::G)){hero->key["G"] = true;}
 
     window->clear(sf::Color::Black);
 
@@ -76,7 +69,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
     //std::cout<<hero->STATE<<std::endl;
     //hero->update(time, *obj);
     background->update(time);
-    //camera->update(sf::Vector2f(hero1->x, hero1->y + hero1->h));
+    camera->update(sf::Vector2f(hero1->x, hero1->y + hero1->h));
 
     background->draw(*window);
 
@@ -85,7 +78,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
     lvl->Draw(*window);
     hero1->draw(*window);
     hero2->draw(*window);
-    //camera->applyTo(*window);
+    camera->applyTo(*window);
 
     //     sf::RectangleShape rectangle(sf::Vector2f(hero.w,hero.h));
     //     rectangle.setPosition(hero.x, hero.y);
@@ -102,7 +95,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
     window->display();
     //std::cout << gclock->getElapsedTime().asSeconds() << "\n";
 
-    if(gclock->getElapsedTime().asSeconds()>30.f){
+    if(gclock->getElapsedTime().asSeconds()>300.f){
         gs->ChangeGameStatus(status::Results);
     }
 }
