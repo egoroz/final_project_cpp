@@ -1,7 +1,7 @@
 #include "../include/gameplay.hpp"
 
 
-void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock, sf::UdpSocket* clientSocket, sf::IpAddress* serverAddress,unsigned short* serverPort)
+void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1,Player* hero2, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock, sf::UdpSocket* clientSocket, sf::IpAddress* serverAddress,unsigned short* serverPort)
 {
 
     // Определяем код клавиши
@@ -69,21 +69,23 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero, Parallax
 
     sf::Packet packet;
     clientSocket->receive(packet, *serverAddress, *serverPort);
-    packet >> *hero;
-    std::cout<< "gameplay received: "<<hero->STATE<<std::endl;
-    hero->Animation(time);
+    packet >> *hero1>>*hero2;
+    std::cout<< "gameplay received: "<<hero1->STATE<<std::endl;
+    hero1->Animation(time);
+    hero2->Animation(time);
     //std::cout<<hero->STATE<<std::endl;
     //hero->update(time, *obj);
     background->update(time);
-    camera->update(sf::Vector2f(hero->x, hero->y + hero->h));
+    //camera->update(sf::Vector2f(hero1->x, hero1->y + hero1->h));
 
     background->draw(*window);
 
     // window.draw(fonsprite);
     //std::cerr << time << "\n";
     lvl->Draw(*window);
-    hero->draw(*window);
-    camera->applyTo(*window);
+    hero1->draw(*window);
+    hero2->draw(*window);
+    //camera->applyTo(*window);
 
     //     sf::RectangleShape rectangle(sf::Vector2f(hero.w,hero.h));
     //     rectangle.setPosition(hero.x, hero.y);
