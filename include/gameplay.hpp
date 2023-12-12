@@ -10,7 +10,7 @@
 #include "../include/view.hpp"
 #include "../include/gamestatus.hpp"
 
-void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1,Player* hero2, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock, sf::UdpSocket* clientSocket, sf::IpAddress* serverAddress,unsigned short* serverPort);
+void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, AnimationManager* anim, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock, sf::UdpSocket* clientSocket, sf::IpAddress* serverAddress,unsigned short* serverPort);
 
 
 #endif //GAMEPLAY_H

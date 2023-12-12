@@ -1,9 +1,9 @@
 #include "../include/gameplay.hpp"
 
 
-void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1,Player* hero2, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock, sf::UdpSocket* clientSocket, sf::IpAddress* serverAddress,unsigned short* serverPort)
+void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, AnimationManager* anim, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock, sf::UdpSocket* clientSocket, sf::IpAddress* serverAddress,unsigned short* serverPort)
 {
-
+    Player* hero2 = new Player(*anim, 500, 50);
     // Определяем код клавиши
     int keyCode = 0;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))

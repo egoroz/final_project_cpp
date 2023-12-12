@@ -44,8 +44,7 @@ int main()
     obj = lvl.GetAllObjects("solid");
 
 
-    Player hero1(anim);
-    Player hero2(anim);
+    Player hero(anim);
     // sf::Image fonimage; //создаем объект Image (изображение)
 	// fonimage.loadFromFile("../src/maps/layers/Layer_0003_6.png");//загружаем в него файл
  
@@ -97,15 +96,15 @@ std::vector<std::string> texturePaths = {
     while(window.isOpen()){
 switch (GlobalStatus.GetGameStatus()){
         case Play:
-            GamePlay(&window, &clock, &hero1,&hero2, &background, &camera, &lvl, &obj, &GlobalStatus, &GlobClock, &clientSocket, &serverAddress,&serverPort );
+            GamePlay(&window, &clock, &hero, &anim,  &background, &camera, &lvl, &obj, &GlobalStatus, &GlobClock, &clientSocket, &serverAddress,&serverPort );
             break;
         case Menu:
-            menu.execute(&GlobalStatus, &GlobClock, &hero1);
+            menu.execute(&GlobalStatus, &GlobClock, &hero);
             clock.restart();
             break;
         
         case Results:
-            result.execute(&GlobalStatus, &GlobClock, &hero1);
+            result.execute(&GlobalStatus, &GlobClock, &hero);
             break;
         }
     }
