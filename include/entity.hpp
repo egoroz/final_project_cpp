@@ -104,7 +104,7 @@ public:
 		w = anim.getW();
 		h = anim.getH();
 		//dx = speed;
-		health = health;
+		health = health_;
 	}
 
 };

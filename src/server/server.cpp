@@ -1,10 +1,16 @@
 #include <SFML/Network.hpp>
 #include <SFML/Graphics.hpp>
-
+#include <SFML/Window.hpp>
+#include <SFML/System.hpp>
 #include <iostream>
 #include "../../include/player.hpp"
+#include "../../include/entity.hpp"
 #include "../../include/anim.hpp"
+#include "../../include/gamestatus.hpp"
+#include "../../include/Menu.hpp"
+#include "../../include/view.hpp"
 #include "../../lib/level/TmxLevel.h"
+#include "../../lib/tinyxml2/tinyxml2.h"
 
 class Client
 {
@@ -32,7 +38,8 @@ int main()
     lvl.LoadFromFile("../maps/map.tmx");
     std::vector<TmxObject> obj;
     obj = lvl.GetAllObjects("solid");
-    Player hero(anim);
+    Player Player1(anim);
+    Player Player2(anim);
     sf::Clock gclock;
 
     // Создаем UDP сокет на сервере
@@ -45,82 +52,108 @@ int main()
 
     while (true)
     {
-        // Получаем сообщение от клиента
-        char buffer[1024];
-        std::size_t received;
-        sf::IpAddress clientAddress;
-        unsigned short clientPort;
-        serverSocket.receive(buffer, sizeof(buffer), received, clientAddress, clientPort);
-        std::cout << "Message received from client: " << buffer << std::endl;
-
+        // Получаем сообщение от клиента 1
+        char buffer1[1024];
+        std::size_t received1;
+        sf::IpAddress clientAddress1;
+        unsigned short clientPort1;
+        serverSocket.receive(buffer1, sizeof(buffer1), received1, clientAddress1, clientPort1);
 
         // Определяем код клавиши
-        char keyCode = '0';
-        if (buffer[0] == 'D')
+        if (buffer1[0] == 'D')
         {
-            hero.key["R"] = true;
+            Player1.key["R"] = true;
         }
-        else if (buffer[0] == 'A')
+        else if (buffer1[0] == 'A')
         {
-            hero.key["L"] = true;
+            Player1.key["L"] = true;
         }
-        else if (buffer[0] == 'W')
+        else if (buffer1[0] == 'W')
         {
-            hero.key["Up"] = true;
+            Player1.key["Up"] = true;
         }
-        else if (buffer[0] == 'S')
+        else if (buffer1[0] == 'S')
         {
-            hero.key["Down"] = true;
+            Player1.key["Down"] = true;
         }
-        else if (buffer[0] == 'G')
+        else if (buffer1[0] == 'G')
         {
-            hero.key["G"] = true;
+            Player1.key["G"] = true;
         }
-        else if (buffer[0] == 'F')
+        else if (buffer1[0] == 'F')
         {
-            hero.key["F"] = true;
+            Player1.key["F"] = true;
         }
-        else if (buffer[0] == 'Z')
+
+
+        // получение сообщения от клиента 2
+        char buffer2[1024];
+        std::size_t received2;
+        sf::IpAddress clientAddress2;
+        unsigned short clientPort2;
+        serverSocket.receive(buffer2, sizeof(buffer2), received2, clientAddress2, clientPort2);
+        // Определяем код клавиши
+        if (buffer2[0] == 'D')
         {
-            keyCode = 'Z';
+            Player2.key["R"] = true;
         }
+        else if (buffer2[0] == 'A')
+        {
+            Player2.key["L"] = true;
+        }
+        else if (buffer2[0] == 'W')
+        {
+            Player2.key["Up"] = true;
+        }
+        else if (buffer2[0] == 'S')
+        {
+            Player2.key["Down"] = true;
+        }
+        else if (buffer2[0] == 'G')
+        {
+            Player2.key["G"] = true;
+        }
+        else if (buffer2[0] == 'F')
+        {
+            Player2.key["F"] = true;
+        }
+
         float time = clock.getElapsedTime().asMicroseconds();
         time = time / 500;
         clock.restart();
         if (gclock.getElapsedTime().asSeconds()<10){
-            hero.x= 550;
-            hero.y = 800;
-           }
-        hero.update(time, obj);
-        std::cout<<hero.x<< ' '<< hero.y<<" "<<gclock.getElapsedTime().asSeconds()<<' '<< hero.STATE <<std::endl;
-        // Отправляем обновленный hero клиенту
+            Player1.x= 550;
+            Player1.y = 800;
+            Player2.x= 550;
+            Player2.y = 800;
+        }
+        Player1.update(time, obj);
+        std::cout<<Player1.x<< ' '<< Player1.y<<" "<<gclock.getElapsedTime().asSeconds()<<' '<< Player1.STATE <<std::endl;
 
+        Player2.update(time, obj);
+        std::cout<<Player2.x<< ' '<< Player2.y<<" "<<gclock.getElapsedTime().asSeconds()<<' '<< Player2.STATE <<std::endl;
+
+        // Отправляем обновленный Player1 клиенту
         sf::Packet packet;
-        packet << hero;
-
-        serverSocket.send(packet.getData(), packet.getDataSize(), clientAddress, clientPort);
-
+        packet << Player1<<Player2;
+        serverSocket.send(packet.getData(), packet.getDataSize(), clientAddress1, clientPort1);
+        serverSocket.send(packet.getData(), packet.getDataSize(), clientAddress2, clientPort2);
 
         // Добавляем клиента в список, если его там нет
         auto client = clients.end();
-    //     for (auto it = clients.begin(); it != clients.end(); ++it)
-    //     {
-    //         if (it->address == clientAddress && it->port == clientPort)
-    //         {
-    //             client = it;
-    //             break;
-    //         }
-    //     }
+        for (auto it = clients.begin(); it != clients.end(); ++it)
+        {
+            if ((it->address == clientAddress1 && it->port == clientPort1) || (it->address == clientAddress2 && it->port == clientPort2))
+            {
+                client = it;
+                break;
+            }
+        }
 
-    //     if (client == clients.end())
-    //     {
-    //         clients.emplace_back(clientAddress, clientPort);
-    //     }
-
-    //     if (client == clients.end())
-    //     {
-    //         clients.emplace_back(clientAddress, clientPort);
-    //     }
+        if (client == clients.end())
+        {
+            clients.emplace_back(clientAddress1, clientPort1);
+        }
     }
 
     return 0;
