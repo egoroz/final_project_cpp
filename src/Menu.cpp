@@ -147,7 +147,7 @@ void GameStart(GameStatus* stat, sf::Clock* GlobalClock){
 }
 
 
-void GMenu::execute(GameStatus* status, sf::Clock* GlobalClock){
+void GMenu::execute(GameStatus* status, sf::Clock* GlobalClock, Player* hero){
         
             sf::Event event;
             while(window_->pollEvent(event)){
@@ -179,7 +179,7 @@ void GMenu::execute(GameStatus* status, sf::Clock* GlobalClock){
         }
     }
 
-void GResults::execute(GameStatus* status, sf::Clock* GlobalClock){
+void GResults::execute(GameStatus* status, sf::Clock* GlobalClock, Player* hero){
         
             sf::Event event;
             while(window_->pollEvent(event)){
