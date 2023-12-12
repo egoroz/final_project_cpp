@@ -102,7 +102,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
     window->display();
     //std::cout << gclock->getElapsedTime().asSeconds() << "\n";
 
-    if(gclock->getElapsedTime().asSeconds()>30.f){
+    if(gclock->getElapsedTime().asSeconds()>300.f){
         gs->ChangeGameStatus(status::Results);
     }
 }

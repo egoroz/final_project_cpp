@@ -22,7 +22,7 @@ int main()
     clientSocket.bind(clientPort);
 
     // Определяем IP-адрес и порт сервера
-    sf::IpAddress serverAddress = "10.55.135.35dasdwdsawadas";
+    sf::IpAddress serverAddress = "10.55.135.35";
     unsigned short serverPort = 55001;
 
     GameStatus GlobalStatus;
@@ -46,14 +46,14 @@ int main()
 
     Player hero(anim);
     // sf::Image fonimage; //создаем объект Image (изображение)
-	// fonimage.loadFromFile("../src/maps/layers/Layer_0003_6.png");//загружаем в него файл
+  // fonimage.loadFromFile("../src/maps/layers/Layer_0003_6.png");//загружаем в него файл
  
-	// sf::Texture fontexture;//создаем объект Texture (текстура)
-	// fontexture.loadFromImage(fonimage);//передаем в него объект Image (изображения)
+  // sf::Texture fontexture;//создаем объект Texture (текстура)
+  // fontexture.loadFromImage(fonimage);//передаем в него объект Image (изображения)
  
-	// sf::Sprite fonsprite;//создаем объект Sprite(спрайт)
-	// fonsprite.setTexture(fontexture);//передаём в него объект Texture (текстуры)
-	// fonsprite.setPosition(0, 150);//задаем начальные координаты появления спрайта
+  // sf::Sprite fonsprite;//создаем объект Sprite(спрайт)
+  // fonsprite.setTexture(fontexture);//передаём в него объект Texture (текстуры)
+  // fonsprite.setPosition(0, 150);//задаем начальные координаты появления спрайта
 
 
 std::vector<std::string> texturePaths = {
@@ -95,20 +95,19 @@ std::vector<std::string> texturePaths = {
     window.setFramerateLimit(60);
     while(window.isOpen()){
 switch (GlobalStatus.GetGameStatus()){
-        case Play:
+        case Menu:
             GamePlay(&window, &clock, &hero, &anim,  &background, &camera, &lvl, &obj, &GlobalStatus, &GlobClock, &clientSocket, &serverAddress,&serverPort );
             break;
-        case Menu:
+        /*case Play:
             menu.execute(&GlobalStatus, &GlobClock, &hero);
             clock.restart();
             break;
         
         case Results:
             result.execute(&GlobalStatus, &GlobClock, &hero);
-            break;
+            break;*/
         }
     }
 
     return 0;
 }
-
