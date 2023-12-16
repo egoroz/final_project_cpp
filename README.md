@@ -12,6 +12,8 @@
 
 
 >Разработчики:\
+> Мунасипов Альмир (Chief of Marketing)\
+> Длин Эдуард (Chief of Distributing)\
 > Семиренко Егор (Chief)\
 > Патешман Егор (Chief Of Mechanics)\
 > Савостиков Артем (Project Manager)
