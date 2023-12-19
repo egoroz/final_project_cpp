@@ -1,20 +1,21 @@
-/*#ifndef TARGET_H
+#ifndef TARGET_H
 #define TARGET_H
 
 
 
 class Target {
-private:
+public:
     float x, y, w, h;
     sf::RectangleShape* rectangle = new sf::RectangleShape {sf::Vector2f(100, 100)};
 
 public:
     Target(){
-        int x=1050; int y=1040; int w=100; int h=100;
+        x=1350; y=500; w=100; h=100;
         //rectangle->setSize(w, h);
         rectangle->setFillColor(sf::Color::Red);
         rectangle->setPosition(x, y);
     }
+
 
     sf::FloatRect getRect(){ return sf::FloatRect(x, y, w, h);}
 
@@ -23,4 +24,4 @@ public:
     }
 };
 
-#endif //TARGET_H*/
+#endif //TARGET_H
