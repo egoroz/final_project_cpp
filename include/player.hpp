@@ -12,17 +12,9 @@
 class Player: public Entity{
 public:
     bool canJump;
-    //bool alive;
 
     Player(const AnimationManager &anim_, int x=550, int y=840):Entity(anim_, x, y){
-        // obj = lvl.GetAllObjects("solid");  //Получаем все объекты для взаимодействия с персонажем
-        // STATE = stay;
         canJump = false;
-        //onGround = false;
-        // dir = false;
-        //alive = true;
-        // w = anim.getW();
-        // h = anim.getH();
     }
 
     void KeyCheck(){
@@ -81,10 +73,9 @@ public:
 
     bool CheckTarget(Target* target) {
         if (getRect().intersects(target->getRect())) {
-            std::cerr << "HEREEEEEEEEEEEEEEEE"<<std::endl;
             return true;
         }
-        std::cout << "HEHEHEHEHEH: "<< target->x <<' '<< x <<' '<< target->y << ' '<<y  <<std::endl;
+
         return false;
     }
 
