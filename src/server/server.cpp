@@ -30,9 +30,6 @@ int main()
 
     AnimationManager anim;
     anim.loadFromFile("../heroes/Brodell Walker.xml", t);
-    // anim.create("walk", t, 10, 15, 32, 32, 4, 0.005, 32);
-    // anim.create("stay", t, 10, 20 + 32*8, 32, 32, 28, 0.005, 32);
-
 
     TmxLevel lvl;
     lvl.LoadFromFile("../maps/map.tmx");
@@ -121,7 +118,7 @@ int main()
         float time = clock.getElapsedTime().asMicroseconds();
         time = time / 500;
         clock.restart();
-        if (gclock.getElapsedTime().asSeconds()<7){
+        if (gclock.getElapsedTime().asSeconds()<10){
             Player1.x= 550;
             Player1.y = 840;
             Player2.x= 550;

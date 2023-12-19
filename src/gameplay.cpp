@@ -1,7 +1,7 @@
 #include "../include/gameplay.hpp"
 
 
-void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, AnimationManager* anim, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock, sf::UdpSocket* clientSocket, sf::IpAddress* serverAddress,unsigned short* serverPort)
+void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, AnimationManager* anim, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock, sf::UdpSocket* clientSocket, sf::IpAddress* serverAddress,unsigned short* serverPort, Target* target)
 {
     Player* hero2 = new Player(*anim, 500, 50);
     // Определяем код клавиши
@@ -56,7 +56,8 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
     sf::Packet packet;
     clientSocket->receive(packet, *serverAddress, *serverPort);
     packet >> *hero1>>*hero2;
-    std::cout<< "gameplay received: "<<hero1->STATE<<std::endl;
+    packet >> *hero1>>*hero2;
+    std::cout<< "gameplay received: "<<hero1->STATE<<' '<<hero2->STATE<<std::endl;
     hero1->Animation(time);
     hero2->Animation(time);
     background->update(time);
@@ -64,6 +65,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
 
     background->draw(*window);
 
+    target->draw(*(window));
     lvl->Draw(*window);
     hero1->draw(*window);
     hero2->draw(*window);
