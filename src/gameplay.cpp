@@ -3,7 +3,7 @@
 
 void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, AnimationManager* anim, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock, sf::UdpSocket* clientSocket, sf::IpAddress* serverAddress,unsigned short* serverPort, Target* target)
 {
-    Player* hero2 = new Player(*anim, 500, 50);
+    Player* hero2 = new Player(*anim, 1250, 840);
     // Определяем код клавиши
     int keyCode = 0;
     if (sf::Keyboard::isKeyPressed(sf::Keyboard::D))
@@ -61,7 +61,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
     hero1->Animation(time);
     hero2->Animation(time);
     background->update(time);
-    camera->update(sf::Vector2f(hero1->x, hero2->y + hero2->h));
+    camera->update(sf::Vector2f(hero2->x, hero2->y + hero2->h));
 
     background->draw(*window);
 

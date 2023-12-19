@@ -6,7 +6,7 @@
 class Target {
 public:
     float x, y, w, h;
-    sf::RectangleShape* rectangle = new sf::RectangleShape {sf::Vector2f(100, 100)};
+    sf::RectangleShape* rectangle = new sf::RectangleShape (sf::Vector2f(100, 100));
 
 public:
     Target(){

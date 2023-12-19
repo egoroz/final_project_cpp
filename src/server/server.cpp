@@ -3,6 +3,7 @@
 #include <SFML/Window.hpp>
 #include <SFML/System.hpp>
 #include <iostream>
+#include <vector>
 #include "../../include/player.hpp"
 #include "../../include/entity.hpp"
 #include "../../include/anim.hpp"
@@ -121,7 +122,7 @@ int main()
         if (gclock.getElapsedTime().asSeconds()<10){
             Player1.x= 550;
             Player1.y = 840;
-            Player2.x= 550;
+            Player2.x= 1250;
             Player2.y = 840;
         }
         Player1.update(time, obj);
@@ -150,6 +151,7 @@ int main()
         if (client == clients.end())
         {
             clients.emplace_back(clientAddress1, clientPort1);
+            
         }
     }
 

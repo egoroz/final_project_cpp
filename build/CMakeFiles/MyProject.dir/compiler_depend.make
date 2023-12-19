@@ -1055,6 +1055,7 @@ CMakeFiles/MyProject.dir/src/Menu.cpp.o: /Users/milananeshcheretova/VS/project/f
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/entity.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/gamestatus.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/player.hpp \
+  /Users/milananeshcheretova/VS/project/final_project_cpp/include/target.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/Menu.hpp \
   /opt/homebrew/include/SFML/Config.hpp \
   /opt/homebrew/include/SFML/Graphics.hpp \
@@ -2577,6 +2578,7 @@ CMakeFiles/MyProject.dir/src/gameplay.cpp.o: /Users/milananeshcheretova/VS/proje
   /Users/milananeshcheretova/VS/project/final_project_cpp/lib/tinyxml2/tinyxml2.h \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/anim.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/entity.hpp \
+  /Users/milananeshcheretova/VS/project/final_project_cpp/include/target.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/gameplay.hpp \
   /opt/homebrew/include/SFML/Config.hpp \
   /opt/homebrew/include/SFML/Graphics.hpp \
@@ -3102,6 +3104,7 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: /Users/milananeshcheretova/VS/project/f
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/entity.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/gamestatus.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/player.hpp \
+  /Users/milananeshcheretova/VS/project/final_project_cpp/include/target.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/Menu.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/anim.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/background.hpp \

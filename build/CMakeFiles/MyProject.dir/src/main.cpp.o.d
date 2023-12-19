@@ -516,6 +516,7 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/anim.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/../lib/level/TmxLevel.h \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/entity.hpp \
+  /Users/milananeshcheretova/VS/project/final_project_cpp/include/target.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/src/../include/Menu.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/gamestatus.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/player.hpp \

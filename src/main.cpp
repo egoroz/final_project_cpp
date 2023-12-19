@@ -24,7 +24,7 @@ int main()
     clientSocket.bind(clientPort);
 
     // Определяем IP-адрес и порт сервера
-    sf::IpAddress serverAddress = "172.20.10.8";
+    sf::IpAddress serverAddress = "192.168.29.86";
     unsigned short serverPort = 55001;
 
     GameStatus GlobalStatus;
