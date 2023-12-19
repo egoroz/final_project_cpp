@@ -73,7 +73,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
     window->display();
     bool goon = true;
     if((hero2->x-hero1->x)*(hero2->x-hero1->x)+(hero2->y-hero1->y)*(hero2->y-hero1->y)<100){
-        if(hero2->STATE==stabling){
+        if(hero2->STATE==stabling || hero1->STATE==stabling){
             goon = false
         }
     } 
