@@ -25,13 +25,15 @@ public:
     }
 
     void KeyCheck(){
-        if(key["R"])   if(!(STATE == legspin || STATE == stabling)){dx = 0.09; dir = false; if(STATE == stay){STATE = run; } }
-        if(key["L"])   if(!(STATE == legspin || STATE == stabling)){dx = -0.09; dir = true; if(STATE == stay){STATE = run; } }
-        if(key["Up"])  if(!(STATE == legspin || STATE == stabling)){if ((STATE == stay) || (STATE == run)){if(canJump){STATE = jump; dy = -0.15; canJump = false;}}} //TODO dy = -0.15
-        if(key["Down"])if(!(STATE == legspin || STATE == stabling)){if(STATE == stay){STATE = sit;} if (STATE == run){STATE = sneak;}}
-        if(key["G"])   if(!(STATE == legspin || STATE == stabling)){if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = legspin;}}
-        if(key["F"])   if(!(STATE == legspin || STATE == stabling)){if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = stabling;}}
+        if(!(STATE == legspin || STATE == stabling)) {
+            if(key["R"])   {dx = 0.09; dir = false; if(STATE == stay){STATE = run; } }
+            if(key["L"])   {dx = -0.09; dir = true; if(STATE == stay){STATE = run; } }
 
+            if(key["Up"])  {if ((STATE == stay) || (STATE == run)){if(canJump){STATE = jump; dy = -0.15; canJump = false;}}}
+            if(key["Down"]){if(STATE == stay){STATE = sit;} if (STATE == run){STATE = sneak;}}
+            if(key["G"])   {if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = legspin;}}
+            if(key["F"])   {if ((STATE == run) || (STATE == jump) || (STATE == stay)){STATE = stabling;}}
+        }
         if(!(key["R"] || key["L"])){dx = 0;}
         if(!key["Up"])             {}
         if(!key["Down"])           {if (STATE == sit){STATE = stay;}    if(STATE == sneak){STATE = run;}}
@@ -71,6 +73,7 @@ public:
                     if (dy < 0 && num == 1) {y = obj[i].rect.top + obj[i].rect.height; dy = 0; STATE = falling;}
                     if (dx > 0 && num == 0) {x = obj[i].rect.left - w;}
                     if (dx < 0 && num == 0) {x = obj[i].rect.left + obj[i].rect.width;}
+                    std::cerr << "Hui\n";
                 }
             }
         }
