@@ -2572,6 +2572,7 @@ CMakeFiles/MyProject.dir/src/gameplay.cpp.o
  /Users/milananeshcheretova/VS/project/final_project_cpp/include/background.hpp
  /Users/milananeshcheretova/VS/project/final_project_cpp/include/gamestatus.hpp
  /Users/milananeshcheretova/VS/project/final_project_cpp/include/player.hpp
+ /Users/milananeshcheretova/VS/project/final_project_cpp/include/target.hpp
  /Users/milananeshcheretova/VS/project/final_project_cpp/include/view.hpp
  /Users/milananeshcheretova/VS/project/final_project_cpp/lib/level/TmxLevel.h
  /Users/milananeshcheretova/VS/project/final_project_cpp/lib/tinyxml2/tinyxml2.h
@@ -3095,6 +3096,7 @@ CMakeFiles/MyProject.dir/src/main.cpp.o
  /Users/milananeshcheretova/VS/project/final_project_cpp/include/background.hpp
  /Users/milananeshcheretova/VS/project/final_project_cpp/include/gamestatus.hpp
  /Users/milananeshcheretova/VS/project/final_project_cpp/include/player.hpp
+ /Users/milananeshcheretova/VS/project/final_project_cpp/include/target.hpp
  /Users/milananeshcheretova/VS/project/final_project_cpp/include/view.hpp
  /Users/milananeshcheretova/VS/project/final_project_cpp/lib/level/TmxLevel.h
  /Users/milananeshcheretova/VS/project/final_project_cpp/lib/tinyxml2/tinyxml2.h
@@ -3107,6 +3109,7 @@ CMakeFiles/MyProject.dir/src/main.cpp.o
  /Users/milananeshcheretova/VS/project/final_project_cpp/include/background.hpp
  /Users/milananeshcheretova/VS/project/final_project_cpp/include/gameplay.hpp
  /Users/milananeshcheretova/VS/project/final_project_cpp/include/player.hpp
+ /Users/milananeshcheretova/VS/project/final_project_cpp/include/target.hpp
  /Users/milananeshcheretova/VS/project/final_project_cpp/include/view.hpp
  /Users/milananeshcheretova/VS/project/final_project_cpp/lib/level/TmxLevel.h
  /opt/homebrew/include/SFML/Config.hpp

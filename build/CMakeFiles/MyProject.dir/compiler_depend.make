@@ -2566,6 +2566,7 @@ CMakeFiles/MyProject.dir/src/gameplay.cpp.o: /Users/milananeshcheretova/VS/proje
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/background.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/gamestatus.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/player.hpp \
+  /Users/milananeshcheretova/VS/project/final_project_cpp/include/target.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/view.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/lib/level/TmxLevel.h \
   /Users/milananeshcheretova/VS/project/final_project_cpp/lib/tinyxml2/tinyxml2.h \
@@ -3088,6 +3089,7 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: /Users/milananeshcheretova/VS/project/f
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/background.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/gamestatus.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/player.hpp \
+  /Users/milananeshcheretova/VS/project/final_project_cpp/include/target.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/view.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/lib/level/TmxLevel.h \
   /Users/milananeshcheretova/VS/project/final_project_cpp/lib/tinyxml2/tinyxml2.h \
@@ -3100,6 +3102,7 @@ CMakeFiles/MyProject.dir/src/main.cpp.o: /Users/milananeshcheretova/VS/project/f
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/background.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/gameplay.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/player.hpp \
+  /Users/milananeshcheretova/VS/project/final_project_cpp/include/target.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/view.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/lib/level/TmxLevel.h \
   /opt/homebrew/include/SFML/Config.hpp \
@@ -4574,6 +4577,8 @@ CMakeFiles/MyProject.dir/src/view.cpp.o: /Users/milananeshcheretova/VS/project/f
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/c++/v1/ostream:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/c++/v1/version:
+
+/Users/milananeshcheretova/VS/project/final_project_cpp/include/target.hpp:
 
 /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/c++/v1/errno.h:
 
