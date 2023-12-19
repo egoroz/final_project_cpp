@@ -121,7 +121,7 @@ int main()
         float time = clock.getElapsedTime().asMicroseconds();
         time = time / 500;
         clock.restart();
-        if (gclock.getElapsedTime().asSeconds()<6){
+        if (gclock.getElapsedTime().asSeconds()<7){
             Player1.x= 550;
             Player1.y = 840;
             Player2.x= 550;

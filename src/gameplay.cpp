@@ -42,13 +42,6 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
     message[1] = '\0';
     clientSocket->send(message, sizeof(message), *serverAddress, *serverPort);
 
-
-
-    //window->setFramerateLimit(60);
-    // menu.execute();
-    // std::cout << "lox\n";
-    // std::cout << "lox\n";
-    // std::cout << "lox\n";
     float time = clock->getElapsedTime().asMicroseconds();
     time = time / 500;
     clock->restart();
@@ -66,34 +59,18 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
     std::cout<< "gameplay received: "<<hero1->STATE<<std::endl;
     hero1->Animation(time);
     hero2->Animation(time);
-    //std::cout<<hero->STATE<<std::endl;
-    //hero->update(time, *obj);
     background->update(time);
     camera->update(sf::Vector2f(hero1->x, hero1->y + hero1->h));
 
     background->draw(*window);
 
-    // window.draw(fonsprite);
-    //std::cerr << time << "\n";
     lvl->Draw(*window);
     hero1->draw(*window);
     hero2->draw(*window);
     camera->applyTo(*window);
 
-    //     sf::RectangleShape rectangle(sf::Vector2f(hero.w,hero.h));
-    //     rectangle.setPosition(hero.x, hero.y);
-    //     rectangle.setFillColor(sf::Color(0, 150, 50));
-    //     window.draw(rectangle);    //рисуем модельку перса
-
-    // for (int i = 0; i < hero.obj.size(); ++i){
-    //     sf::RectangleShape rectangle(sf::Vector2f(hero.obj[i].rect.width,hero.obj[i].rect.height));
-    //     rectangle.setPosition(hero.obj[i].rect.left, hero.obj[i].rect.top);
-    //     rectangle.setFillColor(sf::Color(150, 50, 250));
-    //     window.draw(rectangle);
-    // } //Рисуем объекты с которыми колизируем
 
     window->display();
-    //std::cout << gclock->getElapsedTime().asSeconds() << "\n";
 
     if(gclock->getElapsedTime().asSeconds()>300.f){
         gs->ChangeGameStatus(status::Results);
