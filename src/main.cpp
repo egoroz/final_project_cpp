@@ -97,7 +97,7 @@ std::vector<std::string> texturePaths = {
     result.setColorArrowMenu();
     menu.AlignMenu(0);
     window.setFramerateLimit(60);
-    int a = std::rand() % 2 +1;
+    int a = std::rand() % 2 + 49;
     while(window.isOpen()){
     switch (GlobalStatus.GetGameStatus()){
         case Play:

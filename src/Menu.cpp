@@ -181,7 +181,7 @@ void GMenu::execute(GameStatus* status, sf::Clock* GlobalClock, Player* hero){
     }
 
 void GResults::execute(GameStatus* status, sf::Clock* GlobalClock, Player* hero, int a_){
-        
+            
             sf::Event event;
             while(window_->pollEvent(event)){
                 if(event.type == sf::Event::Closed || event.key.code == sf::Keyboard::Escape) window_->close();
@@ -207,7 +207,7 @@ void GResults::execute(GameStatus* status, sf::Clock* GlobalClock, Player* hero,
             Titul.setFont(menu_font);
             std::string str = "Winner is: ";
             str.push_back(a_);
-            InitText(Titul, 380, 50, str, 150, sf::Color::White, 3);
+            InitText(Titul, 380, 1000, str, 150, sf::Color::White, 3);
             window_->clear();
             window_->draw(*(bck_ptr));
             window_->draw(Titul);

@@ -81,5 +81,6 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
     } 
     if(gclock->getElapsedTime().asSeconds()>300.f || !goon){
         gs->ChangeGameStatus(status::Results);
+        camera->update(sf::Vector2f(1000,0));
     }
 }
