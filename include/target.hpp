@@ -1,4 +1,4 @@
-/*#ifndef TARGET_H
+#ifndef TARGET_H
 #define TARGET_H
 
 
@@ -10,7 +10,7 @@ private:
 
 public:
     Target(){
-        int x=1050; int y=1040; int w=100; int h=100;
+        int x=1350; int y=500; int w=20; int h=20;
         //rectangle->setSize(w, h);
         rectangle->setFillColor(sf::Color::Red);
         rectangle->setPosition(x, y);
@@ -23,4 +23,4 @@ public:
     }
 };
 
-#endif //TARGET_H*/
+#endif //TARGET_H
