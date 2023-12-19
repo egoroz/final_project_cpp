@@ -519,4 +519,5 @@ CMakeFiles/MyProject.dir/src/gameplay.cpp.o: \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/entity.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/../include/background.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/../include/view.hpp \
-  /Users/milananeshcheretova/VS/project/final_project_cpp/include/../include/gamestatus.hpp
+  /Users/milananeshcheretova/VS/project/final_project_cpp/include/../include/gamestatus.hpp \
+  /Users/milananeshcheretova/VS/project/final_project_cpp/include/../include/target.hpp

@@ -98,9 +98,10 @@ std::vector<std::string> texturePaths = {
     menu.AlignMenu(0);
     window.setFramerateLimit(60);
     while(window.isOpen()){
-switch (GlobalStatus.GetGameStatus()){
+    switch (GlobalStatus.GetGameStatus()){
         case Play:
-        GamePlay(&window, &clock, &hero, &anim,  &background, &camera, &lvl, &obj, &GlobalStatus, &GlobClock, &clientSocket, &serverAddress,&serverPort, &target);            break;
+            GamePlay(&window, &clock, &hero, &anim,  &background, &camera, &lvl, &obj, &GlobalStatus, &GlobClock, &clientSocket, &serverAddress,&serverPort, &target);
+            break;
         case Menu:
             menu.execute(&GlobalStatus, &GlobClock, &hero);
             clock.restart();
