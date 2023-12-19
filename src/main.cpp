@@ -18,11 +18,11 @@ int main()
 {
     // Создаем UDP сокет на клиенте
     sf::UdpSocket clientSocket;
-    unsigned short clientPort = 55005;
+    unsigned short clientPort = 55004;
     clientSocket.bind(clientPort);
 
     // Определяем IP-адрес и порт сервера
-    sf::IpAddress serverAddress = "192.168.122.33";
+    sf::IpAddress serverAddress = "192.168.102.33";
     unsigned short serverPort = 55001;
 
     GameStatus GlobalStatus;
