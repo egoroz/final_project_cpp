@@ -74,12 +74,12 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
 
     window->display();
     bool goon = true;
-    if((hero2->x-hero1->x)*(hero2->x-hero1->x)+(hero2->y-hero1->y)*(hero2->y-hero1->y)<100){
+    /*if((hero2->x-hero1->x)*(hero2->x-hero1->x)+(hero2->y-hero1->y)*(hero2->y-hero1->y)<100){
         if(hero2->STATE==Entity::stabling || hero1->STATE==Entity::stabling){
             goon = false;
         }
-    } 
-    if(gclock->getElapsedTime().asSeconds()>300.f || !goon){
+    } */
+    if(gclock->getElapsedTime().asSeconds()>300.f /*|| !goon*/){
         gs->ChangeGameStatus(status::Results);
     }
 }
