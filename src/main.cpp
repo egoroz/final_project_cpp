@@ -23,7 +23,7 @@ int main()
     clientSocket.bind(clientPort);
 
     // Определяем IP-адрес и порт сервера
-    sf::IpAddress serverAddress = "192.168.102.33";
+    sf::IpAddress serverAddress = "172.20.10.8";
     unsigned short serverPort = 55001;
 
     GameStatus GlobalStatus;
@@ -47,7 +47,7 @@ int main()
 
     Player hero(anim);
 
-    Target target;
+    //Target target;
 
     // sf::Image fonimage; //создаем объект Image (изображение)
 	// fonimage.loadFromFile("../src/maps/layers/Layer_0003_6.png");//загружаем в него файл
@@ -97,10 +97,11 @@ std::vector<std::string> texturePaths = {
     result.setColorArrowMenu();
     menu.AlignMenu(0);
     window.setFramerateLimit(60);
+    int a = std::rand() % 2 +1;
     while(window.isOpen()){
     switch (GlobalStatus.GetGameStatus()){
         case Play:
-            GamePlay(&window, &clock, &hero, &anim,  &background, &camera, &lvl, &obj, &GlobalStatus, &GlobClock, &clientSocket, &serverAddress,&serverPort, &target);
+            GamePlay(&window, &clock, &hero, &anim,  &background, &camera, &lvl, &obj, &GlobalStatus, &GlobClock, &clientSocket, &serverAddress,&serverPort);
             break;
         case Menu:
             menu.execute(&GlobalStatus, &GlobClock, &hero);
@@ -108,7 +109,7 @@ std::vector<std::string> texturePaths = {
             break;
 
         case Results:
-            result.execute(&GlobalStatus, &GlobClock, &hero);
+            result.execute(&GlobalStatus, &GlobClock, &hero, a);
             break;
         }
     }

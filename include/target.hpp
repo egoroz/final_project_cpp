@@ -1,4 +1,4 @@
-#ifndef TARGET_H
+/*#ifndef TARGET_H
 #define TARGET_H
 
 
@@ -23,4 +23,4 @@ public:
     }
 };
 
-#endif //TARGET_H
+#endif //TARGET_H*/

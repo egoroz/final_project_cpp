@@ -516,4 +516,9 @@ CMakeFiles/MyProject.dir/src/Menu.cpp.o: \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/anim.hpp \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/../lib/tinyxml2/tinyxml2.h \
   /Users/milananeshcheretova/VS/project/final_project_cpp/include/../lib/level/TmxLevel.h \
-  /Users/milananeshcheretova/VS/project/final_project_cpp/include/entity.hpp
+  /Users/milananeshcheretova/VS/project/final_project_cpp/include/entity.hpp \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/c++/v1/random \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/c++/v1/cmath \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/c++/v1/math.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/math.h \
+  /Library/Developer/CommandLineTools/SDKs/MacOSX13.1.sdk/usr/include/c++/v1/numeric

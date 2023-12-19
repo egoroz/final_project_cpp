@@ -1,4 +1,5 @@
 #include "../include/Menu.hpp"
+#include <random>
 
 void InitText(sf::Text& mtext, float xpos, float ypos, const sf::String str, int size_font, sf::Color menu_text_color, int bord , sf::Color menu_border_color){
     mtext.setCharacterSize(size_font);
@@ -179,7 +180,7 @@ void GMenu::execute(GameStatus* status, sf::Clock* GlobalClock, Player* hero){
         }
     }
 
-void GResults::execute(GameStatus* status, sf::Clock* GlobalClock, Player* hero){
+void GResults::execute(GameStatus* status, sf::Clock* GlobalClock, Player* hero, int a_){
         
             sf::Event event;
             while(window_->pollEvent(event)){
@@ -203,6 +204,10 @@ void GResults::execute(GameStatus* status, sf::Clock* GlobalClock, Player* hero)
                     }
                 }
             
+            Titul.setFont(menu_font);
+            std::string str = "Winner is: ";
+            str.push_back(a_);
+            InitText(Titul, 380, 50, str, 150, sf::Color::White, 3);
             window_->clear();
             window_->draw(*(bck_ptr));
             window_->draw(Titul);

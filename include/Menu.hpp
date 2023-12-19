@@ -26,14 +26,14 @@ private:
     void setInitText(sf::Text& text, const sf::String& str, float xpos, float ypos);
 
     sf::Texture texture_window;
-    sf::Font menu_font;
+    
     
 protected:
     sf::Text Titul;
     sf::RenderWindow* window_;
     sf::RectangleShape* bck_ptr;
 public:
-    
+    sf::Font menu_font;
     GMenu(float menux, float menuy, int sizeFont, int step, std::vector<sf::String>& name, sf::RenderWindow* win, sf::String arr);
     
         
@@ -75,7 +75,7 @@ public:
         InitText(Titul, 380, 50, L"GoodGame!", 150, sf::Color::White, 3);
     }
 
-    void execute(GameStatus* status, sf::Clock* GlobalClock, Player* hero) override;
+    void execute(GameStatus* status, sf::Clock* GlobalClock, Player* hero, int a_);
 };
 
 

@@ -11,7 +11,7 @@
 class Player: public Entity{
 public:
     bool canJump;
-    bool alive;
+    
 
     Player(const AnimationManager &anim_, int x=550, int y=840):Entity(anim_, x, y){
         // obj = lvl.GetAllObjects("solid");  //Получаем все объекты для взаимодействия с персонажем
@@ -19,7 +19,7 @@ public:
         canJump = false;
         //onGround = false;
         // dir = false;
-        alive = true;
+        
         // w = anim.getW();
         // h = anim.getH();
     }

@@ -1,7 +1,7 @@
 #include "../include/gameplay.hpp"
 
 
-void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, AnimationManager* anim, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock, sf::UdpSocket* clientSocket, sf::IpAddress* serverAddress,unsigned short* serverPort, Target* target)
+void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, AnimationManager* anim, ParallaxBackground* background, Camera* camera, TmxLevel* lvl, std::vector<TmxObject>* obj, GameStatus* gs, sf::Clock* gclock, sf::UdpSocket* clientSocket, sf::IpAddress* serverAddress,unsigned short* serverPort)
 {
     Player* hero2 = new Player(*anim, 500, 50);
     // Определяем код клавиши
@@ -65,7 +65,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
 
     background->draw(*window);
 
-    target->draw(*(window));
+    //target->draw(*(window));
     lvl->Draw(*window);
     hero1->draw(*window);
     hero2->draw(*window);
@@ -74,12 +74,12 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
 
     window->display();
     bool goon = true;
-    /*if((hero2->x-hero1->x)*(hero2->x-hero1->x)+(hero2->y-hero1->y)*(hero2->y-hero1->y)<100){
+    if((hero2->x-hero1->x)*(hero2->x-hero1->x)+(hero2->y-hero1->y)*(hero2->y-hero1->y)<1000){
         if(hero2->STATE==Entity::stabling || hero1->STATE==Entity::stabling){
             goon = false;
         }
-    } */
-    if(gclock->getElapsedTime().asSeconds()>300.f /*|| !goon*/){
+    } 
+    if(gclock->getElapsedTime().asSeconds()>300.f || !goon){
         gs->ChangeGameStatus(status::Results);
     }
 }
