@@ -17,6 +17,7 @@ int ground = 1080;
 
 int main()
 {
+    std::srand( std::time(0) );
     // Создаем UDP сокет на клиенте
     sf::UdpSocket clientSocket;
     unsigned short clientPort = 55009;

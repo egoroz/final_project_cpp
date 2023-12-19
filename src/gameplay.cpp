@@ -61,7 +61,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
     hero1->Animation(time);
     hero2->Animation(time);
     background->update(time);
-    camera->update(sf::Vector2f(hero1->x, hero1->y + hero1->h));
+    camera->update(sf::Vector2f(hero1->x, hero2->y + hero2->h));
 
     background->draw(*window);
 
@@ -69,7 +69,7 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
     lvl->Draw(*window);
     hero1->draw(*window);
     hero2->draw(*window);
-    camera->applyTo(*window);
+    //camera->applyTo(*window);
 
 
     window->display();
