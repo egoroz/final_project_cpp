@@ -80,8 +80,11 @@ public:
     }
 
     bool CheckTarget(Target* target) {
-        if (getRect().intersects(target->getRect())){std::cerr << "HEREEEEEEEEEEEEEEEE\n"; return true;}
-
+        if (getRect().intersects(target->getRect())) {
+            std::cerr << "HEREEEEEEEEEEEEEEEE"<<std::endl;
+            return true;
+        }
+        std::cout << "HEHEHEHEHEH: "<< target->x <<' '<< x <<' '<< target->y << ' '<<y  <<std::endl;
         return false;
     }
 
