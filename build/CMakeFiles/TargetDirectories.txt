@@ -1,3 +1,0 @@
-/Users/milananeshcheretova/VS/project/final_project_cpp/build/CMakeFiles/MyProject.dir
-/Users/milananeshcheretova/VS/project/final_project_cpp/build/CMakeFiles/edit_cache.dir
-/Users/milananeshcheretova/VS/project/final_project_cpp/build/CMakeFiles/rebuild_cache.dir
