@@ -5,7 +5,7 @@
 ## В разработке
 
 >Запуск сервера:\
->clang++ -o server server.cpp ../anim.cpp ../../lib/tinyxml2/tinyxml2.cpp ../../lib/level/TmxLevel.cpp  -lsfml-network -lsfml-system -lsfml-window -lsfml-graphics\
+>clang++ -o server server.cpp ../anim.cpp ../../lib/tinyxml2/tinyxml2.cpp ../../lib/level/TmxLevel.cpp  -lsfml-network -lsfml-system -lsfml-window -lsfml-graphics
 
 
 >Запуск:\
