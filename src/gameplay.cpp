@@ -53,11 +53,16 @@ void GamePlay(sf::RenderWindow* window, sf::Clock* clock, Player* hero1, Animati
 
     window->clear(sf::Color::Black);
 
+    
     sf::Packet packet;
-    clientSocket->receive(packet, *serverAddress, *serverPort);
-    packet >> *hero1>>*hero2;
-    packet >> *hero1>>*hero2;
-    std::cout<< "gameplay received: "<<hero1->STATE<<' '<<hero2->STATE<<std::endl;
+    sf::IpAddress sender;
+    unsigned short port;
+    
+    // Проверяем, пришел ли пакет. Если пришел - обновляем координаты
+    if (clientSocket->receive(packet, sender, port) == sf::Socket::Done) {
+        packet >> *hero1 >> *hero2;
+        std::cout << "gameplay received: " << hero1->STATE << ' ' << hero2->STATE << std::endl;
+    }
     hero1->Animation(time);
     hero2->Animation(time);
     background->update(time);
